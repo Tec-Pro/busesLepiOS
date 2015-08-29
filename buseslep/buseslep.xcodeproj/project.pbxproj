@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F26F02B1B9242F000A56BBE /* CiudadesDestinoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26F02A1B9242F000A56BBE /* CiudadesDestinoViewController.swift */; };
 		3F583FB71B91DED700161918 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FB61B91DED700161918 /* AppDelegate.swift */; };
 		3F583FBA1B91DED700161918 /* buseslep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FB81B91DED700161918 /* buseslep.xcdatamodeld */; };
 		3F583FBF1B91DED700161918 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F583FBD1B91DED700161918 /* Main.storyboard */; };
@@ -15,7 +16,7 @@
 		3F583FD01B91DED800161918 /* buseslepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FCF1B91DED800161918 /* buseslepTests.swift */; };
 		3F583FDD1B91DFB600161918 /* BusquedaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */; };
 		3F583FE11B91FDF300161918 /* CiudadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FE01B91FDF300161918 /* CiudadModel.swift */; };
-		3F583FE31B922BA200161918 /* CiudadesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FE21B922BA200161918 /* CiudadesViewController.swift */; };
+		3F583FE31B922BA200161918 /* CiudadesOrigenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FE21B922BA200161918 /* CiudadesOrigenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F26F02A1B9242F000A56BBE /* CiudadesDestinoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadesDestinoViewController.swift; sourceTree = "<group>"; };
 		3F583FB11B91DED700161918 /* buseslep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buseslep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F583FB51B91DED700161918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F583FB61B91DED700161918 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +43,7 @@
 		3F583FCF1B91DED800161918 /* buseslepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buseslepTests.swift; sourceTree = "<group>"; };
 		3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusquedaViewController.swift; sourceTree = "<group>"; };
 		3F583FE01B91FDF300161918 /* CiudadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadModel.swift; sourceTree = "<group>"; };
-		3F583FE21B922BA200161918 /* CiudadesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadesViewController.swift; sourceTree = "<group>"; };
+		3F583FE21B922BA200161918 /* CiudadesOrigenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadesOrigenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */,
-				3F583FE21B922BA200161918 /* CiudadesViewController.swift */,
+				3F583FE21B922BA200161918 /* CiudadesOrigenViewController.swift */,
+				3F26F02A1B9242F000A56BBE /* CiudadesDestinoViewController.swift */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -246,10 +249,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F583FDD1B91DFB600161918 /* BusquedaViewController.swift in Sources */,
-				3F583FE31B922BA200161918 /* CiudadesViewController.swift in Sources */,
+				3F583FE31B922BA200161918 /* CiudadesOrigenViewController.swift in Sources */,
 				3F583FBA1B91DED700161918 /* buseslep.xcdatamodeld in Sources */,
 				3F583FB71B91DED700161918 /* AppDelegate.swift in Sources */,
 				3F583FE11B91FDF300161918 /* CiudadModel.swift in Sources */,
+				3F26F02B1B9242F000A56BBE /* CiudadesDestinoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

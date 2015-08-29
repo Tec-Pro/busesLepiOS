@@ -8,9 +8,9 @@
 
 import UIKit
 
-class CiudadesViewController: UITableViewController {
+class CiudadesDestinoViewController: UITableViewController {
     
-    var ciudadesOrigen: [Ciudad]?
+    var ciudadesDestino: [CiudadDestino]?
     var indexCiudadElegida: Int?
     var busquedaViewController: BusquedaViewController?
     
@@ -20,24 +20,24 @@ class CiudadesViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (ciudadesOrigen == nil ) ? 0 : ciudadesOrigen!.count
+        return (ciudadesDestino == nil ) ? 0 : ciudadesDestino!.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CiudadCell") as? UITableViewCell
-        let ciudad = ciudadesOrigen![indexPath.row]
+        let ciudad = ciudadesDestino![indexPath.row]
         
-        cell?.textLabel?.text = ciudad.nombre!
+        cell?.textLabel?.text = ciudad.hasta!
         return cell!
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let ciudad = ciudadesOrigen![indexPath.row]
-        println(ciudad.nombre!)
-        busquedaViewController?.ciudadOrigenElegida(indexPath.row)
+        let ciudad = ciudadesDestino![indexPath.row]
+        //println(ciudad.hasta!)
+        busquedaViewController?.ciudadDestinoElegida(indexPath.row)
         navigationController?.popViewControllerAnimated(true)
     }
     
     
-
+    
 }

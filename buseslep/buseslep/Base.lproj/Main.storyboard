@@ -80,6 +80,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="lLk-yG-tzm" kind="show" identifier="CiudadesDestino" id="st6-hm-LWa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJV-Ds-5aX">
                                 <rect key="frame" x="10" y="233" width="300" height="30"/>
@@ -124,7 +127,7 @@
         <!--Ciudad de origen-->
         <scene sceneID="fip-lf-ey7">
             <objects>
-                <tableViewController id="wT5-AK-MdF" customClass="CiudadesViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="wT5-AK-MdF" customClass="CiudadesOrigenViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RnF-dC-DyO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +157,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zWZ-Vz-1Yn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="321"/>
+            <point key="canvasLocation" x="1964" y="681"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cGU-nq-Ixo">
@@ -173,6 +176,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Id-UK-j3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="382" y="982"/>
+        </scene>
+        <!--Ciudad de destino-->
+        <scene sceneID="XcZ-aG-CfW">
+            <objects>
+                <tableViewController id="lLk-yG-tzm" customClass="CiudadesDestinoViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cHX-90-SbH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CiudadCell" textLabel="8Cf-qA-efj" style="IBUITableViewCellStyleDefault" id="hej-fW-Lnj">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hej-fW-Lnj" id="6Mf-RN-UPR">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Cf-qA-efj">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lLk-yG-tzm" id="Mff-ec-sqK"/>
+                            <outlet property="delegate" destination="lLk-yG-tzm" id="Ka3-2H-bSe"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ciudad de destino" id="uMt-XG-W4s"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i0i-at-iUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="-82"/>
         </scene>
     </scenes>
     <resources>
