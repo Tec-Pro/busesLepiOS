@@ -15,6 +15,7 @@
 		3F583FD01B91DED800161918 /* buseslepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FCF1B91DED800161918 /* buseslepTests.swift */; };
 		3F583FDD1B91DFB600161918 /* BusquedaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */; };
 		3F583FE11B91FDF300161918 /* CiudadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FE01B91FDF300161918 /* CiudadModel.swift */; };
+		3F583FE31B922BA200161918 /* CiudadesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FE21B922BA200161918 /* CiudadesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		3F583FCF1B91DED800161918 /* buseslepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buseslepTests.swift; sourceTree = "<group>"; };
 		3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusquedaViewController.swift; sourceTree = "<group>"; };
 		3F583FE01B91FDF300161918 /* CiudadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadModel.swift; sourceTree = "<group>"; };
+		3F583FE21B922BA200161918 /* CiudadesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */,
+				3F583FE21B922BA200161918 /* CiudadesViewController.swift */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F583FDD1B91DFB600161918 /* BusquedaViewController.swift in Sources */,
+				3F583FE31B922BA200161918 /* CiudadesViewController.swift in Sources */,
 				3F583FBA1B91DED700161918 /* buseslep.xcdatamodeld in Sources */,
 				3F583FB71B91DED700161918 /* AppDelegate.swift in Sources */,
 				3F583FE11B91FDF300161918 /* CiudadModel.swift in Sources */,
@@ -449,6 +453,7 @@
 				3F583FD51B91DED800161918 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F583FD61B91DED800161918 /* Build configuration list for PBXNativeTarget "buseslepTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +462,7 @@
 				3F583FD81B91DED800161918 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

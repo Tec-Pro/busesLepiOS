@@ -13,12 +13,12 @@ import UIKit
 class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     
     
-    @IBOutlet var lblOrigen: UILabel!
-    @IBOutlet weak var lblDestino: UILabel!
-    @IBOutlet weak var lblFechaIda: UILabel!
-    @IBOutlet weak var lblFechaVuelta: UILabel!
-    @IBOutlet weak var lblCantidadPasajes: UILabel!
-    @IBOutlet weak var imageCalendarvuelta: UIImageView!
+
+    @IBOutlet weak var lblOrigen: UIButton!
+    @IBOutlet weak var lblDestino: UIButton!
+    @IBOutlet weak var lblFechaIda: UIButton!
+    @IBOutlet weak var lblFechaVuelta: UIButton!
+    @IBOutlet weak var lblCantidadPasajes: UIButton!
     @IBOutlet weak var chkIdaVuelta: UISwitch!
     
     @IBOutlet weak var btnBusqueda: UIButton!
@@ -27,6 +27,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     lazy var serviceData =  NSMutableData()
     var ciudadesOrigen: [Ciudad]?
     var ciudadesDestino: [Ciudad]?
+    
+    var indexCiudadOrigen: Int? //guardo el indice de la ciduad elegida, de las ciudades origen
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,12 +93,14 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     }
 
     @IBAction func SetIdaVuelta(sender: UISwitch) {
-            lblFechaVuelta.enabled=sender.on
+       //     lblFechaVuelta.enabled=sender.on
         if(sender.on){
-            lblFechaVuelta.text = "  Fecha vuelta"
+            lblFechaVuelta.setTitle("  Fecha ida", forState: UIControlState.Normal);
+            lblFechaVuelta.enabled=true
         }
         else{
-            lblFechaVuelta.text =  "  Solo ida"
+            lblFechaVuelta.setTitle("  Solo ida", forState: UIControlState.Normal);
+            lblFechaVuelta.enabled=false
         }
     }
 
@@ -104,29 +108,29 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         var error: Bool = false
         var msgError: String = "Revise "
         //valido la ciudad de origen
-        if(lblOrigen.text == "  Ciudad de origen"){
+        if(lblOrigen.titleLabel?.text == "  Ciudad de Origen"){
             error = true
-            msgError.extend("Ciudad de origen ")
+            msgError.extend("Ciudad de Origen ")
         }
         //valido la ciudad de destino
-        if(lblDestino.text == "  Ciudad de destino"){
+        if(lblDestino.titleLabel?.text == "  Ciudad de Destino"){
             error = true
-            msgError.extend(", Ciudad de destino")
+            msgError.extend(", Ciudad de Destino")
         }
         //valido la fecha de ida
-        if(lblFechaIda.text == "  Fecha de ida"){
+        if(lblFechaIda.titleLabel?.text == "  Fecha ida"){
             error = true
-            msgError.extend(", Fecha de ida")
+            msgError.extend(", Fecha ida")
         }
         if (chkIdaVuelta.on){
             //valido la ciudad de origen
-            if(lblFechaVuelta.text == "  Fecha vuelta"){
+            if(lblFechaVuelta.titleLabel?.text == "  Fecha vuelta"){
                 error = true
                 msgError.extend(", Fecha de vuelta")
             }
         }
         //valido la cantidad de pasajes
-        if(lblCantidadPasajes.text == "  Cantidad de pasajes"){
+        if(lblCantidadPasajes.titleLabel?.text == "  Cantidad de pasajes"){
             error = true
             msgError.extend(", Cantidad de pasajes")
         }
@@ -138,4 +142,19 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
 
         }
     }
+    
+     @IBAction func ciudadOrigenElegida(index : Int){
+        self.indexCiudadOrigen = index
+        lblOrigen.setTitle("  "+ciudadesOrigen![index].nombre!, forState: UIControlState.Normal)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let identifier = segue.identifier
+        if identifier == "CiudadesOrigen"{ //nombre del segue
+            let ciudadesViewController = segue.destinationViewController as! CiudadesViewController
+            ciudadesViewController.ciudadesOrigen = self.ciudadesOrigen
+            ciudadesViewController.busquedaViewController = self
+        }
+    }
+    
 }

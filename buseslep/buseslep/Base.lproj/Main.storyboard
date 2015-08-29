@@ -32,39 +32,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="45V-XO-tcL">
                                 <rect key="frame" x="280" y="173" width="28" height="30"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Ciudad de destino" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4Z-GL-MYI">
-                                <rect key="frame" x="10" y="203" width="300" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="OBP-lw-kVg">
                                 <rect key="frame" x="280" y="203" width="28" height="30"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Fecha ida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vB9-PG-Iht">
-                                <rect key="frame" x="10" y="233" width="300" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="zUh-bo-CMm">
                                 <rect key="frame" x="280" y="233" width="28" height="30"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Solo ida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suH-uz-uES">
-                                <rect key="frame" x="10" y="263" width="300" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="vvF-qe-vwv">
                                 <rect key="frame" x="280" y="263" width="28" height="30"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Cantidad de pasajes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arJ-EC-T8f">
-                                <rect key="frame" x="10" y="293" width="300" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="D1v-u8-c8w">
                                 <rect key="frame" x="280" y="293" width="28" height="30"/>
                             </imageView>
@@ -85,34 +61,100 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  Ciudad de origen" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twi-Cg-HPr">
-                                <rect key="frame" x="10" y="173" width="300" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-lI-avK">
                                 <rect key="frame" x="80" y="400" width="24" height="24"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ifi-hi-D5L">
+                                <rect key="frame" x="10" y="173" width="300" height="30"/>
+                                <state key="normal" title="  Ciudad de Origen">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wT5-AK-MdF" kind="show" identifier="CiudadesOrigen" id="M1v-Uy-36u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T3-xk-iYS">
+                                <rect key="frame" x="10" y="203" width="300" height="30"/>
+                                <state key="normal" title="  Ciudad de Destino">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJV-Ds-5aX">
+                                <rect key="frame" x="10" y="233" width="300" height="30"/>
+                                <state key="normal" title="  Fecha ida">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CnT-ic-0Wf">
+                                <rect key="frame" x="10" y="263" width="300" height="30"/>
+                                <state key="normal" title="  Solo ida">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcY-8N-E1K">
+                                <rect key="frame" x="10" y="293" width="300" height="30"/>
+                                <state key="normal" title="  Cantidad de pasajes">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Busqueda de horarios" id="fuq-i0-Bt9"/>
                     <connections>
-                        <outlet property="ImageCalendarvuelta" destination="vvF-qe-vwv" id="S7c-XQ-c2K"/>
                         <outlet property="btnBusqueda" destination="YUv-tS-lTV" id="F4U-Ic-qEU"/>
                         <outlet property="btnLogin" destination="Xgo-km-cQR" id="f4y-wb-bdg"/>
                         <outlet property="chkIdaVuelta" destination="jec-RF-o5f" id="ADw-bf-5Zm"/>
-                        <outlet property="lblCantidadPasajes" destination="arJ-EC-T8f" id="5xL-Ac-Hgp"/>
-                        <outlet property="lblDestino" destination="c4Z-GL-MYI" id="uPg-QB-LnI"/>
-                        <outlet property="lblFechaIda" destination="vB9-PG-Iht" id="w8r-SV-II6"/>
-                        <outlet property="lblFechaVuelta" destination="suH-uz-uES" id="5H3-Uw-Eyt"/>
-                        <outlet property="lblOrigen" destination="twi-Cg-HPr" id="18Z-pZ-saK"/>
+                        <outlet property="lblCantidadPasajes" destination="bcY-8N-E1K" id="fXV-qq-eYB"/>
+                        <outlet property="lblDestino" destination="8T3-xk-iYS" id="8Yh-Yr-1sJ"/>
+                        <outlet property="lblFechaIda" destination="WJV-Ds-5aX" id="DJ1-e3-Uhi"/>
+                        <outlet property="lblFechaVuelta" destination="CnT-ic-0Wf" id="BuD-Pm-SXR"/>
+                        <outlet property="lblOrigen" destination="Ifi-hi-D5L" id="29l-1r-vIP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1235" y="321"/>
+        </scene>
+        <!--Ciudad de origen-->
+        <scene sceneID="fip-lf-ey7">
+            <objects>
+                <tableViewController id="wT5-AK-MdF" customClass="CiudadesViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RnF-dC-DyO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CiudadCell" textLabel="uPW-rj-txa" style="IBUITableViewCellStyleDefault" id="Elg-Ix-3sE">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Elg-Ix-3sE" id="uI4-ZS-tcD">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uPW-rj-txa">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wT5-AK-MdF" id="ZjM-Wb-gzE"/>
+                            <outlet property="delegate" destination="wT5-AK-MdF" id="Zks-du-Jot"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ciudad de origen" id="9dt-Ky-FQz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zWZ-Vz-1Yn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1974" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cGU-nq-Ixo">
