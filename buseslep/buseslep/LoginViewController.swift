@@ -44,6 +44,7 @@ class LoginViewController: UIViewController{
                 if let rangeTo = parser.rangeOfString(",\"Cols") {
                     var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
                     datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
+                    println("parseado")
                     println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
@@ -57,6 +58,7 @@ class LoginViewController: UIViewController{
             
             
         })
+        task.resume()
         println("bueno chau")
         
     }
