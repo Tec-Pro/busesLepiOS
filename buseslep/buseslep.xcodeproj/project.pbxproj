@@ -21,6 +21,7 @@
 		3FFCB9801B9351DB00C043F6 /* HorarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */; };
 		3FFCB9821B93548D00C043F6 /* HorarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB9811B93548D00C043F6 /* HorarioModel.swift */; };
 		3FFCB9881B936C9700C043F6 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB9871B936C9700C043F6 /* WebServices.swift */; };
+		EDD1C0FE1B93A1AD00B57510 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1C0FD1B93A1AD00B57510 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorarioViewController.swift; sourceTree = "<group>"; };
 		3FFCB9811B93548D00C043F6 /* HorarioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorarioModel.swift; sourceTree = "<group>"; };
 		3FFCB9871B936C9700C043F6 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		EDD1C0FD1B93A1AD00B57510 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				3F26F02A1B9242F000A56BBE /* CiudadesDestinoViewController.swift */,
 				3F5C34651B93462300FFB4C2 /* CeldaHorarioViewController.swift */,
 				3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */,
+				EDD1C0FD1B93A1AD00B57510 /* LoginViewController.swift */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				3F583FB71B91DED700161918 /* AppDelegate.swift in Sources */,
 				3F583FE11B91FDF300161918 /* CiudadModel.swift in Sources */,
 				3F26F02B1B9242F000A56BBE /* CiudadesDestinoViewController.swift in Sources */,
+				EDD1C0FE1B93A1AD00B57510 /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
