@@ -17,6 +17,10 @@
 		3F583FDD1B91DFB600161918 /* BusquedaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */; };
 		3F583FE11B91FDF300161918 /* CiudadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FE01B91FDF300161918 /* CiudadModel.swift */; };
 		3F583FE31B922BA200161918 /* CiudadesOrigenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FE21B922BA200161918 /* CiudadesOrigenViewController.swift */; };
+		3F5C34661B93462300FFB4C2 /* CeldaHorarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C34651B93462300FFB4C2 /* CeldaHorarioViewController.swift */; };
+		3FFCB9801B9351DB00C043F6 /* HorarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */; };
+		3FFCB9821B93548D00C043F6 /* HorarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB9811B93548D00C043F6 /* HorarioModel.swift */; };
+		3FFCB9881B936C9700C043F6 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB9871B936C9700C043F6 /* WebServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusquedaViewController.swift; sourceTree = "<group>"; };
 		3F583FE01B91FDF300161918 /* CiudadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadModel.swift; sourceTree = "<group>"; };
 		3F583FE21B922BA200161918 /* CiudadesOrigenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadesOrigenViewController.swift; sourceTree = "<group>"; };
+		3F5C34651B93462300FFB4C2 /* CeldaHorarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeldaHorarioViewController.swift; sourceTree = "<group>"; };
+		3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorarioViewController.swift; sourceTree = "<group>"; };
+		3FFCB9811B93548D00C043F6 /* HorarioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorarioModel.swift; sourceTree = "<group>"; };
+		3FFCB9871B936C9700C043F6 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,7 @@
 		3F583FB31B91DED700161918 /* buseslep */ = {
 			isa = PBXGroup;
 			children = (
+				3FFCB9861B936C8900C043F6 /* WebServices */,
 				3F583FDE1B91E1F200161918 /* Imagenes */,
 				3F583FDB1B91DF5000161918 /* Controladores */,
 				3F583FDA1B91DF4600161918 /* Modelos */,
@@ -127,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				3F583FE01B91FDF300161918 /* CiudadModel.swift */,
+				3FFCB9811B93548D00C043F6 /* HorarioModel.swift */,
 			);
 			name = Modelos;
 			sourceTree = "<group>";
@@ -137,6 +147,8 @@
 				3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */,
 				3F583FE21B922BA200161918 /* CiudadesOrigenViewController.swift */,
 				3F26F02A1B9242F000A56BBE /* CiudadesDestinoViewController.swift */,
+				3F5C34651B93462300FFB4C2 /* CeldaHorarioViewController.swift */,
+				3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -146,6 +158,14 @@
 			children = (
 			);
 			name = Imagenes;
+			sourceTree = "<group>";
+		};
+		3FFCB9861B936C8900C043F6 /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				3FFCB9871B936C9700C043F6 /* WebServices.swift */,
+			);
+			name = WebServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,9 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F5C34661B93462300FFB4C2 /* CeldaHorarioViewController.swift in Sources */,
+				3FFCB9801B9351DB00C043F6 /* HorarioViewController.swift in Sources */,
 				3F583FDD1B91DFB600161918 /* BusquedaViewController.swift in Sources */,
 				3F583FE31B922BA200161918 /* CiudadesOrigenViewController.swift in Sources */,
 				3F583FBA1B91DED700161918 /* buseslep.xcdatamodeld in Sources */,
+				3FFCB9821B93548D00C043F6 /* HorarioModel.swift in Sources */,
+				3FFCB9881B936C9700C043F6 /* WebServices.swift in Sources */,
 				3F583FB71B91DED700161918 /* AppDelegate.swift in Sources */,
 				3F583FE11B91FDF300161918 /* CiudadModel.swift in Sources */,
 				3F26F02B1B9242F000A56BBE /* CiudadesDestinoViewController.swift in Sources */,
