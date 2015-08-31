@@ -475,6 +475,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Ingreso de Usuario" id="eBs-4b-Jzn"/>
                     <connections>
+                        <outlet property="btnCrearCuenta" destination="fj7-Ri-Jte" id="k4e-xD-8Zl"/>
+                        <outlet property="btnIngresar" destination="z7y-8H-cbh" id="OfQ-Eo-hqy"/>
                         <outlet property="txtDni" destination="kI5-1z-ItL" id="ehO-2k-GZY"/>
                         <outlet property="txtPass" destination="ITV-MK-1LR" id="nLx-HT-tjU"/>
                     </connections>
