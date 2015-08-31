@@ -30,5 +30,6 @@ class BackTableVC: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destVc = segue.destinationViewController as? BusquedaViewController
         
+        
     }
 }
