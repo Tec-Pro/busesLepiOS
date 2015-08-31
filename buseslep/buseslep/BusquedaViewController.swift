@@ -38,8 +38,9 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Menu.target = self.revealViewController()
-        Menu.action = Selector("revealToggle:")
+        Menu.target = self.revealViewController() // cosas para activar el menu
+        Menu.action = Selector("revealToggle:") // cosas para activar el menu
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer()) //para abrir el menu arrastrando para el costado
         //le pongo el borde porque no encontre la forma de ponerlo graficamente
         lblDestino.layer.borderColor = UIColor.blackColor().CGColor
         lblDestino.layer.borderWidth = 0.5
