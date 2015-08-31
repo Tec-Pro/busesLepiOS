@@ -13,6 +13,7 @@ import UIKit
 class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLConnectionDataDelegate {
     
     
+    @IBOutlet var Menu: UIBarButtonItem!
 
     @IBOutlet weak var lblOrigen: UIButton!
     @IBOutlet weak var lblDestino: UIButton!
@@ -37,6 +38,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Menu.target = self.revealViewController()
+        Menu.action = Selector("revealToggle:")
         //le pongo el borde porque no encontre la forma de ponerlo graficamente
         lblDestino.layer.borderColor = UIColor.blackColor().CGColor
         lblDestino.layer.borderWidth = 0.5
