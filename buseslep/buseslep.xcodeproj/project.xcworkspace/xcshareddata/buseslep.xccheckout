@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>98D56ADA-27A8-44FD-A127-5D5704D67BEE</string>
 	<key>IDESourceControlProjectName</key>
-	<string>buseslep</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F0E2F2CB0E074D96827051A3387E6FA59E6F8554</key>
 		<string>https://github.com/Tec-Pro/busesLepiOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>buseslep/buseslep.xcodeproj</string>
+	<string>buseslep/buseslep.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F0E2F2CB0E074D96827051A3387E6FA59E6F8554</key>
