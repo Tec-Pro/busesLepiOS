@@ -50,7 +50,7 @@ class Horario{
             let cod_horario = item["cod_horario"] as! Int
             let Id_Empresa = item["Id_Empresa"] as! Int
             let id_destino = item["id_destino"] as! Int
-            let horario = Horario(ServicioPrestado: ServicioPrestado, fecha_llega: fecha_llega, hora_llega: hora_llega, fecha_sale: fecha_sale, hora_sale: hora_sale, cod_horario: cod_horario, Id_Empresa: Id_Empresa, id_destino: id_destino)
+            let horario = Horario(ServicioPrestado: ServicioPrestado, fecha_llega: fecha_llega.substringToIndex(fecha_llega.rangeOfString(" ")!.startIndex), hora_llega: hora_llega.substringFromIndex(hora_llega.rangeOfString(" ")!.startIndex), fecha_sale: fecha_sale.substringToIndex(fecha_sale.rangeOfString(" ")!.startIndex), hora_sale: hora_sale.substringFromIndex(hora_sale.rangeOfString(" ")!.startIndex), cod_horario: cod_horario, Id_Empresa: Id_Empresa, id_destino: id_destino)
             horarios.append(horario)
             }
         )
