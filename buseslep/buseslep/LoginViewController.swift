@@ -17,6 +17,8 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var btnIngresar: UIButton!
     @IBOutlet weak var btnCrearCuenta: UIButton!
     
+    @IBOutlet weak var load: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         btnIngresar.layer.borderColor = UIColor.blackColor().CGColor
@@ -26,7 +28,7 @@ class LoginViewController: UIViewController{
     }
     
     @IBAction func ingresar(sender: UIButton) {
-        println("cacaaa")
+        self.load.hidden = false
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
@@ -54,6 +56,8 @@ class LoginViewController: UIViewController{
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                 }
+                self.load.hidden = true
+                self.navigationController?.popViewControllerAnimated(true)
             } else {
                 if let rangeF = parser.rangeOfString("<return xsi:type=") { // con esto hago un subrango
                     if let rangeT = parser.rangeOfString("</return>") {

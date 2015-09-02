@@ -279,6 +279,16 @@
                                     <action selector="ingresar:" destination="7eb-rr-VIh" eventType="touchUpInside" id="4xv-rk-Vwo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1d-8l-y7B">
+                                <rect key="frame" x="26" y="360" width="548" height="30"/>
+                                <state key="normal" title="¿Aún no tienes cuenta?">
+                                    <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="m1g-ae-6Q6" kind="show" id="VdC-rc-lJJ"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSE-Zo-dCb">
                                 <rect key="frame" x="129" y="214" width="342" height="30"/>
                                 <subviews>
@@ -306,16 +316,14 @@
                                     <constraint firstAttribute="height" constant="30" id="rBf-3T-5Bf"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1d-8l-y7B">
-                                <rect key="frame" x="26" y="360" width="548" height="30"/>
-                                <state key="normal" title="¿Aún no tienes cuenta?">
-                                    <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="m1g-ae-6Q6" kind="show" id="VdC-rc-lJJ"/>
-                                </connections>
-                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Es0-0a-js7">
+                                <rect key="frame" x="281" y="303" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="1lT-fb-pqG"/>
+                                    <constraint firstAttribute="width" constant="37" id="BFc-OU-sNh"/>
+                                </constraints>
+                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -334,12 +342,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="1vC-ma-i0U" secondAttribute="trailing" constant="10" id="j5h-ho-jAD"/>
                             <constraint firstItem="5UR-bl-MOp" firstAttribute="top" secondItem="1vC-ma-i0U" secondAttribute="bottom" constant="20" id="kpj-0K-jcd"/>
                             <constraint firstItem="1vC-ma-i0U" firstAttribute="top" secondItem="BLa-HO-ALs" secondAttribute="bottom" constant="50" id="mZD-ja-Bek"/>
+                            <constraint firstAttribute="centerX" secondItem="Es0-0a-js7" secondAttribute="centerX" id="siZ-lj-hKY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ingreso de Usuario" id="l4Q-9V-Y7f"/>
                     <connections>
                         <outlet property="btnCrearCuenta" destination="G1d-8l-y7B" id="vh9-aU-nqn"/>
                         <outlet property="btnIngresar" destination="1a0-Hd-qXq" id="DLY-QL-Cdq"/>
+                        <outlet property="load" destination="Es0-0a-js7" id="bUP-2F-7om"/>
                         <outlet property="txtDni" destination="1vC-ma-i0U" id="uWG-gA-j00"/>
                         <outlet property="txtPass" destination="5UR-bl-MOp" id="kWa-w6-4c4"/>
                     </connections>
