@@ -24,8 +24,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     
     @IBOutlet weak var btnBusqueda: UIButton!
     @IBOutlet weak var btnLogin: UIButton!
-    
     @IBOutlet weak var loadImage: UIActivityIndicatorView!
+    
     lazy var serviceData =  NSMutableData()
     var ciudadesOrigen: [CiudadOrigen]?
     var ciudadesDestino: [CiudadDestino]?
@@ -42,6 +42,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         Menu.action = Selector("revealToggle:") // cosas para activar el menu
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer()) //para abrir el menu arrastrando para el costado
         //le pongo el borde porque no encontre la forma de ponerlo graficamente
+        lblOrigen.layer.borderColor = UIColor.blackColor().CGColor
+        lblOrigen.layer.borderWidth = 0.5
         lblDestino.layer.borderColor = UIColor.blackColor().CGColor
         lblDestino.layer.borderWidth = 0.5
         lblFechaIda.layer.borderColor = UIColor.blackColor().CGColor
@@ -50,8 +52,6 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         lblFechaVuelta.layer.borderWidth = 0.5
         lblCantidadPasajes.layer.borderColor = UIColor.blackColor().CGColor
         lblCantidadPasajes.layer.borderWidth = 0.5
-        lblOrigen.layer.borderColor = UIColor.blackColor().CGColor
-        lblOrigen.layer.borderWidth = 0.5
         btnBusqueda.layer.borderColor = UIColor.blackColor().CGColor
         btnBusqueda.layer.borderWidth = 0.5
         btnLogin.layer.borderColor = UIColor.blackColor().CGColor
@@ -108,11 +108,11 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     @IBAction func SetIdaVuelta(sender: UISwitch) {
        //     lblFechaVuelta.enabled=sender.on
         if(sender.on){
-            lblFechaVuelta.setTitle("  Fecha ida", forState: UIControlState.Normal);
+            lblFechaVuelta.setTitle("Fecha de ida", forState: UIControlState.Normal);
             lblFechaVuelta.enabled=true
         }
         else{
-            lblFechaVuelta.setTitle("  Solo ida", forState: UIControlState.Normal);
+            lblFechaVuelta.setTitle("Solo ida", forState: UIControlState.Normal);
             lblFechaVuelta.enabled=false
         }
     }
@@ -122,29 +122,29 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         var error: Bool = false
         var msgError: String = "Revise "
         //valido la ciudad de origen
-        if(lblOrigen.titleLabel?.text == "  Ciudad de Origen"){
+        if(indexCiudadOrigen == -1){
             error = true
-            msgError.extend("Ciudad de Origen ")
+            msgError.extend("Ciudad de Origen")
         }
         //valido la ciudad de destino
-        if(lblDestino.titleLabel?.text == "  Ciudad de Destino"){
+        if(indexCiudadDestino == -1){
             error = true
             msgError.extend(", Ciudad de Destino")
         }
         //valido la fecha de ida
-        if(lblFechaIda.titleLabel?.text == "  Fecha ida"){
+        if(lblFechaIda.titleLabel?.text == "Fecha de ida"){
             error = true
-            msgError.extend(", Fecha ida")
+            msgError.extend(", Fecha de ida")
         }
         if (chkIdaVuelta.on){
             //valido la ciudad de origen
-            if(lblFechaVuelta.titleLabel?.text == "  Fecha vuelta"){
+            if(lblFechaVuelta.titleLabel?.text == "Fecha de vuelta"){
                 error = true
                 msgError.extend(", Fecha de vuelta")
             }
         }
         //valido la cantidad de pasajes
-        if(lblCantidadPasajes.titleLabel?.text == "  Cantidad de pasajes"){
+        if(lblCantidadPasajes.titleLabel?.text == "Cantidad de pasajes"){
             error = true
             msgError.extend(", Cantidad de pasajes")
         }
@@ -154,18 +154,18 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             var alert = UIAlertView( title: "Error!", message: msgError,delegate: nil,  cancelButtonTitle: "Entendido")
             alert.show()
             
-        }//aca va el else
+        }else{
         self.loadImage.hidden = false
         obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: "20150906")
-
+        }
 
     }
     
      @IBAction func ciudadOrigenElegida(index : Int){
         self.indexCiudadOrigen = index
-        lblOrigen.setTitle("  "+ciudadesOrigen![index].nombre!, forState: UIControlState.Normal)
+        lblOrigen.setTitle(ciudadesOrigen![index].nombre!, forState: UIControlState.Normal)
         indexCiudadDestino = -1 // limpio con -1 para decir que no se eligio destino
-        lblDestino.setTitle("  Ciudad de Destino", forState: UIControlState.Normal)
+        lblDestino.setTitle("Ciudad de destino", forState: UIControlState.Normal)
         
         obtenerCiudadesDestino(ciudadesOrigen![index].id!)
     }
@@ -178,7 +178,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     
     @IBAction func ciudadDestinoElegida(index : Int){
         self.indexCiudadDestino = index
-        lblDestino.setTitle("  "+ciudadesDestino![index].hasta!, forState: UIControlState.Normal)
+        lblDestino.setTitle(ciudadesDestino![index].hasta!, forState: UIControlState.Normal)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
