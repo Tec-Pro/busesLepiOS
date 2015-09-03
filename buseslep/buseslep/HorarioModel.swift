@@ -43,14 +43,26 @@ class Horario{
         let list = dictionary["Data"] as? NSArray // obtengo el Data del json que retornan, dentro estan los datos
         list?.enumerateObjectsWithOptions(NSEnumerationOptions.allZeros, usingBlock:{ (item, index, stop) -> Void in
             let ServicioPrestado = item["ServicioPrestado"] as!   String //obtengo el nombre de la localidad
-            let fecha_llega = item["FechaHoraLlegada"] as! String //obtengo el id de la localidad
-            let hora_llega = item["FechaHoraLlegada"] as! String
-            let fecha_sale = item["fechahora"] as! String
-            let hora_sale = item["fechahora"] as! String
+            let FechaHoraLlegada = item["FechaHoraLlegada"] as! String //obtengo el id de la localidad
+            //let FechaHoraLlegada = item["FechaHoraLlegada"] as! String
+            let fechahora = item["fechahora"] as! String
+            //let hora_sale = item["fechahora"] as! String
             let cod_horario = item["cod_horario"] as! Int
             let Id_Empresa = item["Id_Empresa"] as! Int
             let id_destino = item["id_destino"] as! Int
-            let horario = Horario(ServicioPrestado: ServicioPrestado, fecha_llega: fecha_llega.substringToIndex(fecha_llega.rangeOfString(" ")!.startIndex), hora_llega: hora_llega.substringFromIndex(hora_llega.rangeOfString(" ")!.startIndex), fecha_sale: fecha_sale.substringToIndex(fecha_sale.rangeOfString(" ")!.startIndex), hora_sale: hora_sale.substringFromIndex(hora_sale.rangeOfString(" ")!.startIndex), cod_horario: cod_horario, Id_Empresa: Id_Empresa, id_destino: id_destino)
+            
+            var rangeFrom = FechaHoraLlegada.rangeOfString(" ")?.endIndex
+            var rangeTo = FechaHoraLlegada.rangeOfString(":00", options: .BackwardsSearch)?.startIndex
+            var hora_llega = FechaHoraLlegada.substringWithRange(rangeFrom!..<rangeTo!)
+            
+            rangeFrom = fechahora.rangeOfString(" ")?.endIndex
+            rangeTo = fechahora.rangeOfString(":00", options: .BackwardsSearch)?.startIndex
+            var hora_sale = fechahora.substringWithRange(rangeFrom!..<rangeTo!)
+            
+            var fecha_llega = FechaHoraLlegada.substringToIndex(FechaHoraLlegada.rangeOfString(" ")!.startIndex)
+            var fecha_sale = fechahora.substringToIndex(fechahora.rangeOfString(" ")!.startIndex)
+
+            let horario = Horario(ServicioPrestado: ServicioPrestado, fecha_llega: fecha_llega, hora_llega: hora_llega, fecha_sale: fecha_sale, hora_sale: hora_sale, cod_horario: cod_horario, Id_Empresa: Id_Empresa, id_destino: id_destino)
             horarios.append(horario)
             }
         )
