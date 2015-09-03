@@ -163,7 +163,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="clickBusqueda:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oxk-NC-Gda"/>
-                                    <segue destination="hPo-EP-NFm" kind="show" identifier="elegirHorarioIda" id="IYL-nA-RCQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDz-Zf-9t8">
@@ -242,6 +241,7 @@
                         <outlet property="lblOrigen" destination="oVD-Bx-uqV" id="BIC-dN-6Ag"/>
                         <outlet property="loadImage" destination="rkz-ff-fT8" id="zrX-fg-z5g"/>
                         <segue destination="L9W-Cv-XU2" kind="show" identifier="elegirHorarioVuelta" id="Bvg-3h-JOU"/>
+                        <segue destination="hPo-EP-NFm" kind="show" identifier="elegirHorarioIda" id="w1j-Cq-bBz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

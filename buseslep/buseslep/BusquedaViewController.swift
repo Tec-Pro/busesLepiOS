@@ -92,13 +92,20 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     //println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    self.ciudadesOrigen = CiudadOrigen.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
-                    self.loadImage.hidden = true
+                    
+                    // Move to the UI thread
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.ciudadesOrigen = CiudadOrigen.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
+                        self.loadImage.hidden = true
+                    })
+
 
                 }
             }
         if error != nil{
                 println("Error: " + error.description)
+                self.loadImage.hidden = true
+
             }
             
 
@@ -157,7 +164,6 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             alert.show()
             
         }else{
-        self.loadImage.hidden = false
         obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: "20150906", esVuelta: false)
         }
 
@@ -210,13 +216,11 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             let horariosViewController = segue.destinationViewController as! HorarioIdaViewController
             horariosViewController.horarios = self.horariosIda
             horariosViewController.busquedaViewController = self
-            self.loadImage.hidden = true
         }
         if identifier == "elegirHorarioVuelta"{ //nombre del segue
             let horariosViewController = segue.destinationViewController as! HorarioVueltaViewController
             horariosViewController.horarios = self.horariosVuelta
             horariosViewController.busquedaViewController = self
-            self.loadImage.hidden = true
             
         }
         
@@ -249,14 +253,21 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     //println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    self.ciudadesDestino = CiudadDestino.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
-                    self.loadImage.hidden = true
+                    
+                    // Move to the UI thread
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.ciudadesDestino = CiudadDestino.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
+                        self.loadImage.hidden = true
+                    })
+
 
                     
                 }
             }
             if error != nil{
                 println("Error: " + error.description)
+                self.loadImage.hidden = true
+
             }
             
         })
@@ -265,7 +276,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     
     
     func obtenerHorarios(IdLocalidadOrigen: Int, IdLocalidadDestino: Int, Fecha: String, esVuelta: Bool){
-        
+        self.loadImage.hidden = false
 
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
@@ -291,19 +302,26 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    if esVuelta {
-                        self.horariosVuelta = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
-                        self.performSegueWithIdentifier("elegirHorarioVuelta", sender: self);
-                    }else{
-                        self.horariosIda = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
-                        self.performSegueWithIdentifier("elegirHorarioIda", sender: self);
-                    }
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.loadImage.hidden = true
+
+                        if esVuelta {
+                            self.horariosVuelta = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
+                            self.performSegueWithIdentifier("elegirHorarioVuelta", sender: self);
+                        }else{
+                            self.horariosIda = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
+                            self.performSegueWithIdentifier("elegirHorarioIda", sender: self);
+                        }
+                    })
+
                 }
             }
             if error != nil{
                 println("Error: " + error.description)
-            }
+                self.loadImage.hidden = true
 
+            }
         })
         task.resume()
     }
