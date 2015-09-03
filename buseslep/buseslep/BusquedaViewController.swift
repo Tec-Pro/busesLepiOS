@@ -30,11 +30,12 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     var ciudadesOrigen: [CiudadOrigen]?
     var ciudadesDestino: [CiudadDestino]?
     var horariosIda: [Horario]?
-    
+    var horariosVuelta: [Horario]?
     var indexCiudadOrigen: Int? //guardo el indice de la ciduad elegida, de las ciudades origen
     var indexCiudadDestino: Int? //guardo el indice de la ciduad elegida, de las ciudades destino
     var indexHorarioIda: Int? //guardo el indice del horario elegido
-    
+    var indexHorarioVuelta: Int? //guardo el indice del horario elegido
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,6 +93,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                     self.ciudadesOrigen = CiudadOrigen.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
+                    self.loadImage.hidden = true
+
                 }
             }
         if error != nil{
@@ -102,13 +105,12 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             
         })
         task.resume()
-        self.loadImage.hidden = true
     }
 
     @IBAction func SetIdaVuelta(sender: UISwitch) {
        //     lblFechaVuelta.enabled=sender.on
         if(sender.on){
-            lblFechaVuelta.setTitle("Fecha de ida", forState: UIControlState.Normal);
+            lblFechaVuelta.setTitle("Fecha de vuelta", forState: UIControlState.Normal);
             lblFechaVuelta.enabled=true
         }
         else{
@@ -156,7 +158,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             
         }else{
         self.loadImage.hidden = false
-        obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: "20150906")
+        obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: "20150906", esVuelta: false)
         }
 
     }
@@ -171,9 +173,19 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     }
     
     
+    
     @IBAction func horarioIda(index : Int){
         self.indexHorarioIda = index
+        if chkIdaVuelta.on {
+            obtenerHorarios(ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, IdLocalidadDestino: ciudadesOrigen![indexCiudadOrigen!].id!, Fecha: "20150906", esVuelta: true)
+        
+        }
 
+    }
+    
+    @IBAction func horarioVuelta(index : Int){
+        self.indexHorarioVuelta = index
+        
     }
     
     @IBAction func ciudadDestinoElegida(index : Int){
@@ -195,19 +207,25 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         }
         
         if identifier == "elegirHorarioIda"{ //nombre del segue
-            let horariosViewController = segue.destinationViewController as! HorarioViewController
+            let horariosViewController = segue.destinationViewController as! HorarioIdaViewController
             horariosViewController.horarios = self.horariosIda
             horariosViewController.busquedaViewController = self
             self.loadImage.hidden = true
-
         }
-        
-        
+        if identifier == "elegirHorarioVuelta"{ //nombre del segue
+            let horariosViewController = segue.destinationViewController as! HorarioVueltaViewController
+            horariosViewController.horarios = self.horariosVuelta
+            horariosViewController.busquedaViewController = self
+            self.loadImage.hidden = true
+            
+        }
         
     }
     
     
     func obtenerCiudadesDestino(IdLocalidadOrigen: Int){
+        self.loadImage.hidden = false
+
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
@@ -232,6 +250,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                     self.ciudadesDestino = CiudadDestino.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
+                    self.loadImage.hidden = true
+
                     
                 }
             }
@@ -244,7 +264,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     }
     
     
-    func obtenerHorarios(IdLocalidadOrigen: Int, IdLocalidadDestino: Int, Fecha: String){
+    func obtenerHorarios(IdLocalidadOrigen: Int, IdLocalidadDestino: Int, Fecha: String, esVuelta: Bool){
         
 
         var userWS: String = "UsuarioLep" //paramatros
@@ -271,9 +291,13 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    self.horariosIda = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
-                    self.performSegueWithIdentifier("elegirHorarioIda", sender: self);
-
+                    if esVuelta {
+                        self.horariosVuelta = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
+                        self.performSegueWithIdentifier("elegirHorarioVuelta", sender: self);
+                    }else{
+                        self.horariosIda = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
+                        self.performSegueWithIdentifier("elegirHorarioIda", sender: self);
+                    }
                 }
             }
             if error != nil{
