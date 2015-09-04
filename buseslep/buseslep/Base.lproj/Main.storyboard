@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -580,6 +580,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DGQ-dP-jay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1605" y="2250"/>
+        </scene>
+        <!--Seleccion Butacas-->
+        <scene sceneID="zE8-LN-6rj">
+            <objects>
+                <viewController id="aMm-tG-ILS" customClass="SeatSelectionViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WBl-un-cf6"/>
+                        <viewControllerLayoutGuide type="bottom" id="nYj-Mc-IH5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XwE-VU-GZh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Seleccione butacas para ida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-Pm-jqR">
+                                <rect key="frame" x="0.0" y="64" width="600" height="18"/>
+                                <color key="backgroundColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PoQ-ux-vft">
+                                <rect key="frame" x="150" y="90" width="300" height="350"/>
+                                <color key="backgroundColor" red="0.98428052687959977" green="1" blue="0.95022856735765515" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="MWt-Xe-Vve"/>
+                                    <constraint firstAttribute="height" constant="350" id="rZb-Hu-4ve"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FQk-sh-b0l">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="7en-IF-eVC" customClass="CeldaAsiento" customModule="buseslep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Ln-QS-I6B">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="9Ln-QS-I6B" firstAttribute="leading" secondItem="7en-IF-eVC" secondAttribute="leading" id="9w3-KQ-ZjH"/>
+                                            <constraint firstAttribute="trailing" secondItem="9Ln-QS-I6B" secondAttribute="trailing" id="AGq-86-ez2"/>
+                                            <constraint firstItem="9Ln-QS-I6B" firstAttribute="top" secondItem="7en-IF-eVC" secondAttribute="top" id="RYr-TD-3OZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="9Ln-QS-I6B" secondAttribute="bottom" id="iBi-G9-gh6"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="9Ln-QS-I6B" id="tKf-TH-ZuF"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="aMm-tG-ILS" id="4le-WY-lHV"/>
+                                    <outlet property="delegate" destination="aMm-tG-ILS" id="VU1-K2-ETu"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Va8-Pm-jqR" firstAttribute="leading" secondItem="XwE-VU-GZh" secondAttribute="leadingMargin" constant="-16" id="J1B-m9-gMy"/>
+                            <constraint firstItem="PoQ-ux-vft" firstAttribute="top" secondItem="Va8-Pm-jqR" secondAttribute="bottom" constant="10" id="S1x-Yb-o7T"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Va8-Pm-jqR" secondAttribute="trailing" constant="-16" id="Wje-xq-fh5"/>
+                            <constraint firstAttribute="centerX" secondItem="PoQ-ux-vft" secondAttribute="centerX" id="rfA-D9-3sW"/>
+                            <constraint firstItem="Va8-Pm-jqR" firstAttribute="top" secondItem="WBl-un-cf6" secondAttribute="bottom" id="zts-R5-FX8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Seleccion Butacas" id="QFf-2y-iPF"/>
+                    <connections>
+                        <outlet property="seatsView" destination="PoQ-ux-vft" id="zBl-Ld-psA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IsG-Qa-wTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2351" y="1546"/>
         </scene>
         <!--Detalle-->
         <scene sceneID="h8L-n2-YTf">
@@ -1417,7 +1498,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KfQ-bj-lgu"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5kS-aB-Zi6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Id-UK-j3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
