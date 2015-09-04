@@ -37,7 +37,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     var indexHorarioVuelta: Int? //guardo el indice del horario elegido
     var precioIda: String? //precio de ida
     var precioIdaVuelta: String? //precio de ida
-    
+    var cantidadPasajes: Int = 0 //cantidad de pasajes elegidos
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,53 +68,6 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     }
     
     
-    func obtenerCiudadesOrigen(){
-        self.loadImage.hidden =  false
-        
-        var userWS: String = "UsuarioLep" //paramatros
-        var passWS: String = "Lep1234"
-        var id_plataforma: Int = 2 
-        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:LocalidadesDesde id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma></n0:LocalidadesDesde></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
-        
-        var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
-        var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
-        var session = NSURLSession.sharedSession()
-        var err: NSError?
-        lobj_Request.HTTPMethod = "POST"
-        lobj_Request.HTTPBody = soapMessage.dataUsingEncoding(NSUTF8StringEncoding)
-        lobj_Request.addValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#LocalidadesDesde", forHTTPHeaderField: "SOAPAction") //aca cambio LocalidadesDesde por el nombre del ws que llamo
-        var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
-            var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-            var parser : String = strData as String
-            if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
-                if let rangeTo = parser.rangeOfString(",\"Cols") {
-                    var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
-                    datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
-                    //println(datos)
-                    var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
-                    var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    
-                    // Move to the UI thread
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.ciudadesOrigen = CiudadOrigen.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
-                        self.loadImage.hidden = true
-                    })
-
-
-                }
-            }
-        if error != nil{
-                println("Error: " + error.description)
-                self.loadImage.hidden = true
-
-            }
-            
-
-            
-        })
-        task.resume()
-    }
 
     @IBAction func SetIdaVuelta(sender: UISwitch) {
        //     lblFechaVuelta.enabled=sender.on
@@ -155,7 +108,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             }
         }
         //valido la cantidad de pasajes
-        if(lblCantidadPasajes.titleLabel?.text == "Cantidad de pasajes"){
+        if(cantidadPasajes == 0){
             error = true
             msgError.extend(", Cantidad de pasajes")
         }
@@ -168,12 +121,21 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         }else{
         obtenerPrecios(ciudadesOrigen![indexCiudadOrigen!].id!, ID_LocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!)
         obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: "20150906", esVuelta: false)
-            
         }
-
     }
     
-     @IBAction func ciudadOrigenElegida(index : Int){
+    
+    /*
+    --------
+    --------
+    --------
+    SECCION DONDE OTRAS VISTAS RETORNAN A ESTA
+    --------
+    --------
+    --------
+    */
+    
+     func ciudadOrigenElegida(index : Int){
         self.indexCiudadOrigen = index
         lblOrigen.setTitle(ciudadesOrigen![index].nombre!, forState: UIControlState.Normal)
         indexCiudadDestino = -1 // limpio con -1 para decir que no se eligio destino
@@ -181,41 +143,45 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         obtenerCiudadesDestino(ciudadesOrigen![index].id!)
     }
     
-    
-    
-    @IBAction func horarioIda(index : Int){
+    //guardo el indice del horario elegido
+    func horarioIda(index : Int){
         self.indexHorarioIda = index
         if chkIdaVuelta.on {
             obtenerHorarios(ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, IdLocalidadDestino: ciudadesOrigen![indexCiudadOrigen!].id!, Fecha: "20150906", esVuelta: true)
-        
         }
-
     }
     
-    @IBAction func horarioVuelta(index : Int){
+    //guardo el indice del horario elegido
+    func horarioVuelta(index : Int){
         self.indexHorarioVuelta = index
-        
     }
     
-    @IBAction func ciudadDestinoElegida(index : Int){
+    func ciudadDestinoElegida(index : Int){
         self.indexCiudadDestino = index
         lblDestino.setTitle(ciudadesDestino![index].hasta!, forState: UIControlState.Normal)
     }
     
+    func cantidadPasajesElegidos(index : Int){
+        self.cantidadPasajes = index
+        lblCantidadPasajes.setTitle(cantidadPasajes.description, forState: UIControlState.Normal)
+    }
+    
+    
+
+    //SECCION SEGUE
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let identifier = segue.identifier
-        if identifier == "CiudadesOrigen"{ //nombre del segue
+        if identifier == "CiudadesOrigen"{ //largo el segue para elegir la ciudad de origen
             let ciudadesOrigenViewController = segue.destinationViewController as! CiudadesOrigenViewController
             ciudadesOrigenViewController.ciudadesOrigen = self.ciudadesOrigen
             ciudadesOrigenViewController.busquedaViewController = self
         }
-        if identifier == "CiudadesDestino"{ //nombre del segue
+        if identifier == "CiudadesDestino"{ //largo el segue para elegir la ciudad de destino
             let ciudadesDestinoViewController = segue.destinationViewController as! CiudadesDestinoViewController
             ciudadesDestinoViewController.ciudadesDestino = self.ciudadesDestino
             ciudadesDestinoViewController.busquedaViewController = self
         }
-        
-        if identifier == "elegirHorarioIda"{ //nombre del segue
+        if identifier == "elegirHorarioIda"{ //largo el segue para elegir el horario de ida
             let horariosViewController = segue.destinationViewController as! HorarioIdaViewController
             horariosViewController.horarios = self.horariosIda
             horariosViewController.lblDesdeHastaTexto = "\(ciudadesDestino![indexCiudadDestino!].desde!) - \(ciudadesDestino![indexCiudadDestino!].hasta!)"
@@ -223,7 +189,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             horariosViewController.lblPrecioIdaVueltaTexto = self.precioIdaVuelta
             horariosViewController.busquedaViewController = self
         }
-        if identifier == "elegirHorarioVuelta"{ //nombre del segue
+        if identifier == "elegirHorarioVuelta"{ //largo el segue para elegir el horario de vuelta
             let horariosViewController = segue.destinationViewController as! HorarioVueltaViewController
             horariosViewController.horarios = self.horariosVuelta
             horariosViewController.lblDesdeHastaTexto = "\(ciudadesDestino![indexCiudadDestino!].hasta!) - \(ciudadesDestino![indexCiudadDestino!].desde!)"
@@ -231,18 +197,80 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             horariosViewController.lblPrecioIdaVueltaTexto = self.precioIdaVuelta
             horariosViewController.busquedaViewController = self
         }
-        
+        if identifier == "elegirCantidadPasajes"{ //largo el segue para elegir el horario de vuelta
+            let cantidadPasajesViewController = segue.destinationViewController as! PasajesTableViewController
+            cantidadPasajesViewController.busquedaViewController = self
+
+        }
+        //if identifier == "detallesReserva"{ //largo el segue para ver el detalle de reservas
+            //self.horariosIda![indexHorarioIda!] //aca tengo el horario de ida!!!!
+           // if chkIdaVuelta.on { //es ida y vuelta
+                //self.horariosVuelta![indexHorarioVuelta!] aca tengo el horario de vuelta!!!
+            //}
+       // }
     }
+    
+    
+    /*
+    ------
+    ------
+    ------
+    ------
+    ACA ARRANCA LA SECCION DE LAS LLAMADAS A LOS WEB SERVICES
+    ------
+    ------
+    ------
+    */
+    
+    //obtengo las ciudades de origen y las guardo en el arreglo
+    func obtenerCiudadesOrigen(){
+        self.loadImage.hidden =  false
+        var userWS: String = "UsuarioLep" //paramatros
+        var passWS: String = "Lep1234"
+        var id_plataforma: Int = 2
+        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:LocalidadesDesde id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma></n0:LocalidadesDesde></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
+        var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
+        var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
+        var session = NSURLSession.sharedSession()
+        var err: NSError?
+        lobj_Request.HTTPMethod = "POST"
+        lobj_Request.HTTPBody = soapMessage.dataUsingEncoding(NSUTF8StringEncoding)
+        lobj_Request.addValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#LocalidadesDesde", forHTTPHeaderField: "SOAPAction") //aca cambio LocalidadesDesde por el nombre del ws que llamo
+        var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
+            var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
+            var parser : String = strData as String
+            if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
+                if let rangeTo = parser.rangeOfString(",\"Cols") {
+                    var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
+                    datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
+                    //println(datos)
+                    var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
+                    var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
+                    
+                    // Move to the UI thread
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.ciudadesOrigen = CiudadOrigen.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
+                        self.loadImage.hidden = true
+                    })
+                }
+            }
+            if error != nil{
+                println("Error: " + error.description)
+                self.loadImage.hidden = true
+            }
+        })
+        task.resume()
+    }
+
     
     
     func obtenerCiudadesDestino(IdLocalidadOrigen: Int){
         self.loadImage.hidden = false
-
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
         var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:LocalidadesHasta id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><IdLocalidadOrigen i:type='d:int'>\(IdLocalidadOrigen)</IdLocalidadOrigen><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma></n0:LocalidadesHasta></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
-        
         var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
         var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
         var session = NSURLSession.sharedSession()
@@ -261,36 +289,29 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     //println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    
                     // Move to the UI thread
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.ciudadesDestino = CiudadDestino.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
                         self.loadImage.hidden = true
                     })
-
-
-                    
                 }
             }
             if error != nil{
                 println("Error: " + error.description)
                 self.loadImage.hidden = true
-
             }
-            
         })
         task.resume()
     }
     
     
+    //obtengo los horarios, esVuelta dice si se esta eligiendo la vuelta para saber que segue largar
     func obtenerHorarios(IdLocalidadOrigen: Int, IdLocalidadDestino: Int, Fecha: String, esVuelta: Bool){
         self.loadImage.hidden = false
-        
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
         var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:ListarHorarios id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><Fecha i:type='d:string'>\(Fecha)</Fecha><IdLocalidadOrigen i:type='d:int'>\(IdLocalidadOrigen)</IdLocalidadOrigen><IdLocalidadDestino i:type='d:int'>\(IdLocalidadDestino)</IdLocalidadDestino><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma></n0:ListarHorarios></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
-        
         var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
         var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
         var session = NSURLSession.sharedSession()
@@ -310,10 +331,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                    // println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.loadImage.hidden = true
-                        
                         if esVuelta {
                             self.horariosVuelta = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
                             self.performSegueWithIdentifier("elegirHorarioVuelta", sender: self);
@@ -322,7 +341,6 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                             self.performSegueWithIdentifier("elegirHorarioIda", sender: self);
                         }
                     })
-                    
                 }
             }
             if error != nil{
@@ -336,15 +354,13 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
 
 
     
-    
+    //calculo los precios y se guardan en las variables precioIda y precioIdaVuelta
     func obtenerPrecios(ID_LocalidadOrigen: Int, ID_LocalidadDestino: Int){
         self.loadImage.hidden = false
-
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
         var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:ObtenerTarifaTramo id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><ID_LocalidadOrigen i:type='d:int'>\(ID_LocalidadOrigen)</ID_LocalidadOrigen><ID_LocalidadDestino i:type='d:int'>\(ID_LocalidadDestino)</ID_LocalidadDestino><id_Plataforma i:type='d:int'>\(id_plataforma)</id_Plataforma></n0:ObtenerTarifaTramo></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
-        
         var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
         var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
         var session = NSURLSession.sharedSession()
@@ -357,7 +373,6 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
       //      println(strData)
             var parser : String = strData as String
-            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 var rangeFrom = parser.rangeOfString("TarIda:")
                 var rangeTo = parser.rangeOfString(" - Tar")
@@ -376,12 +391,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                         self.precioIdaVuelta?.extend(",00")
                     }
                 }
-
-
                 self.loadImage.hidden = true
-
             })
-
             if error != nil{
                 println("Error: " + error.description)
                 self.loadImage.hidden = true

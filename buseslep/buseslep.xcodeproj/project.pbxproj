@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F0F42BC1B965AB60075A10D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F42BB1B965AB60075A10D /* SWRevealViewController.m */; };
 		3F26F02B1B9242F000A56BBE /* CiudadesDestinoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F26F02A1B9242F000A56BBE /* CiudadesDestinoViewController.swift */; };
+		3F4C68D91B99CDEA001FBA9A /* PasajesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4C68D81B99CDEA001FBA9A /* PasajesTableViewController.swift */; };
 		3F583FB71B91DED700161918 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FB61B91DED700161918 /* AppDelegate.swift */; };
 		3F583FBA1B91DED700161918 /* buseslep.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FB81B91DED700161918 /* buseslep.xcdatamodeld */; };
 		3F583FBF1B91DED700161918 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F583FBD1B91DED700161918 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		3F0F42BA1B965AA90075A10D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		3F0F42BB1B965AB60075A10D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		3F26F02A1B9242F000A56BBE /* CiudadesDestinoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadesDestinoViewController.swift; sourceTree = "<group>"; };
+		3F4C68D81B99CDEA001FBA9A /* PasajesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasajesTableViewController.swift; sourceTree = "<group>"; };
 		3F583FB11B91DED700161918 /* buseslep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buseslep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F583FB51B91DED700161918 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F583FB61B91DED700161918 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				EDD1C0FF1B93F2A000B57510 /* RegisterViewController.swift */,
 				FBD63EB41B94A53A00FDB302 /* BackTableVC.swift */,
 				ED5B0FDF1B98B5AD0057B604 /* RecPassViewController.swift */,
+				3F4C68D81B99CDEA001FBA9A /* PasajesTableViewController.swift */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			files = (
 				3F5C34661B93462300FFB4C2 /* CeldaHorarioViewController.swift in Sources */,
 				3FFCB9801B9351DB00C043F6 /* HorarioViewController.swift in Sources */,
+				3F4C68D91B99CDEA001FBA9A /* PasajesTableViewController.swift in Sources */,
 				3F583FDD1B91DFB600161918 /* BusquedaViewController.swift in Sources */,
 				EDD1C1001B93F2A000B57510 /* RegisterViewController.swift in Sources */,
 				3F583FE31B922BA200161918 /* CiudadesOrigenViewController.swift in Sources */,
