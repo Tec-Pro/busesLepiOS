@@ -38,6 +38,15 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     var precioIda: String? //precio de ida
     var precioIdaVuelta: String? //precio de ida
     var cantidadPasajes: Int = 0 //cantidad de pasajes elegidos
+    
+    var diaIda: Int = 0
+    var mesIda:  Int = 0
+    var anioIda: Int = 0
+    
+    var diaVuelta: Int = 0
+    var mesVuelta:  Int = 0
+    var anioVuelta: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,16 +105,17 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             msgError.extend(", Ciudad de Destino")
         }
         //valido la fecha de ida
-        if(lblFechaIda.titleLabel?.text == "Fecha de ida"){
+        if(diaIda == 0){
             error = true
             msgError.extend(", Fecha de ida")
         }
         if (chkIdaVuelta.on){
             //valido la ciudad de origen
-            if(lblFechaVuelta.titleLabel?.text == "Fecha de vuelta"){
+            if(diaVuelta == 0 || !validateDate(diaIda, month: mesIda, year: anioIda, day2: diaVuelta, month2: mesVuelta, year2: anioVuelta)){
                 error = true
                 msgError.extend(", Fecha de vuelta")
             }
+            
         }
         //valido la cantidad de pasajes
         if(cantidadPasajes == 0){
@@ -114,7 +124,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         }
         
         //si error es true largo un aviso
-        if (!error){ //sacar lo negado
+        if (error){ //sacar lo negado
             var alert = UIAlertView( title: "Error!", message: msgError,delegate: nil,  cancelButtonTitle: "Entendido")
             alert.show()
             
@@ -166,7 +176,19 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         lblCantidadPasajes.setTitle(cantidadPasajes.description, forState: UIControlState.Normal)
     }
     
+    func fechaVuelta(day : Int, month : Int,year : Int){
+        self.diaVuelta = day
+        self.mesVuelta = month
+        self.anioVuelta = year
+        lblFechaVuelta.setTitle("\(day)/\(month)/\(year)", forState: UIControlState.Normal)
+    }
     
+    func fechaIda(day : Int, month : Int,year : Int){
+        self.diaIda = day
+        self.mesIda = month
+        self.anioIda = year
+        lblFechaIda.setTitle("\(day)/\(month)/\(year)", forState: UIControlState.Normal)
+    }
 
     //SECCION SEGUE
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -202,6 +224,18 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             cantidadPasajesViewController.busquedaViewController = self
 
         }
+        if identifier == "elegirFechaVuelta"{ //largo el segue para elegir fecha de vuelta
+            let calendarViewController = segue.destinationViewController as! CalendarViewController
+            calendarViewController.busquedaViewController = self
+            calendarViewController.esVuelta = true
+
+        }
+        if identifier == "elegirFechaIda"{ //largo el segue para elegir fecha de vuelta
+            let calendarViewController = segue.destinationViewController as! CalendarViewController
+            calendarViewController.busquedaViewController = self
+            calendarViewController.esVuelta = false
+        }
+        
         //if identifier == "detallesReserva"{ //largo el segue para ver el detalle de reservas
             //self.horariosIda![indexHorarioIda!] //aca tengo el horario de ida!!!!
            // if chkIdaVuelta.on { //es ida y vuelta
@@ -209,6 +243,41 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             //}
        // }
     }
+    
+    
+    
+    /*
+    -----
+    -----
+    ACA PONGO FUNCIONES AUXILIARES
+    -----
+    -----
+    */
+    
+    //retorna true si la primer fecha es menor que la segunda
+    func validateDate(day: Int, month: Int, year : Int,day2: Int, month2: Int, year2 : Int) -> Bool{
+        if(year < year2){
+            return true
+        }
+        if(year > year2){
+            return false
+        }else{
+            if (month < month2){
+                return true
+            }
+            if (month > month2){
+                return false
+            }else{
+                if (day <= day2){
+                    return true
+                }
+                else {
+                    return false
+                }
+            }
+        }
+    }
+    
     
     
     /*
