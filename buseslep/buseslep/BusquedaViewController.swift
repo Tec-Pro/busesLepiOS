@@ -73,7 +73,23 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if ciudadesOrigen == nil || ciudadesOrigen?.count==0{
             obtenerCiudadesOrigen()
         }
-
+    
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        let preferences = NSUserDefaults.standardUserDefaults()
+        
+        if preferences.objectForKey("login") == nil {
+            btnLogin.hidden = false
+        } else {
+            let login = preferences.integerForKey("login")
+            if login == 0{
+                btnLogin.hidden = false
+            }else{
+                btnLogin.hidden = true
+            }
+            
+        }
     }
     
     

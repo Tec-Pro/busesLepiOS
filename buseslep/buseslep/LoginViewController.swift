@@ -59,6 +59,18 @@ class LoginViewController: UIViewController{
                     // Move to the UI thread
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.load.hidden = true
+                        //guardo los datos del usuario en una configuracion
+                        let preferences = NSUserDefaults.standardUserDefaults()
+                        
+                        preferences.setValue(json.objectForKey("DNI"), forKey: "dni")
+                        preferences.setValue(json.objectForKey("Apellido"), forKey: "apellido")
+                        preferences.setValue(json.objectForKey("Nombre"), forKey: "nombre")
+                        preferences.setValue(json.objectForKey("Email"), forKey: "email")
+                        preferences.setInteger(1, forKey: "login")
+                        
+                        //  Save to disk
+                        let didSave = preferences.synchronize()
+                        
                         self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
