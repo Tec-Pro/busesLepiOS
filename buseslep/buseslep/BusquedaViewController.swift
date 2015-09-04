@@ -77,8 +77,10 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        let preferences = NSUserDefaults.standardUserDefaults()
         
+        let preferences = NSUserDefaults.standardUserDefaults()
+        preferences.setInteger(0, forKey: "login")
+        preferences.synchronize()
         if preferences.objectForKey("login") == nil {
             btnLogin.hidden = false
         } else {
@@ -88,8 +90,12 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             }else{
                 btnLogin.hidden = true
             }
-            
         }
+        println(preferences.objectForKey("login"))
+        println(preferences.objectForKey("nombre"))
+        println(preferences.objectForKey("apellido"))
+        println(preferences.objectForKey("email"))
+        println(preferences.objectForKey("dni"))
     }
     
     

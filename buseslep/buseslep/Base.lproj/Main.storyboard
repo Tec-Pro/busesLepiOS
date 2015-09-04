@@ -1046,7 +1046,14 @@
                                     <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="registrar:" destination="m1g-ae-6Q6" eventType="touchUpInside" id="VJr-xb-ubq"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zsv-Ff-XlS">
+                                <rect key="frame" x="290" y="290" width="37" height="37"/>
+                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1076,6 +1083,7 @@
                     <navigationItem key="navigationItem" title="Registro de Usuario" id="LP4-Qw-Xqi"/>
                     <connections>
                         <outlet property="btnRegistrar" destination="yLt-D0-w1H" id="u8D-mv-fNd"/>
+                        <outlet property="load" destination="Zsv-Ff-XlS" id="R8g-fB-Y7k"/>
                         <outlet property="txtApellido" destination="zvV-y9-qwK" id="Z95-t7-VPM"/>
                         <outlet property="txtDni" destination="lYs-Nh-icu" id="gbf-kQ-ctb"/>
                         <outlet property="txtMail" destination="5zp-oN-x6D" id="BMQ-WN-oM5"/>
