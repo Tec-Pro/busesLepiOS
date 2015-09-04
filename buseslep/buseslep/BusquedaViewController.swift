@@ -35,7 +35,9 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     var indexCiudadDestino: Int? //guardo el indice de la ciduad elegida, de las ciudades destino
     var indexHorarioIda: Int? //guardo el indice del horario elegido
     var indexHorarioVuelta: Int? //guardo el indice del horario elegido
-
+    var precioIda: String? //precio de ida
+    var precioIdaVuelta: String? //precio de ida
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -164,7 +166,9 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             alert.show()
             
         }else{
+        obtenerPrecios(ciudadesOrigen![indexCiudadOrigen!].id!, ID_LocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!)
         obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: "20150906", esVuelta: false)
+            
         }
 
     }
@@ -174,7 +178,6 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         lblOrigen.setTitle(ciudadesOrigen![index].nombre!, forState: UIControlState.Normal)
         indexCiudadDestino = -1 // limpio con -1 para decir que no se eligio destino
         lblDestino.setTitle("Ciudad de destino", forState: UIControlState.Normal)
-        
         obtenerCiudadesDestino(ciudadesOrigen![index].id!)
     }
     
@@ -215,13 +218,18 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if identifier == "elegirHorarioIda"{ //nombre del segue
             let horariosViewController = segue.destinationViewController as! HorarioIdaViewController
             horariosViewController.horarios = self.horariosIda
+            horariosViewController.lblDesdeHastaTexto = "\(ciudadesDestino![indexCiudadDestino!].desde!) - \(ciudadesDestino![indexCiudadDestino!].hasta!)"
+            horariosViewController.lblPrecioIdaTexto = self.precioIda
+            horariosViewController.lblPrecioIdaVueltaTexto = self.precioIdaVuelta
             horariosViewController.busquedaViewController = self
         }
         if identifier == "elegirHorarioVuelta"{ //nombre del segue
             let horariosViewController = segue.destinationViewController as! HorarioVueltaViewController
             horariosViewController.horarios = self.horariosVuelta
+            horariosViewController.lblDesdeHastaTexto = "\(ciudadesDestino![indexCiudadDestino!].hasta!) - \(ciudadesDestino![indexCiudadDestino!].desde!)"
+            horariosViewController.lblPrecioIdaTexto = self.precioIda
+            horariosViewController.lblPrecioIdaVueltaTexto = self.precioIdaVuelta
             horariosViewController.busquedaViewController = self
-            
         }
         
     }
@@ -277,7 +285,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     
     func obtenerHorarios(IdLocalidadOrigen: Int, IdLocalidadDestino: Int, Fecha: String, esVuelta: Bool){
         self.loadImage.hidden = false
-
+        
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
@@ -293,19 +301,19 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#ListarHorarios", forHTTPHeaderField: "SOAPAction") //aca cambio LocalidadesDesde por el nombre del ws que llamo
         var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
             var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-            println(strData)
+           // println(strData)
             var parser : String = strData as String
             if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
                 if let rangeTo = parser.rangeOfString(",\"Cols") {
                     var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
                     datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
-                    println(datos)
+                   // println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.loadImage.hidden = true
-
+                        
                         if esVuelta {
                             self.horariosVuelta = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
                             self.performSegueWithIdentifier("elegirHorarioVuelta", sender: self);
@@ -314,15 +322,72 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                             self.performSegueWithIdentifier("elegirHorarioIda", sender: self);
                         }
                     })
-
+                    
                 }
             }
             if error != nil{
                 println("Error: " + error.description)
                 self.loadImage.hidden = true
+                
+            }
+        })
+        task.resume()
+    }
 
+
+    
+    
+    func obtenerPrecios(ID_LocalidadOrigen: Int, ID_LocalidadDestino: Int){
+        self.loadImage.hidden = false
+
+        var userWS: String = "UsuarioLep" //paramatros
+        var passWS: String = "Lep1234"
+        var id_plataforma: Int = 2
+        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:ObtenerTarifaTramo id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><ID_LocalidadOrigen i:type='d:int'>\(ID_LocalidadOrigen)</ID_LocalidadOrigen><ID_LocalidadDestino i:type='d:int'>\(ID_LocalidadDestino)</ID_LocalidadDestino><id_Plataforma i:type='d:int'>\(id_plataforma)</id_Plataforma></n0:ObtenerTarifaTramo></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
+        
+        var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
+        var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
+        var session = NSURLSession.sharedSession()
+        var err: NSError?
+        lobj_Request.HTTPMethod = "POST"
+        lobj_Request.HTTPBody = soapMessage.dataUsingEncoding(NSUTF8StringEncoding)
+        lobj_Request.addValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#ObtenerTarifaTramo", forHTTPHeaderField: "SOAPAction") //aca cambio LocalidadesDesde por el nombre del ws que llamo
+        var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
+            var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
+      //      println(strData)
+            var parser : String = strData as String
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                var rangeFrom = parser.rangeOfString("TarIda:")
+                var rangeTo = parser.rangeOfString(" - Tar")
+                if (rangeFrom == nil){
+                    self.precioIda = "0,00"
+                    self.precioIdaVuelta = "0,00"
+                }else{
+                    self.precioIda = parser[rangeFrom!.endIndex..<rangeTo!.startIndex]
+                    rangeFrom = parser.rangeOfString("TarIdAVuelta:")
+                    rangeTo = parser.rangeOfString("</return>")
+                    self.precioIdaVuelta = parser[rangeFrom!.endIndex..<rangeTo!.startIndex]
+                    if((self.precioIda!.rangeOfString(",")) == nil){
+                        self.precioIda?.extend(",00")
+                    }
+                    if((self.precioIdaVuelta!.rangeOfString(",")) == nil){
+                        self.precioIdaVuelta?.extend(",00")
+                    }
+                }
+
+
+                self.loadImage.hidden = true
+
+            })
+
+            if error != nil{
+                println("Error: " + error.description)
+                self.loadImage.hidden = true
             }
         })
         task.resume()
     }
 }
+

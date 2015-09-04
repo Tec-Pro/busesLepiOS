@@ -137,6 +137,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="26" y="291" width="348" height="30"/>
                                 </variation>
+                                <connections>
+                                    <segue destination="3KG-x3-hyO" kind="show" id="B0M-xh-vfy"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="zpN-bF-dfn">
                                 <rect key="frame" x="544" y="292" width="30" height="30"/>
@@ -506,6 +509,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Horario ida" id="jkV-Df-5sY"/>
                     <connections>
+                        <outlet property="lblDesdeHasta" destination="u7z-Gc-c7g" id="QCc-vO-nw7"/>
+                        <outlet property="lblPrecioIda" destination="MY6-4d-zYW" id="UXj-FD-zIJ"/>
+                        <outlet property="lblPrecioIdaVuelta" destination="x5g-fH-rRx" id="W4d-do-Qv8"/>
                         <outlet property="tablaHorario" destination="tZO-oU-r98" id="wLa-Ui-pqF"/>
                     </connections>
                 </viewController>
@@ -1111,7 +1117,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="06:50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="56" translatesAutoresizingMaskIntoConstraints="NO" id="8I1-Y7-iAE">
                                                     <rect key="frame" x="8" y="50" width="56" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.17017886509999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="06:50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="75" translatesAutoresizingMaskIntoConstraints="NO" id="2pr-Mk-lOb">
@@ -1170,13 +1176,6 @@
                                     <outlet property="delegate" destination="L9W-Cv-XU2" id="s0n-fz-MXE"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rìo Cuarto - Còrdoba" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyg-o9-8GI">
-                                <rect key="frame" x="16" y="64" width="568" height="21"/>
-                                <color key="backgroundColor" red="0.63093828910000005" green="0.5998884176" blue="0.54763204099999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Ida $75.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZV-md-fhu">
                                 <rect key="frame" x="16" y="85" width="304" height="21"/>
                                 <color key="backgroundColor" red="0.49427872470000001" green="0.49376070820000001" blue="0.47196731920000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1187,6 +1186,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Ida y vuelta $141.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VU8-be-hBF">
                                 <rect key="frame" x="320" y="85" width="264" height="21"/>
                                 <color key="backgroundColor" red="0.49427872470000001" green="0.49376070820000001" blue="0.47196731920000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rìo Cuarto - Còrdoba" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyg-o9-8GI">
+                                <rect key="frame" x="16" y="64" width="568" height="21"/>
+                                <color key="backgroundColor" red="0.63093828910000005" green="0.5998884176" blue="0.54763204099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1210,12 +1216,110 @@
                     </view>
                     <navigationItem key="navigationItem" title="Horario vuelta" id="qdd-50-f1b"/>
                     <connections>
+                        <outlet property="lblDesdeHasta" destination="xyg-o9-8GI" id="gbO-P9-0Vt"/>
+                        <outlet property="lblPrecioIda" destination="mZV-md-fhu" id="7Dq-9j-aMX"/>
+                        <outlet property="lblPrecioIdaVuelta" destination="VU8-be-hBF" id="ipf-Sk-tVP"/>
                         <outlet property="tablaHorario" destination="VO9-kj-AJY" id="c47-p6-6NV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ji2-m1-E9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2776" y="-3"/>
+        </scene>
+        <!--Cantidad de pasajes-->
+        <scene sceneID="Kv3-3S-5io">
+            <objects>
+                <tableViewController id="3KG-x3-hyO" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9YT-A4-84x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection headerTitle="Section-1" id="zJH-r8-g3y">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Rv7-nW-DtC" style="IBUITableViewCellStyleDefault" id="hRb-Oa-GIB">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hRb-Oa-GIB" id="MT5-fa-cjT">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rv7-nW-DtC">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="HZa-tc-CQZ" style="IBUITableViewCellStyleDefault" id="Qs3-m2-IKn">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qs3-m2-IKn" id="s9R-bB-BGF">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HZa-tc-CQZ">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="PW6-PC-gp8" style="IBUITableViewCellStyleDefault" id="V7N-Ku-fTZ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V7N-Ku-fTZ" id="C0R-cD-Shu">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PW6-PC-gp8">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zhp-RU-JpY" style="IBUITableViewCellStyleDefault" id="NXq-sT-EB8">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NXq-sT-EB8" id="aDN-KO-lDJ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zhp-RU-JpY">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="igU-ol-m2h" style="IBUITableViewCellStyleDefault" id="lX1-zq-ZfJ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lX1-zq-ZfJ" id="fmt-4q-bLA">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="igU-ol-m2h">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="3KG-x3-hyO" id="GAY-qt-2fP"/>
+                            <outlet property="delegate" destination="3KG-x3-hyO" id="t0X-s3-qaA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cantidad de pasajes" id="mur-pQ-nu7"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nbl-o9-l01" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2569" y="830"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="x7q-Ho-avl">

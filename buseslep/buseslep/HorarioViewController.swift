@@ -12,14 +12,23 @@ class HorarioIdaViewController: UIViewController ,UITableViewDelegate, UITableVi
     
     @IBOutlet weak var tablaHorario: UITableView!
     
+    @IBOutlet weak var lblDesdeHasta: UILabel!
+    
+    @IBOutlet weak var lblPrecioIda: UILabel!
+    @IBOutlet weak var lblPrecioIdaVuelta: UILabel!
     
     var horarios: [Horario]?
     var indexHorarioElegido: Int?
     var busquedaViewController: BusquedaViewController?
-    
+    var lblDesdeHastaTexto: String?
+    var lblPrecioIdaTexto: String?
+    var lblPrecioIdaVueltaTexto: String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tablaHorario.reloadData()
+        self.lblDesdeHasta.text = lblDesdeHastaTexto
+        self.lblPrecioIda.text = "Ida $\(lblPrecioIdaTexto!) "
+        self.lblPrecioIdaVuelta.text = "Ida vuelta  $\(lblPrecioIdaVueltaTexto!) "
         tablaHorario.delegate =  self
     }
     
@@ -39,8 +48,8 @@ class HorarioIdaViewController: UIViewController ,UITableViewDelegate, UITableVi
         cell?.lblHoraLlega.text = horario.hora_llega
         cell?.lblEstado.text = horario.ServicioPrestado
         if(horario.ServicioPrestado == "disponible"){
-            cell?.lblHoraSale.textColor = UIColor(red:0.0, green:43.0,blue:255.0,alpha:1.0)
-            cell?.lblEstado.textColor = UIColor(red:0.0, green:43.0,blue:255.0,alpha:1.0)
+            cell?.lblHoraSale.textColor = UIColor.blueColor()
+            cell?.lblEstado.textColor = UIColor.blueColor()
         }else{
             cell?.lblHoraSale.textColor = UIColor(red:249.0, green:0.0,blue:8.0,alpha:1.0)
             cell?.lblEstado.textColor = UIColor(red:249.0, green:0.0,blue:8.0,alpha:1.0)
@@ -64,14 +73,22 @@ class HorarioVueltaViewController: UIViewController ,UITableViewDelegate{
     
     @IBOutlet weak var tablaHorario: UITableView!
     
-    
+    @IBOutlet weak var lblDesdeHasta: UILabel!
+    var lblPrecioIdaTexto: String?
+    var lblPrecioIdaVueltaTexto: String?
+    var lblDesdeHastaTexto: String?
+    @IBOutlet weak var lblPrecioIda: UILabel!
+    @IBOutlet weak var lblPrecioIdaVuelta: UILabel!
+
     var horarios: [Horario]?
     var indexHorarioElegido: Int?
     var busquedaViewController: BusquedaViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.lblDesdeHasta.text = lblDesdeHastaTexto
+        self.lblPrecioIda.text = "Ida $\(lblPrecioIdaTexto)"
+        self.lblPrecioIdaVuelta.text = "Ida $\(lblPrecioIdaVueltaTexto)"
         tablaHorario.delegate = self
         
    //     tablaHorario.reloadData()
@@ -94,8 +111,8 @@ class HorarioVueltaViewController: UIViewController ,UITableViewDelegate{
         cell?.lblHoraLlega.text = horario.hora_llega
         cell?.lblEstado.text = horario.ServicioPrestado
         if(horario.ServicioPrestado == "disponible"){
-            cell?.lblHoraSale.textColor = UIColor(red:0.0, green:43.0,blue:255.0,alpha:1.0)
-            cell?.lblEstado.textColor = UIColor(red:0.0, green:43.0,blue:255.0,alpha:1.0)
+            cell?.lblHoraSale.textColor = UIColor(red:0.0, green:0.0,blue:255.0,alpha:1.0)
+            cell?.lblEstado.textColor = UIColor(red:0.0, green:0.0,blue:255.0,alpha:1.0)
         }else{
             cell?.lblHoraSale.textColor = UIColor(red:249.0, green:0.0,blue:8.0,alpha:1.0)
             cell?.lblEstado.textColor = UIColor(red:249.0, green:0.0,blue:8.0,alpha:1.0)
