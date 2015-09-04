@@ -130,7 +130,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             
         }else{
         obtenerPrecios(ciudadesOrigen![indexCiudadOrigen!].id!, ID_LocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!)
-        obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: "20150906", esVuelta: false)
+        obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
         }
     }
     
@@ -157,7 +157,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     func horarioIda(index : Int){
         self.indexHorarioIda = index
         if chkIdaVuelta.on {
-            obtenerHorarios(ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, IdLocalidadDestino: ciudadesOrigen![indexCiudadOrigen!].id!, Fecha: "20150906", esVuelta: true)
+            obtenerHorarios(ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, IdLocalidadDestino: ciudadesOrigen![indexCiudadOrigen!].id!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: true)
         }
     }
     
@@ -278,7 +278,20 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         }
     }
     
-    
+    func convertirFecha(day: Int, month: Int, year:Int) -> String{
+        var result :String = year.description
+        if count(month.description) < 2{ // es el dia 1-9
+            result.extend("0\(month)")
+        }else{
+            result.extend("\(month)")
+        }
+        if count(day.description) < 2{ // es el dia 1-9
+            result.extend("0\(day)")
+        }else{
+            result.extend("\(day)")
+        }
+        return result
+    }
     
     /*
     ------
