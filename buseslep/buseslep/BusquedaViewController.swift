@@ -195,6 +195,10 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         let identifier = segue.identifier
         if identifier == "CiudadesOrigen"{ //largo el segue para elegir la ciudad de origen
             let ciudadesOrigenViewController = segue.destinationViewController as! CiudadesOrigenViewController
+            //si las ciudadesOrigen es vacio o null tengo que conectarme al ws
+            if ciudadesOrigen == nil || ciudadesOrigen?.count==0{
+                obtenerCiudadesOrigen()
+            }
             ciudadesOrigenViewController.ciudadesOrigen = self.ciudadesOrigen
             ciudadesOrigenViewController.busquedaViewController = self
         }
