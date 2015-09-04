@@ -21,8 +21,21 @@ class ReserveDetailsViewController: UIViewController{
     @IBOutlet var lblFechaVuelta: UILabel!
     @IBOutlet var lblHoraVuelta: UILabel!
     @IBOutlet var lblCantPasajesVuelta: UILabel!
+    @IBOutlet var lblTotal: UILabel!
+    @IBOutlet var lblButacaIdaText: UILabel!
+    @IBOutlet var lblButacaVueltaText: UILabel!
+    @IBOutlet var lblCantButacaIda: UILabel!
+    @IBOutlet var lblCantButacaVuelta: UILabel!
     @IBOutlet var borderView: UIView!
     @IBOutlet var loadIcon: UIActivityIndicatorView!
+    @IBOutlet var viewDestVuelta: UIView!
+    @IBOutlet var viewDestVuelta2: UIView!
+    @IBOutlet var viewLugarDeAbordoVuelta: UIView!
+    @IBOutlet var viewSalidaVuelta: UIView!
+    @IBOutlet var viewPlataformaVuelta: UIView!
+    @IBOutlet var viewCantPasajesVuelta: UIView!
+    @IBOutlet var viewGreyBar: UIView!
+    @IBOutlet var viewTotal: UIView!
     
     var dni: String = ""
     var IDEmpresaIda: Int = 0
@@ -37,6 +50,8 @@ class ReserveDetailsViewController: UIViewController{
     var IdLocalidadDesdeVuelta: Int = 0
     var IdlocalidadHastaVuelta: Int = 0
     var EsCompra: Int = 0
+    var EsIdaVuelta: Bool = true
+    var totalPrice: Float = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +59,37 @@ class ReserveDetailsViewController: UIViewController{
         btnReserve.layer.borderColor = UIColor.blackColor().CGColor
         btnReserve.layer.borderWidth = 0.5
         borderView.layer.borderWidth = 0.5
+        if(EsCompra == 0){
+            viewTotal.hidden = true
+            lblButacaIdaText.text = "Plataforma"
+            lblButacaVueltaText.text = "Plataforma"
+            lblCantButacaIda.text = ""
+            lblCantButacaVuelta.text = ""
+            btnReserve.setTitle("Reservar", forState: UIControlState.Normal)
+        }
+        else{
+            viewTotal.hidden = false
+            lblButacaIdaText.text = "Butaca"
+            lblButacaVueltaText.text = "Butaca"
+            lblCantButacaIda.text = "1"
+            lblCantButacaVuelta.text = "1"
+            btnReserve.setTitle("Confirmar", forState: UIControlState.Normal)
+        }
+            
+        if(!EsIdaVuelta){
+            IDEmpresaVuelta = 0
+            IDDestinoVuelta = 0
+            CodHorarioVuelta = 0
+            IdLocalidadDesdeVuelta = 0
+            IdlocalidadHastaVuelta = 0
+            viewDestVuelta.hidden = true
+            viewDestVuelta2.hidden = true
+            viewLugarDeAbordoVuelta.hidden = true
+            viewSalidaVuelta.hidden = true
+            viewPlataformaVuelta.hidden = true
+            viewCantPasajesVuelta.hidden = true
+            viewGreyBar.hidden = true
+        }
     }
     
     @IBAction func reservar(sender: UIButton) {
@@ -77,11 +123,15 @@ class ReserveDetailsViewController: UIViewController{
                 self.loadIcon.hidden = true
                 self.navigationController?.popViewControllerAnimated(true)
             } else {
-                if let rangeF = parser.rangeOfString("<return xsi:type=") { // con esto hago un subrango
+                if let rangeF = parser.rangeOfString("<return xsi:type=\"xsd:string\">") { // con esto hago un subrango
                     if let rangeT = parser.rangeOfString("</return>") {
-                        let alert = UIAlertView(title: "Atencion!", message: "Datos incorrectos", delegate:nil, cancelButtonTitle: "Aceptar")
-                        alert.show()
-                        self.loadIcon.hidden = true
+                        var resultCode: String = parser[rangeF.endIndex..<rangeT.startIndex]
+                        println(resultCode)
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            //  let alert = UIAlertView(title: "Atencion!", message: "Datos incorrectos", delegate:nil, cancelButtonTitle: "Aceptar")
+                            //alert.show()
+                            self.loadIcon.hidden = true
+                        })
                     }
                 }
             }
