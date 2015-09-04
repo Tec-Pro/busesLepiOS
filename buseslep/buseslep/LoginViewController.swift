@@ -46,6 +46,7 @@ class LoginViewController: UIViewController{
         lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#login", forHTTPHeaderField: "SOAPAction") //aca cambio login por el nombre del ws que llamo
         var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
             var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
+            println(strData)
             var parser : String = strData as String
             if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
                 if let rangeTo = parser.rangeOfString(",\"Cols") {
@@ -55,26 +56,40 @@ class LoginViewController: UIViewController{
                     println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
+                    // Move to the UI thread
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.load.hidden = true
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
                 }
-                self.load.hidden = true
-                self.navigationController?.popViewControllerAnimated(true)
+                
             } else {
                 if let rangeF = parser.rangeOfString("<return xsi:type=") { // con esto hago un subrango
                     if let rangeT = parser.rangeOfString("</return>") {
+                        
+                    }
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.load.hidden = true
                         let alert = UIAlertView(title: "Atencion!", message: "Datos incorrectos", delegate:nil, cancelButtonTitle: "Aceptar")
                         alert.show()
-                    }
+                    })
                 }
             }
             if error != nil{
-                println("Error: " + error.description)
+                // Move to the UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    var alert = UIAlertView( title: "Error!", message: "Ud. no posee conexión a internet; acceda a través de una red wi-fi o de su prestadora telefónica",delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                    self.load.hidden = true
+                })
+
             }
             
             
             
         })
         task.resume()
-        println("bueno chau")
+        
         
     }
 
