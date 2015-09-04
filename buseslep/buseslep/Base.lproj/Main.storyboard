@@ -1235,7 +1235,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
-                            <tableViewSection headerTitle="Section-1" id="zJH-r8-g3y">
+                            <tableViewSection headerTitle="" id="zJH-r8-g3y">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Rv7-nW-DtC" style="IBUITableViewCellStyleDefault" id="hRb-Oa-GIB">
                                         <autoresizingMask key="autoresizingMask"/>
