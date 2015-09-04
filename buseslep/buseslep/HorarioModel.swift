@@ -62,7 +62,19 @@ class Horario{
             var fecha_llega = FechaHoraLlegada.substringToIndex(FechaHoraLlegada.rangeOfString(" ")!.startIndex)
             var fecha_sale = fechahora.substringToIndex(fechahora.rangeOfString(" ")!.startIndex)
 
-            let horario = Horario(ServicioPrestado: ServicioPrestado, fecha_llega: fecha_llega, hora_llega: hora_llega, fecha_sale: fecha_sale, hora_sale: hora_sale, cod_horario: cod_horario, Id_Empresa: Id_Empresa, id_destino: id_destino)
+            //parseo la fecha para tener el formato 11/11/2015
+            var fechaLlegaArray = split(fecha_llega) {$0 == "-"}
+            var anioLlega: String = fechaLlegaArray[0]
+            var mesLlega: String = fechaLlegaArray[1]
+            var diaLlega: String = fechaLlegaArray[2]
+            
+            //parseo la fecha para tener el formato 11/11/2015
+            var fechaSaleArray = split(fecha_llega) {$0 == "-"}
+            var anioSale: String = fechaSaleArray[0]
+            var mesSale: String = fechaSaleArray[1]
+            var diaSale: String = fechaSaleArray[2]
+            
+            let horario = Horario(ServicioPrestado: ServicioPrestado, fecha_llega: "\(diaLlega)/\(mesLlega)/\(anioLlega)", hora_llega: hora_llega, fecha_sale: "\(diaSale)/\(mesSale)/\(anioSale)", hora_sale: hora_sale, cod_horario: cod_horario, Id_Empresa: Id_Empresa, id_destino: id_destino)
             horarios.append(horario)
             }
         )

@@ -338,8 +338,13 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                 }
             }
             if error != nil{
-                println("Error: " + error.description)
-                self.loadImage.hidden = true
+                // Move to the UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    var alert = UIAlertView( title: "Error!", message: "Ud. no posee conexión a internet; acceda a través de una red wi-fi o de su prestadora telefónica",delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                    self.ciudadesOrigen =  nil
+                    self.loadImage.hidden = true
+                })
             }
         })
         task.resume()
@@ -379,8 +384,13 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                 }
             }
             if error != nil{
-                println("Error: " + error.description)
-                self.loadImage.hidden = true
+                // Move to the UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    var alert = UIAlertView( title: "Error!", message: "Ud. no posee conexión a internet; acceda a través de una red wi-fi o de su prestadora telefónica",delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                    self.ciudadesDestino = nil
+                    self.loadImage.hidden = true
+                })
             }
         })
         task.resume()
@@ -426,9 +436,14 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                 }
             }
             if error != nil{
-                println("Error: " + error.description)
-                self.loadImage.hidden = true
-                
+                // Move to the UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    var alert = UIAlertView( title: "Error!", message: "Ud. no posee conexión a internet; acceda a través de una red wi-fi o de su prestadora telefónica",delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                    self.horariosVuelta = nil
+                    self.horariosIda = nil
+                    self.loadImage.hidden = true
+                })
             }
         })
         task.resume()
@@ -476,8 +491,14 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                 self.loadImage.hidden = true
             })
             if error != nil{
-                println("Error: " + error.description)
-                self.loadImage.hidden = true
+                // Move to the UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    var alert = UIAlertView( title: "Error!", message: "Ud. no posee conexión a internet; acceda a través de una red wi-fi o de su prestadora telefónica",delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                    self.precioIda = nil
+                    self.precioIdaVuelta = nil
+                    self.loadImage.hidden = true
+                })
             }
         })
         task.resume()
