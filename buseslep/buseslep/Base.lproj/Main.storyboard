@@ -673,7 +673,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IsG-Qa-wTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2351" y="1546"/>
+            <point key="canvasLocation" x="2802" y="1136"/>
         </scene>
         <!--Detalle-->
         <scene sceneID="h8L-n2-YTf">
@@ -1090,7 +1090,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fp-w2-uFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3002" y="1546"/>
+            <point key="canvasLocation" x="3609" y="352"/>
         </scene>
         <!--Registro de Usuario-->
         <scene sceneID="53p-We-9SQ">
@@ -1651,11 +1651,12 @@
                         <outlet property="lblSeparadorVuelta" destination="P2A-34-t9b" id="9Ml-b5-OlA"/>
                         <outlet property="viewIda" destination="qlM-17-HUF" id="nr6-VU-UlX"/>
                         <outlet property="viewVuelta" destination="gM0-ss-MoU" id="WoO-fy-24z"/>
+                        <segue destination="hYm-lC-fJc" kind="show" identifier="Reservar" id="lnc-Jg-l4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdi-aN-neR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2776" y="352"/>
+            <point key="canvasLocation" x="2802" y="358"/>
         </scene>
         <!--Cantidad de pasajes-->
         <scene sceneID="Kv3-3S-5io">
