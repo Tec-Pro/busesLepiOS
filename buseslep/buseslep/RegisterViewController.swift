@@ -65,14 +65,11 @@ class RegisterViewController: UIViewController{
                 lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#RegistrarUsuario", forHTTPHeaderField: "SOAPAction") //aca cambio login por el nombre del ws que llamo
                 var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
                     var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-                    println(strData)
                     var parser : String = strData as String
                     if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
                         if let rangeTo = parser.rangeOfString(",\"Cols") {
                             var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
                             datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
-                            println("parseado")
-                            println(datos)
                             var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                             var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -106,9 +103,6 @@ class RegisterViewController: UIViewController{
                             self.load.hidden = true
                         })
                     }
-                    
-                    
-                    
                 })
                 task.resume()
             } else {

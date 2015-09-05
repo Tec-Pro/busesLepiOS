@@ -46,7 +46,6 @@ class RecPassViewController: UIViewController{
             lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#RecuperarContrasena", forHTTPHeaderField: "SOAPAction") //aca cambio login por el nombre del ws que llamo
             var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
                 var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-                println(strData)
                 var parser : String = strData as String
                 //todo ok
                 if let rangeT = parser.rangeOfString(">1</return>") {

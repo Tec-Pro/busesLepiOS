@@ -75,21 +75,9 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         }
         
         let preferences = NSUserDefaults.standardUserDefaults()
-        println(preferences.integerForKey("login"))
-        println(preferences.objectForKey("nombre") as? String)
-        println(preferences.objectForKey("apellido") as? String)
-        println(preferences.objectForKey("email") as? String)
-        println(preferences.objectForKey("dni") as? String)
-        //me deslogueo cada vez que inicia la app
-        
+        //me deslogueo cada vez que inicia la app. SACAR ESTO CUANDO ESTE IMPLEMENTADO EL CERRAR SESION
         preferences.setInteger(0, forKey: "login")
         preferences.synchronize()
-        
-        println(preferences.integerForKey("login"))
-        println(preferences.objectForKey("nombre") as? String)
-        println(preferences.objectForKey("apellido") as? String)
-        println(preferences.objectForKey("email") as? String)
-        println(preferences.objectForKey("dni") as? String)
     
     }
     override func viewDidAppear(animated: Bool) {

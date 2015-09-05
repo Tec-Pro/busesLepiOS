@@ -51,31 +51,28 @@ class LoginViewController: UIViewController{
             lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#login", forHTTPHeaderField: "SOAPAction") //aca cambio login por el nombre del ws que llamo
             var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
                 var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-                println(strData)
                 var parser : String = strData as String
                 if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
                     if let rangeTo = parser.rangeOfString(",\"Cols") {
                         var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
                         datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
-                        println("parseado")
-                        println(datos)
                         var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                         var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                         // Move to the UI thread
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.load.hidden = true
                             //guardo los datos del usuario en una configuracion
-                            let preferences = NSUserDefaults.standardUserDefaults()
-                            println("dniiiiiiiiii")
-                            println(json.objectForKey("DNI"))
-                            preferences.setValue(json.objectForKey("DNI"), forKey: "dni")
-                            preferences.setValue(json.objectForKey("Apellido"), forKey: "apellido")
-                            preferences.setValue(json.objectForKey("Nombre"), forKey: "nombre")
-                            preferences.setValue(json.objectForKey("Email"), forKey: "email")
-                            preferences.setInteger(1, forKey: "login")
-                            
-                            preferences.synchronize()
-                            
+                            let list = json["Data"] as? NSArray // obtengo el Data del json que retornan, dentro estan los datos
+                            list?.enumerateObjectsWithOptions(NSEnumerationOptions.allZeros, usingBlock:{ (item, index, stop) -> Void in
+                                let preferences = NSUserDefaults.standardUserDefaults()
+                                preferences.setInteger(item["DNI"] as! Int, forKey: "dni")
+                                preferences.setValue(item["Apellido"] as! String, forKey: "apellido")
+                                preferences.setValue(item["Nombre"] as! String, forKey: "nombre")
+                                preferences.setValue(item["Email"] as! String, forKey: "email")
+                                preferences.setInteger(1, forKey: "login")
+                                
+                                preferences.synchronize()
+                            })
                             self.navigationController?.popViewControllerAnimated(true)
                         })
                     }
@@ -109,5 +106,5 @@ class LoginViewController: UIViewController{
             alert.show()
         }
     }
-
+    
 }
