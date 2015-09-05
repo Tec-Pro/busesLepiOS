@@ -94,11 +94,26 @@ class ResumenViewController: UIViewController {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "Reservar"){
+            let reserveDetailsViewController = segue.destinationViewController as! ReserveDetailsViewController
+            reserveDetailsViewController.EsCompra = 0;
+            reserveDetailsViewController.EsIdaVuelta = self.esIdaVuelta!
+            reserveDetailsViewController.CantidadIda = self.cantidadPasajes!
+            reserveDetailsViewController.horarioIda = self.horarioIda!
+            if self.esIdaVuelta! {
+                reserveDetailsViewController.horarioVuelta = self.horarioVuelta!
+            }
+            reserveDetailsViewController.ciudadOrigen = self.ciudadOrigen!
+            reserveDetailsViewController.ciudadDestino = self.ciudadDestino!
+        }
+    }
+    
     @IBAction func clickComprar(sender: UIButton) {
         
     }
     
     @IBAction func clickReservar(sender: UIButton) {
-        
+         self.performSegueWithIdentifier("Reservar", sender: self);
     }
 }

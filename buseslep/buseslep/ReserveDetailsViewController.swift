@@ -38,6 +38,12 @@ class ReserveDetailsViewController: UIViewController{
     @IBOutlet var viewTotal: UIView!
     
     var dni: String = ""
+    var horarioIda : Horario?
+    var horarioVuelta : Horario?
+    
+    var ciudadOrigen :  CiudadOrigen?
+    var ciudadDestino : CiudadDestino?
+
     var IDEmpresaIda: Int = 0
     var IDDestinoIda: Int = 0
     var CodHorarioIda: Int = 0
@@ -56,7 +62,8 @@ class ReserveDetailsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         let preferences = NSUserDefaults.standardUserDefaults()
-        dni = preferences.objectForKey("dni") as! String
+        //dni = preferences.objectForKey("dni") as! String
+        dni = "37128116"
         loadIcon.hidden = true
         btnReserve.layer.borderColor = UIColor.blackColor().CGColor
         btnReserve.layer.borderWidth = 0.5
@@ -77,8 +84,26 @@ class ReserveDetailsViewController: UIViewController{
             lblCantButacaVuelta.text = "1"
             btnReserve.setTitle("Confirmar", forState: UIControlState.Normal)
         }
-            
+        lblCiudadOrigen.text = self.ciudadOrigen!.nombre!
+        lblCiudadDestino.text = self.ciudadDestino!.hasta!
+        lblHora.text = self.horarioIda!.hora_sale!
+        lblFecha.text = self.horarioIda!.fecha_sale!
+        lblCantPasajes.text = String(self.CantidadIda)
+        IDEmpresaIda = horarioIda!.Id_Empresa!
+        IdLocalidadDesdeIda = self.ciudadDestino!.id_localidad_origen!
+        IdlocalidadHastaIda = self.ciudadDestino!.id_localidad_destino!
+        IdLocalidadDesdeVuelta = self.ciudadDestino!.id_localidad_destino!
+        IdlocalidadHastaVuelta = self.ciudadDestino!.id_localidad_origen!
+        IDDestinoIda = self.horarioIda!.id_destino!
+        
+        CodHorarioIda = horarioIda!.cod_horario!
+        if horarioVuelta != nil{
+            IDEmpresaVuelta = horarioVuelta!.Id_Empresa!
+            CodHorarioVuelta = horarioVuelta!.cod_horario!
+            IDDestinoVuelta = self.horarioVuelta!.id_destino!
+        }
         if(!EsIdaVuelta){
+            println("no es ida vuelta")
             IDEmpresaVuelta = 0
             IDDestinoVuelta = 0
             CodHorarioVuelta = 0
@@ -130,8 +155,10 @@ class ReserveDetailsViewController: UIViewController{
                         var resultCode: String = parser[rangeF.endIndex..<rangeT.startIndex]
                         println(resultCode)
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            //  let alert = UIAlertView(title: "Atencion!", message: "Datos incorrectos", delegate:nil, cancelButtonTitle: "Aceptar")
-                            //alert.show()
+                            if resultCode != "0"{
+                              let alert = UIAlertView(title: "Atencion!", message: "Error al realizar la reserva", delegate:nil, cancelButtonTitle: "Aceptar")
+                              alert.show()
+                            }
                             self.loadIcon.hidden = true
                         })
                     }
