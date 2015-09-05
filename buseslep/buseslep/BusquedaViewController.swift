@@ -47,6 +47,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     var mesVuelta:  Int = 0
     var anioVuelta: Int = 0
     
+    var dniLoggeado: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,11 +88,14 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         let preferences = NSUserDefaults.standardUserDefaults()
         if preferences.objectForKey("login") == nil {
             btnLogin.hidden = false
+            self.dniLoggeado = nil
         } else {
             let login = preferences.integerForKey("login")
             if login == 0{
                 btnLogin.hidden = false
             }else{
+                self.dniLoggeado = preferences.integerForKey("dni")
+
                 btnLogin.hidden = true
             }
         }
@@ -443,7 +448,11 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
-        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:ListarHorarios id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><Fecha i:type='d:string'>\(Fecha)</Fecha><IdLocalidadOrigen i:type='d:int'>\(IdLocalidadOrigen)</IdLocalidadOrigen><IdLocalidadDestino i:type='d:int'>\(IdLocalidadDestino)</IdLocalidadDestino><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma></n0:ListarHorarios></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
+        var auxDni : String = "" // para usarlo si el dni esta logeado o no
+        if dniLoggeado != nil {
+            auxDni = "<DNI i:type='d:int'>\(dniLoggeado!)</DNI>"
+        }
+        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:ListarHorarios id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS>\(auxDni)<Fecha i:type='d:string'>\(Fecha)</Fecha><IdLocalidadOrigen i:type='d:int'>\(IdLocalidadOrigen)</IdLocalidadOrigen><IdLocalidadDestino i:type='d:int'>\(IdLocalidadDestino)</IdLocalidadDestino><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma></n0:ListarHorarios></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
         var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
         var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
         var session = NSURLSession.sharedSession()
@@ -454,7 +463,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#ListarHorarios", forHTTPHeaderField: "SOAPAction") //aca cambio LocalidadesDesde por el nombre del ws que llamo
         var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
             var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-           // println(strData)
+            println(strData)
             var parser : String = strData as String
             if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
                 if let rangeTo = parser.rangeOfString(",\"Cols") {
