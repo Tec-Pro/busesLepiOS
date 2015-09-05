@@ -55,6 +55,8 @@ class ReserveDetailsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let preferences = NSUserDefaults.standardUserDefaults()
+        dni = preferences.objectForKey("dni") as! String
         loadIcon.hidden = true
         btnReserve.layer.borderColor = UIColor.blackColor().CGColor
         btnReserve.layer.borderWidth = 0.5
