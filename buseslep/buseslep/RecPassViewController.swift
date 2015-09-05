@@ -12,9 +12,12 @@ class RecPassViewController: UIViewController{
     
     @IBOutlet weak var txtDni: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var btnRecuperar: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnRecuperar.layer.borderColor = UIColor.blackColor().CGColor
+        btnRecuperar.layer.borderWidth = 0.5
     }
     @IBAction func recuperar(sender: AnyObject) {
         //self.load.hidden = false

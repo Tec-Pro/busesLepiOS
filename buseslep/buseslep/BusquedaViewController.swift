@@ -73,15 +73,17 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if ciudadesOrigen == nil || ciudadesOrigen?.count==0{
             obtenerCiudadesOrigen()
         }
+        
+        //me deslogueo cada vez que inicia la app
+        let preferences = NSUserDefaults.standardUserDefaults()
+        preferences.setInteger(0, forKey: "login")
+        preferences.synchronize()
     
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
-        //Descomentar lineas para cerrar session hasta que se implemente el cerrar session posta
         let preferences = NSUserDefaults.standardUserDefaults()
-        //preferences.setInteger(0, forKey: "login")
-        //preferences.synchronize()
         if preferences.objectForKey("login") == nil {
             btnLogin.hidden = false
         } else {

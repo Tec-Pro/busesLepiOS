@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -573,6 +573,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Recuperar contraseña" id="7rg-Tf-d6r"/>
                     <connections>
+                        <outlet property="btnRecuperar" destination="xvp-q3-Y8J" id="Ipj-Y6-Kzz"/>
                         <outlet property="txtDni" destination="XuT-CO-kcY" id="K1N-f6-B41"/>
                         <outlet property="txtEmail" destination="55k-bN-JOC" id="fyA-Of-Exc"/>
                     </connections>
@@ -1131,8 +1132,12 @@
                                     <action selector="registrar:" destination="m1g-ae-6Q6" eventType="touchUpInside" id="VJr-xb-ubq"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zsv-Ff-XlS">
-                                <rect key="frame" x="290" y="290" width="37" height="37"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zsv-Ff-XlS">
+                                <rect key="frame" x="281" y="292" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="0U7-5H-fCC"/>
+                                    <constraint firstAttribute="width" constant="37" id="Bvo-yc-7IZ"/>
+                                </constraints>
                                 <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -1148,6 +1153,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="5zp-oN-x6D" secondAttribute="trailing" constant="10" id="IHS-O2-hop"/>
                             <constraint firstItem="5zp-oN-x6D" firstAttribute="top" secondItem="lYs-Nh-icu" secondAttribute="bottom" constant="20" id="KRP-Bf-UTF"/>
                             <constraint firstItem="zvV-y9-qwK" firstAttribute="leading" secondItem="9G9-Bg-3aQ" secondAttribute="leadingMargin" constant="10" id="N6X-GO-LnJ"/>
+                            <constraint firstAttribute="centerX" secondItem="Zsv-Ff-XlS" secondAttribute="centerX" id="Nhd-3Z-tFo"/>
                             <constraint firstItem="yLt-D0-w1H" firstAttribute="top" secondItem="5Ie-sR-2uN" secondAttribute="bottom" constant="30" id="QHG-2a-fma"/>
                             <constraint firstItem="zvV-y9-qwK" firstAttribute="top" secondItem="SrF-Ka-EHG" secondAttribute="bottom" constant="20" id="V7F-i5-STG"/>
                             <constraint firstItem="lYs-Nh-icu" firstAttribute="top" secondItem="zvV-y9-qwK" secondAttribute="bottom" constant="20" id="YTk-gC-s5m"/>

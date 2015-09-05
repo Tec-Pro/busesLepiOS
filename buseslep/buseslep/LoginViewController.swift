@@ -28,7 +28,7 @@ class LoginViewController: UIViewController{
     }
     
     func dataOk()->Bool{
-        return (count(txtDni.text) > 1 && count(txtPass.text) > 1)
+        return (count(txtDni.text) >= 1 && count(txtPass.text) >= 1)
     }
     
     @IBAction func ingresar(sender: UIButton) {
