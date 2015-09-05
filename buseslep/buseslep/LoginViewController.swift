@@ -66,15 +66,15 @@ class LoginViewController: UIViewController{
                             self.load.hidden = true
                             //guardo los datos del usuario en una configuracion
                             let preferences = NSUserDefaults.standardUserDefaults()
-                            
+                            println("dniiiiiiiiii")
+                            println(json.objectForKey("DNI"))
                             preferences.setValue(json.objectForKey("DNI"), forKey: "dni")
                             preferences.setValue(json.objectForKey("Apellido"), forKey: "apellido")
                             preferences.setValue(json.objectForKey("Nombre"), forKey: "nombre")
                             preferences.setValue(json.objectForKey("Email"), forKey: "email")
                             preferences.setInteger(1, forKey: "login")
                             
-                            //  Save to disk
-                            let didSave = preferences.synchronize()
+                            preferences.synchronize()
                             
                             self.navigationController?.popViewControllerAnimated(true)
                         })

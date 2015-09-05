@@ -557,6 +557,14 @@
                                     <action selector="recuperar:" destination="mMe-vK-FVX" eventType="touchUpInside" id="H4I-SZ-gfz"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kY4-yX-ktY">
+                                <rect key="frame" x="282" y="290" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="Adu-Re-ZbP"/>
+                                    <constraint firstAttribute="width" constant="37" id="WUe-WH-198"/>
+                                </constraints>
+                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -568,12 +576,14 @@
                             <constraint firstItem="xvp-q3-Y8J" firstAttribute="leading" secondItem="W8g-VN-M3d" secondAttribute="leadingMargin" constant="10" id="Yuf-7f-zOq"/>
                             <constraint firstItem="55k-bN-JOC" firstAttribute="top" secondItem="XuT-CO-kcY" secondAttribute="bottom" constant="30" id="ZGy-g6-7XD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xvp-q3-Y8J" secondAttribute="trailing" constant="10" id="mmJ-Zh-rMY"/>
+                            <constraint firstAttribute="centerX" secondItem="kY4-yX-ktY" secondAttribute="centerX" id="og6-m8-eoL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="55k-bN-JOC" secondAttribute="trailing" constant="10" id="yut-KQ-A5y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Recuperar contraseña" id="7rg-Tf-d6r"/>
                     <connections>
                         <outlet property="btnRecuperar" destination="xvp-q3-Y8J" id="Ipj-Y6-Kzz"/>
+                        <outlet property="load" destination="kY4-yX-ktY" id="qr0-Z8-NME"/>
                         <outlet property="txtDni" destination="XuT-CO-kcY" id="K1N-f6-B41"/>
                         <outlet property="txtEmail" destination="55k-bN-JOC" id="fyA-Of-Exc"/>
                     </connections>
@@ -1135,8 +1145,8 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Zsv-Ff-XlS">
                                 <rect key="frame" x="281" y="292" width="37" height="37"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="0U7-5H-fCC"/>
-                                    <constraint firstAttribute="width" constant="37" id="Bvo-yc-7IZ"/>
+                                    <constraint firstAttribute="width" constant="37" id="5FY-Na-tvv"/>
+                                    <constraint firstAttribute="height" constant="37" id="Wvb-T3-IXz"/>
                                 </constraints>
                                 <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -1153,9 +1163,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="5zp-oN-x6D" secondAttribute="trailing" constant="10" id="IHS-O2-hop"/>
                             <constraint firstItem="5zp-oN-x6D" firstAttribute="top" secondItem="lYs-Nh-icu" secondAttribute="bottom" constant="20" id="KRP-Bf-UTF"/>
                             <constraint firstItem="zvV-y9-qwK" firstAttribute="leading" secondItem="9G9-Bg-3aQ" secondAttribute="leadingMargin" constant="10" id="N6X-GO-LnJ"/>
-                            <constraint firstAttribute="centerX" secondItem="Zsv-Ff-XlS" secondAttribute="centerX" id="Nhd-3Z-tFo"/>
                             <constraint firstItem="yLt-D0-w1H" firstAttribute="top" secondItem="5Ie-sR-2uN" secondAttribute="bottom" constant="30" id="QHG-2a-fma"/>
                             <constraint firstItem="zvV-y9-qwK" firstAttribute="top" secondItem="SrF-Ka-EHG" secondAttribute="bottom" constant="20" id="V7F-i5-STG"/>
+                            <constraint firstAttribute="centerX" secondItem="Zsv-Ff-XlS" secondAttribute="centerX" id="YKK-Y6-7Ck"/>
                             <constraint firstItem="lYs-Nh-icu" firstAttribute="top" secondItem="zvV-y9-qwK" secondAttribute="bottom" constant="20" id="YTk-gC-s5m"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jjH-Az-Lfm" secondAttribute="trailing" constant="10" id="ZDR-zJ-vL3"/>
                             <constraint firstItem="5zp-oN-x6D" firstAttribute="leading" secondItem="9G9-Bg-3aQ" secondAttribute="leadingMargin" constant="10" id="cxq-co-QER"/>

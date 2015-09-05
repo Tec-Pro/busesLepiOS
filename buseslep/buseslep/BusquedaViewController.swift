@@ -74,10 +74,22 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             obtenerCiudadesOrigen()
         }
         
-        //me deslogueo cada vez que inicia la app
         let preferences = NSUserDefaults.standardUserDefaults()
+        println(preferences.integerForKey("login"))
+        println(preferences.objectForKey("nombre") as? String)
+        println(preferences.objectForKey("apellido") as? String)
+        println(preferences.objectForKey("email") as? String)
+        println(preferences.objectForKey("dni") as? String)
+        //me deslogueo cada vez que inicia la app
+        
         preferences.setInteger(0, forKey: "login")
         preferences.synchronize()
+        
+        println(preferences.integerForKey("login"))
+        println(preferences.objectForKey("nombre") as? String)
+        println(preferences.objectForKey("apellido") as? String)
+        println(preferences.objectForKey("email") as? String)
+        println(preferences.objectForKey("dni") as? String)
     
     }
     override func viewDidAppear(animated: Bool) {
@@ -94,11 +106,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                 btnLogin.hidden = true
             }
         }
-        println(preferences.objectForKey("login"))
-        println(preferences.objectForKey("nombre"))
-        println(preferences.objectForKey("apellido"))
-        println(preferences.objectForKey("email"))
-        println(preferences.objectForKey("dni"))
+        
     }
     
     
