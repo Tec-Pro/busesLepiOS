@@ -78,9 +78,10 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         
+        //Descomentar lineas para cerrar session hasta que se implemente el cerrar session posta
         let preferences = NSUserDefaults.standardUserDefaults()
-        preferences.setInteger(0, forKey: "login")
-        preferences.synchronize()
+        //preferences.setInteger(0, forKey: "login")
+        //preferences.synchronize()
         if preferences.objectForKey("login") == nil {
             btnLogin.hidden = false
         } else {
