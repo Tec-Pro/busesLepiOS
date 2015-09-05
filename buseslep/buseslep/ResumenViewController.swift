@@ -30,6 +30,8 @@ class ResumenViewController: UIViewController {
     @IBOutlet weak var viewIda: UIView!
     @IBOutlet weak var lblSeparadorIda: UILabel!
     @IBOutlet weak var lblSeparadorVuelta: UILabel!
+    @IBOutlet weak var lblCantidadPasajes: UILabel!
+    @IBOutlet weak var lblDescripcionCantidadPasajes: UILabel!
     
     var horarioIda : Horario?
     var horarioVuelta : Horario?
@@ -60,14 +62,18 @@ class ResumenViewController: UIViewController {
         viewIda.layer.borderWidth = 0.5
         viewVuelta.layer.borderColor = UIColor.blackColor().CGColor
         viewVuelta.layer.borderWidth = 0.5
-        
-        lblCiudadesIda.text = "\(ciudadDestino!.desde!) - \(ciudadDestino!.hasta!)"
+        lblCantidadPasajes.layer.borderColor = UIColor.blackColor().CGColor
+        lblCantidadPasajes.layer.borderWidth = 0.5
+        lblDescripcionCantidadPasajes.layer.borderColor = UIColor.blackColor().CGColor
+        lblDescripcionCantidadPasajes.layer.borderWidth = 0.5
+        lblCiudadesIda.text = "\(ciudadDestino!.desde!)-\(ciudadDestino!.hasta!)"
         lblFechaSaleIda.text = horarioIda?.fecha_sale
         lblHoraSaleIda.text = horarioIda?.hora_sale
         lblFechaLlegaIda.text = horarioIda?.fecha_llega
         lblHoraLlegaIda.text = horarioIda?.hora_llega
+        lblCantidadPasajes.text = "\(cantidadPasajes!)"
         if esIdaVuelta! {
-            lblCiudadesIdaVuelta.text = "\(ciudadDestino!.hasta!) - \(ciudadDestino!.desde!)"
+            lblCiudadesIdaVuelta.text = "\(ciudadDestino!.hasta!)-\(ciudadDestino!.desde!)"
             lblFechaSaleVuelta.text = horarioVuelta?.fecha_sale
             lblHoraSaleVuelta.text = horarioVuelta?.hora_sale
             lblFechaLlegaVuelta.text = horarioVuelta?.fecha_llega
