@@ -180,11 +180,16 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if chkIdaVuelta.on {
             obtenerHorarios(ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, IdLocalidadDestino: ciudadesOrigen![indexCiudadOrigen!].id!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: true)
         }
+        else{// si no es vuelta largo para elegir reservar o comprar
+            self.performSegueWithIdentifier("elegirReservaCompra", sender: self);
+        }
     }
     
     //guardo el indice del horario elegido
     func horarioVuelta(index : Int){
         self.indexHorarioVuelta = index
+        self.performSegueWithIdentifier("elegirReservaCompra", sender: self);
+
     }
     
     func ciudadDestinoElegida(index : Int){
@@ -261,12 +266,22 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             calendarViewController.esVuelta = false
         }
         
-        //if identifier == "detallesReserva"{ //largo el segue para ver el detalle de reservas
-            //self.horariosIda![indexHorarioIda!] //aca tengo el horario de ida!!!!
-           // if chkIdaVuelta.on { //es ida y vuelta
-                //self.horariosVuelta![indexHorarioVuelta!] aca tengo el horario de vuelta!!!
-            //}
-       // }
+        if identifier == "elegirReservaCompra"{ //largo el segue para ver el detalle de reservas
+            let resumenViewController = segue.destinationViewController as! ResumenViewController
+            resumenViewController.horarioIda = self.horariosIda![indexHorarioIda!]
+            resumenViewController.precioIda = self.precioIda
+            resumenViewController.precioIdaVuelta = self.precioIdaVuelta
+            resumenViewController.ciudadOrigen = self.ciudadesOrigen![indexCiudadOrigen!]
+            resumenViewController.ciudadDestino = self.ciudadesDestino![indexCiudadDestino!]
+            resumenViewController.cantidadPasajes = self.cantidadPasajes
+            if chkIdaVuelta.on { //es ida y vuelta
+                resumenViewController.horarioVuelta = self.horariosVuelta![indexHorarioVuelta!]
+                resumenViewController.esIdaVuelta = true
+            }
+            else{
+                resumenViewController.esIdaVuelta = false
+            }
+        }
     }
     
     

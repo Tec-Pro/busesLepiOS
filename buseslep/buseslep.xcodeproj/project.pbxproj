@@ -46,6 +46,7 @@
 		3F583FDD1B91DFB600161918 /* BusquedaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */; };
 		3F583FE11B91FDF300161918 /* CiudadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FE01B91FDF300161918 /* CiudadModel.swift */; };
 		3F583FE31B922BA200161918 /* CiudadesOrigenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F583FE21B922BA200161918 /* CiudadesOrigenViewController.swift */; };
+		3F58E7B01B9B374F00858739 /* ResumenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58E7AF1B9B374F00858739 /* ResumenViewController.swift */; };
 		3F5C34661B93462300FFB4C2 /* CeldaHorarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C34651B93462300FFB4C2 /* CeldaHorarioViewController.swift */; };
 		3FFCB9801B9351DB00C043F6 /* HorarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */; };
 		3FFCB9821B93548D00C043F6 /* HorarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB9811B93548D00C043F6 /* HorarioModel.swift */; };
@@ -111,6 +112,7 @@
 		3F583FDC1B91DFB600161918 /* BusquedaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusquedaViewController.swift; sourceTree = "<group>"; };
 		3F583FE01B91FDF300161918 /* CiudadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadModel.swift; sourceTree = "<group>"; };
 		3F583FE21B922BA200161918 /* CiudadesOrigenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CiudadesOrigenViewController.swift; sourceTree = "<group>"; };
+		3F58E7AF1B9B374F00858739 /* ResumenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumenViewController.swift; sourceTree = "<group>"; };
 		3F5C34651B93462300FFB4C2 /* CeldaHorarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeldaHorarioViewController.swift; sourceTree = "<group>"; };
 		3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorarioViewController.swift; sourceTree = "<group>"; };
 		3FFCB9811B93548D00C043F6 /* HorarioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorarioModel.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				ED5B0FDF1B98B5AD0057B604 /* RecPassViewController.swift */,
 				3F4C68D81B99CDEA001FBA9A /* PasajesTableViewController.swift */,
 				3F4C690F1B99EE07001FBA9A /* CalendarViewController.swift */,
+				3F58E7AF1B9B374F00858739 /* ResumenViewController.swift */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				3F583FB71B91DED700161918 /* AppDelegate.swift in Sources */,
 				3F4C68F81B99EB6C001FBA9A /* CVCalendarManager.swift in Sources */,
 				3F4C68F51B99EB6C001FBA9A /* CVCalendarContentViewController.swift in Sources */,
+				3F58E7B01B9B374F00858739 /* ResumenViewController.swift in Sources */,
 				3F583FE11B91FDF300161918 /* CiudadModel.swift in Sources */,
 				3F4C69101B99EE07001FBA9A /* CalendarViewController.swift in Sources */,
 				3F26F02B1B9242F000A56BBE /* CiudadesDestinoViewController.swift in Sources */,
