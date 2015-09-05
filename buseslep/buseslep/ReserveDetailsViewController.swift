@@ -38,6 +38,7 @@ class ReserveDetailsViewController: UIViewController{
     @IBOutlet var viewTotal: UIView!
     
     var dni: String = ""
+    var mail: String = ""
     var horarioIda : Horario?
     var horarioVuelta : Horario?
     
@@ -63,8 +64,8 @@ class ReserveDetailsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         let preferences = NSUserDefaults.standardUserDefaults()
-        //dni = preferences.objectForKey("dni") as! String
-        //dni = "37128116"
+        dni = preferences.objectForKey("dni")!.description
+        mail = preferences.objectForKey("email")!.description
         loadIcon.hidden = true
         btnReserve.layer.borderColor = UIColor.blackColor().CGColor
         btnReserve.layer.borderWidth = 0.5
@@ -166,7 +167,7 @@ class ReserveDetailsViewController: UIViewController{
                                 alert.show()
                             }
                             else{
-                                let alert2 = UIAlertView(title: "Tu Reserva Ha Sido Exitosa!", message: "Te enviamos un mail con los detalles", delegate:nil, cancelButtonTitle: "Aceptar")
+                                let alert2 = UIAlertView(title: "Tu Reserva Ha Sido Exitosa!", message: "Te enviamos un mail a " + self.mail + " con los detalles", delegate:nil, cancelButtonTitle: "Aceptar")
                                 alert2.show()
                             }
                             self.loadIcon.hidden = true
