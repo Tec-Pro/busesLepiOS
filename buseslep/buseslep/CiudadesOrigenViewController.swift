@@ -33,7 +33,6 @@ class CiudadesOrigenViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let ciudad = ciudadesOrigen![indexPath.row]
-        println(ciudad.nombre!)
         busquedaViewController?.ciudadOrigenElegida(indexPath.row)
         navigationController?.popViewControllerAnimated(true)
     }

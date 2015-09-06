@@ -49,9 +49,9 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     
     var dniLoggeado: Int?
     
+    var db : Sqlite = Sqlite()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         Menu.target = self.revealViewController() // cosas para activar el menu
         Menu.action = Selector("revealToggle:") // cosas para activar el menu
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer()) //para abrir el menu arrastrando para el costado
@@ -155,6 +155,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             alert.show()
             
         }else{
+            db.insert(ciudadesDestino![indexCiudadDestino!].desde!, city_destiny: ciudadesDestino![indexCiudadDestino!].hasta!, code_city_origin: ciudadesDestino![indexCiudadDestino!].id_localidad_origen!, code_city_destiny: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, date_go: "\(anioIda)-\(mesIda)-\(diaIda)", date_return: "\(anioVuelta)-\(mesVuelta)-\(diaVuelta)", number_tickets: self.cantidadPasajes, is_roundtrip: chkIdaVuelta.on)
         obtenerPrecios(ciudadesOrigen![indexCiudadOrigen!].id!, ID_LocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!)
         obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
         }
@@ -183,7 +184,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     func horarioIda(index : Int){
         self.indexHorarioIda = index
         if chkIdaVuelta.on {
-            obtenerHorarios(ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, IdLocalidadDestino: ciudadesOrigen![indexCiudadOrigen!].id!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: true)
+            obtenerHorarios(ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, IdLocalidadDestino: ciudadesOrigen![indexCiudadOrigen!].id!, Fecha: convertirFecha(diaVuelta, month: mesVuelta, year: anioVuelta), esVuelta: true)
         }
         else{// si no es vuelta largo para elegir reservar o comprar
             self.performSegueWithIdentifier("elegirReservaCompra", sender: self);
@@ -463,7 +464,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#ListarHorarios", forHTTPHeaderField: "SOAPAction") //aca cambio LocalidadesDesde por el nombre del ws que llamo
         var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
             var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-            println(strData)
+            //println(strData)
             var parser : String = strData as String
             if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
                 if let rangeTo = parser.rangeOfString(",\"Cols") {

@@ -87,7 +87,7 @@ class ResumenViewController: UIViewController {
             lblFechaLlegaVuelta.hidden = true
             lblHoraLlegaVuelta.hidden = true
             lblSeparadorVuelta.hidden = true
-            lblImporte.text = "\(precioIdaFloat! * CGFloat(cantidadPasajes!))0"
+            lblImporte.text = "$\(precioIdaFloat! * CGFloat(cantidadPasajes!))0"
             
 
         }
