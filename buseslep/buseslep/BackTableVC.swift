@@ -27,6 +27,11 @@ class BackTableVC: UITableViewController {
         return cell!
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let opcion = tableArray[indexPath.row]
+        println(opcion)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         var destVc = segue.destinationViewController as? BusquedaViewController
         
