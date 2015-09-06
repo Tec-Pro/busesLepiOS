@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecPassViewController: UIViewController{
+class RecPassViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var txtDni: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
@@ -20,7 +20,39 @@ class RecPassViewController: UIViewController{
         btnRecuperar.layer.borderColor = UIColor.blackColor().CGColor
         btnRecuperar.layer.borderWidth = 0.5
         load.hidden = true
+        txtEmail.delegate = self
+        self.addDoneButtonOnKeyboard()
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func addDoneButtonOnKeyboard()
+    {
+        var doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+        doneToolbar.barStyle = UIBarStyle.Default
+        
+        var flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        var done: UIBarButtonItem = UIBarButtonItem(title: "Hecho", style: UIBarButtonItemStyle.Done, target: self, action: Selector("doneButtonAction"))
+        
+        var items = NSMutableArray()
+        items.addObject(flexSpace)
+        items.addObject(done)
+        
+        doneToolbar.items = items as [AnyObject]
+        doneToolbar.sizeToFit()
+        
+        self.txtDni.inputAccessoryView = doneToolbar
+        
+    }
+    
+    func doneButtonAction()
+    {
+        self.txtDni.resignFirstResponder()
+    }
+
     
     func dataOk()-> Bool{
         return (count(txtDni.text) >= 1 &&

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController{
+class RegisterViewController: UIViewController, UITextFieldDelegate{
     
     
     @IBOutlet weak var txtNombre: UITextField!
@@ -25,6 +25,42 @@ class RegisterViewController: UIViewController{
         btnRegistrar.layer.borderColor = UIColor.blackColor().CGColor
         btnRegistrar.layer.borderWidth = 0.5
         self.load.hidden = true
+        txtNombre.delegate = self
+        txtApellido.delegate = self
+        txtDni.delegate = self
+        txtMail.delegate = self
+        txtPass.delegate = self
+        txtRepetirPass.delegate = self
+        self.addDoneButtonOnKeyboard()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    func addDoneButtonOnKeyboard()
+    {
+        var doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+        doneToolbar.barStyle = UIBarStyle.Default
+        
+        var flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        var done: UIBarButtonItem = UIBarButtonItem(title: "Hecho", style: UIBarButtonItemStyle.Done, target: self, action: Selector("doneButtonAction"))
+        
+        var items = NSMutableArray()
+        items.addObject(flexSpace)
+        items.addObject(done)
+        
+        doneToolbar.items = items as [AnyObject]
+        doneToolbar.sizeToFit()
+        
+        self.txtDni.inputAccessoryView = doneToolbar
+        
+    }
+    
+    func doneButtonAction()
+    {
+        self.txtDni.resignFirstResponder()
     }
     
     func dataOk()-> Bool{

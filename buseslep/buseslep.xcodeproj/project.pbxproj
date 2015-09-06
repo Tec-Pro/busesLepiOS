@@ -54,6 +54,7 @@
 		ED5B0FE01B98B5AD0057B604 /* RecPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5B0FDF1B98B5AD0057B604 /* RecPassViewController.swift */; };
 		EDD1C0FE1B93A1AD00B57510 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1C0FD1B93A1AD00B57510 /* LoginViewController.swift */; };
 		EDD1C1001B93F2A000B57510 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1C0FF1B93F2A000B57510 /* RegisterViewController.swift */; };
+		EDF021431B9BB94D00AC12AC /* ReserveDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF021421B9BB94D00AC12AC /* ReserveDetailsViewController.swift */; };
 		FBD63EB51B94A53A00FDB302 /* BackTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD63EB41B94A53A00FDB302 /* BackTableVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,7 @@
 		ED5B0FDF1B98B5AD0057B604 /* RecPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecPassViewController.swift; sourceTree = "<group>"; };
 		EDD1C0FD1B93A1AD00B57510 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EDD1C0FF1B93F2A000B57510 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EDF021421B9BB94D00AC12AC /* ReserveDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReserveDetailsViewController.swift; sourceTree = "<group>"; };
 		FBD218BD1B949A9300C37FB6 /* buseslep-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "buseslep-Bridging-Header.h"; sourceTree = "<group>"; };
 		FBD63EB41B94A53A00FDB302 /* BackTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +259,7 @@
 				3F5C34651B93462300FFB4C2 /* CeldaHorarioViewController.swift */,
 				3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */,
 				EDD1C0FD1B93A1AD00B57510 /* LoginViewController.swift */,
+				EDF021421B9BB94D00AC12AC /* ReserveDetailsViewController.swift */,
 				EDD1C0FF1B93F2A000B57510 /* RegisterViewController.swift */,
 				FBD63EB41B94A53A00FDB302 /* BackTableVC.swift */,
 				ED5B0FDF1B98B5AD0057B604 /* RecPassViewController.swift */,
@@ -416,6 +419,7 @@
 				3F4C68FB1B99EB6C001FBA9A /* CVCalendarMonthContentViewController.swift in Sources */,
 				3F4C690C1B99EB6C001FBA9A /* CVSet.swift in Sources */,
 				3F583FB71B91DED700161918 /* AppDelegate.swift in Sources */,
+				EDF021431B9BB94D00AC12AC /* ReserveDetailsViewController.swift in Sources */,
 				3F4C68F81B99EB6C001FBA9A /* CVCalendarManager.swift in Sources */,
 				3F4C68F51B99EB6C001FBA9A /* CVCalendarContentViewController.swift in Sources */,
 				3F58E7B01B9B374F00858739 /* ResumenViewController.swift in Sources */,
