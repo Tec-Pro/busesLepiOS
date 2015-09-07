@@ -18,11 +18,14 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
     var ciudadDestino : CiudadDestino?
     var esIda : Int = 0
     var idVenta : Int = 0
+    var driverAdded : Bool = false
     
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     let free_seat: UIImage = UIImage(named:"free_seat")!
     let occupied_seat: UIImage = UIImage(named:"occupied_seat")!
     let selected_seat: UIImage = UIImage(named:"selected_seat")!
     let none_seat: UIImage = UIImage(named:"none_seat")!
+    let driver_seat: UIImage = UIImage(named:"driver_seat")!
     
    /* var seats: [Int] = [0,0,0,0,0,
                         0,0,0,0,0,
@@ -39,7 +42,8 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
         super.viewDidLoad()
         seatsView.delegate = self
         obtenerButacas()
-        
+        seatsView.layer.borderColor = UIColor.blackColor().CGColor
+        seatsView.layer.borderWidth = 0.5
         
     }
     
@@ -90,6 +94,145 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
             
             seatsNumbers[index] = num;
         }
+        if(self.seats[59] != self.none_seat && self.seats[58] == self.none_seat && self.seats[54] == self.none_seat && self.seats[53] == self.none_seat && self.seats[48] == self.none_seat){ //un temita
+            self.seats[58] = self.seats[59];
+            self.seatsNumbers[58] = self.seatsNumbers[59];
+            self.seats[59] = self.none_seat;
+            self.seats[55] = self.driver_seat;
+            driverAdded = true;
+        }
+        
+        for var i = 0; i<self.seats.count;i += 5{ //hago el espejo de la "matriz"
+            var aux1 : UIImage = UIImage(named:"none_seat")!;
+            var aux2 : Int = 0;
+            var ind : Int = i;
+            for( var j = i+4; j > i+2; j-- ){
+                aux1 =  self.seats[j];
+                aux2 = self.seatsNumbers[j];
+                self.seats[j] = self.seats[ind];
+                self.seatsNumbers[j] = self.seatsNumbers[ind];
+                self.seats[ind] = aux1;
+                self.seatsNumbers[ind] = aux2;
+                ind++;
+            }
+        }
+        var noneCount :Int = 0;
+        while (self.seats[noneCount] == self.none_seat) { // cuenta la cantidad de lugares vacios de atras
+            noneCount++;
+        }
+        noneCount = noneCount / 5;
+        if (noneCount > 0){
+            var i :Int = 0;
+            for (i = 0; i < self.seats.count - noneCount * 5; i++) { //corre los asientos hacia atras, asi no queda nada en blanco
+                self.seats[i] = self.seats[noneCount * 5 + i];
+                self.seatsNumbers[i] = self.seatsNumbers[noneCount * 5 + i];
+                self.seats[noneCount * 5 + i] = self.none_seat;
+            }
+            //Integer[][] auxArr = new Integer[i][2];
+            var auxArr  = [UIImage](count:i, repeatedValue:  UIImage(named:"none_seat")!)
+            var auxArrSnum = [Int](count: i, repeatedValue: 0)
+            for(var j = 0; j < auxArr.count; j++){ //achico el arreglo para sacarle los lugares de adelante que quedaron vacios
+                auxArr[j] = self.seats[j];
+                auxArrSnum[j] = self.seatsNumbers[j];
+            }
+            self.seats = auxArr; //estaba el .clone() no se como funcionara aca
+            self.seatsNumbers = auxArrSnum
+        }
+        var n :Bool = true;
+        for(var i = self.seats.count - 1; i > self.seats.count - 6; i--){ //me fijo si la ultima fila es nula
+            n = n && self.seats[i] == self.none_seat;
+        }
+        if(n){
+            var auxArr  = [UIImage](count:self.seats.count - 5, repeatedValue:  UIImage(named:"none_seat")!)
+            var auxArrSnum = [Int](count: self.seats.count - 5, repeatedValue: 0)
+          //  Integer[][] auxArr = new Integer[seatsArr.length - 5][2]; //le saco la ultima fila
+            for(var i = 0 ; i < self.seats.count - 5; i++){
+                auxArr[i] = self.seats[i];
+                auxArrSnum[i] = self.seatsNumbers[i];
+                
+            }
+            self.seats = auxArr //.clone();
+            self.seatsNumbers = auxArrSnum
+        }
+        var noneCol :Bool = true
+        var noneColCount :Int = 0
+        for(var i = 0; i < self.seats.count ; i += 5){ //se fija si la columna de la izq esta vacia
+            noneCol = noneCol && self.seats[i] == self.none_seat;
+            noneColCount++;
+        }
+        var numcols :Int = 5;
+        if(noneCol){
+            //Integer[][] auxArr = new Integer[self.seats.count - noneColCount][2]; //muevo los asientos para sacar la columna vacia
+            var auxArr  = [UIImage](count:self.seats.count - noneColCount, repeatedValue:  UIImage(named:"none_seat")!)
+            var auxArrSnum = [Int](count: self.seats.count - noneColCount, repeatedValue: 0)
+
+            var colcount :Int = 5;
+            var i2 :Int = 0;
+            for(var i = 0; i < self.seats.count; i++){
+                if(colcount == 5){
+                    colcount = 1;
+                }
+                else {
+                    auxArr[i2] = self.seats[i];
+                    auxArrSnum[i2] = self.seatsNumbers[i];
+                    i2++;
+                    colcount++;
+                }
+            }
+            self.seats = auxArr //.clone();
+            self.seatsNumbers = auxArrSnum
+           
+            self.widthConstraint.constant = 250
+            
+           /* gridView.setNumColumns(4);
+            ViewGroup.LayoutParams layoutParams = gridView.getLayoutParams();
+            layoutParams.width = convertDpToPixels(200,mContext); //this is in pixels
+            gridView.setLayoutParams(layoutParams);*/
+            numcols = 4;
+        }
+        /* ---- aca va lo de achicar las columnas ----*/
+        
+        if(!driverAdded) {
+            var z :Bool = true;
+            for (var i = self.seats.count - 1; i > self.seats.count - numcols - 1; i--) { //me fijo si la ultima fila es nula
+                z = z && self.seats[i] == self.none_seat;
+            }
+            if (!z) {
+                //Integer[][] auxArr2 = new Integer[seatsArr.length + numcols][2]; //agrega una fila al ultimo
+                var auxArr2  = [UIImage](count:self.seats.count + numcols, repeatedValue:  UIImage(named:"none_seat")!)
+                var auxArrSnum = [Int](count: self.seats.count + numcols, repeatedValue: 0)
+
+                for (var i = 0; i < self.seats.count; i++) {
+                    auxArr2[i] = self.seats[i];
+                    auxArrSnum[i] = self.seatsNumbers[i];
+                }
+                for (var i = self.seats.count; i < auxArr2.count - 1; i++) {
+                    auxArr2[i] = self.none_seat;
+                    auxArrSnum[i] = 0;
+                }
+                auxArr2[auxArr2.count - 1] = self.driver_seat; //agrego el conductor a la ultima fila
+                auxArrSnum[auxArr2.count - 1] = 0;
+                
+                self.seats = auxArr2 //.clone();
+                self.seatsNumbers = auxArrSnum
+            } else {
+                self.seats[self.seats.count - 1] = self.driver_seat;
+                self.seatsNumbers[self.seatsNumbers.count - 1] = 0;
+            }
+        }
+        
+       // Integer[][] aux= seatsArr.clone();
+        var aux  = self.seats
+        var auxArrSnum = self.seatsNumbers
+        var  iAux: Int = self.seats.count-1;
+        for(var i = 0; i < self.seats.count; i++){
+            aux[iAux] = self.seats[i];
+            auxArrSnum[iAux] = self.seatsNumbers[i]
+            iAux--
+        }
+        self.seats = aux //.clone();
+        self.seatsNumbers = auxArrSnum
+        
         self.seatsView.reloadData()
     }
     
@@ -169,7 +312,7 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
             if let rangeF = parser.rangeOfString("<return xsi:type=\"xsd:string\">") { // con esto hago un subrango
                 if let rangeT = parser.rangeOfString("</return>") {
                     var resultCode: String = parser[rangeF.endIndex..<rangeT.startIndex]
-                    println(resultCode)
+                    //println(resultCode)
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         if resultCode == "-1"{
                            // let alert = UIAlertView(title: "Atencion!", message: "Error al realizar la reserva", delegate:nil, cancelButtonTitle: "Aceptar")
@@ -179,6 +322,7 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
                             if(esSeleccion == 1){
                                 self.cantSeatsSelected++
                                 self.seats[posicion] = self.selected_seat
+                                println(num)
                             }
                             else{
                                 self.cantSeatsSelected--
