@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buseslep/BusquedaViewController.swift"
-            timestampString = "463344866.253652"
+            timestampString = "463346652.748546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "569"
-            endingLineNumber = "569"
+            startingLineNumber = "603"
+            endingLineNumber = "603"
             landmarkName = "mercado(_:)"
             landmarkType = "5">
             <Locations>
@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "startAdvancedVaultActivity(_:merchantBaseUrl:merchantGetCustomerUri:merchantAccessToken:amount:supportedPaymentTypes:callback:)"
+            landmarkName = "startAdvancedVaultActivity(_:merchantBaseUrl:merchantAccessToken:amount:supportedPaymentTypes:callback:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "startAdvancedVaultActivity(_:merchantBaseUrl:merchantGetCustomerUri:merchantAccessToken:amount:supportedPaymentTypes:callback:)"
+            landmarkName = "startAdvancedVaultActivity(_:merchantBaseUrl:merchantAccessToken:amount:supportedPaymentTypes:callback:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "init(merchantPublicKey:merchantBaseUrl:merchantGetCustomerUri:merchantAccessToken:amount:supportedPaymentTypes:callback:)"
+            landmarkName = "init(merchantPublicKey:merchantBaseUrl:merchantAccessToken:amount:supportedPaymentTypes:callback:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
