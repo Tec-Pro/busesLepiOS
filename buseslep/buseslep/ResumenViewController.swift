@@ -107,13 +107,34 @@ class ResumenViewController: UIViewController {
             reserveDetailsViewController.ciudadOrigen = self.ciudadOrigen!
             reserveDetailsViewController.ciudadDestino = self.ciudadDestino!
         }
+        if(segue.identifier == "Comprar"){
+            let seatSelectionViewController = segue.destinationViewController as! SeatSelectionViewController
+            seatSelectionViewController.cantPasajes = self.cantidadPasajes!
+            seatSelectionViewController.horario = self.horarioIda!
+            seatSelectionViewController.ciudadDestino = self.ciudadDestino!
+        }
     }
     
     @IBAction func clickComprar(sender: UIButton) {
-        
+        let preferences = NSUserDefaults.standardUserDefaults()
+        var dni: AnyObject? = preferences.objectForKey("dni")
+        if dni != nil {
+            self.performSegueWithIdentifier("Comprar", sender: self);
+        }
+        else{
+            self.performSegueWithIdentifier("Login", sender: self);
+        }
+
     }
     
     @IBAction func clickReservar(sender: UIButton) {
-         self.performSegueWithIdentifier("Reservar", sender: self);
+        let preferences = NSUserDefaults.standardUserDefaults()
+        var dni: AnyObject? = preferences.objectForKey("dni")
+        if dni != nil {
+            self.performSegueWithIdentifier("Reservar", sender: self);
+        }
+        else{
+            self.performSegueWithIdentifier("Login", sender: self);
+        }
     }
 }
