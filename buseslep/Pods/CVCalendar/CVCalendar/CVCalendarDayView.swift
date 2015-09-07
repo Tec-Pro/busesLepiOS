@@ -187,7 +187,7 @@ extension CVCalendarDayView {
         
         addSubview(dayLabel!)
     }
-    
+
     public func preliminarySetup() {
         if let delegate = calendarView.delegate, shouldShow = delegate.preliminaryView?(shouldDisplayOnDayView: self) where shouldShow {
             if let preView = delegate.preliminaryView?(viewOnDayView: self) {
@@ -298,7 +298,7 @@ extension CVCalendarDayView {
 extension CVCalendarDayView {
     public func moveDotMarkerBack(unwinded: Bool, var coloring: Bool) {
         for dotMarker in dotMarkers {
-            
+
             if let calendarView = calendarView, let dotMarker = dotMarker {
                 var shouldMove = true
                 if let delegate = calendarView.delegate, let move = delegate.dotMarker?(shouldMoveOnHighlightingOnDayView: self) where !move {

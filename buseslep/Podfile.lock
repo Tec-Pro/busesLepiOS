@@ -1,0 +1,39 @@
+PODS:
+  - CVCalendar (1.1.4)
+  - MercadoPagoSDK (0.2.4):
+    - MercadoPagoSDK/Localization (= 0.2.4)
+  - MercadoPagoSDK/Localization (0.2.4):
+    - MercadoPagoSDK/Localization/es (= 0.2.4)
+    - MercadoPagoSDK/Localization/es-CO (= 0.2.4)
+    - MercadoPagoSDK/Localization/es-MX (= 0.2.4)
+    - MercadoPagoSDK/Localization/pt (= 0.2.4)
+  - MercadoPagoSDK/Localization/es (0.2.4)
+  - MercadoPagoSDK/Localization/es-CO (0.2.4)
+  - MercadoPagoSDK/Localization/es-MX (0.2.4)
+  - MercadoPagoSDK/Localization/pt (0.2.4)
+  - SQLite.swift (0.1.0.pre):
+    - SQLite.swift/Library (= 0.1.0.pre)
+  - SQLite.swift/Core (0.1.0.pre)
+  - SQLite.swift/Library (0.1.0.pre):
+    - SQLite.swift/Core
+
+DEPENDENCIES:
+  - CVCalendar (~> 1.1.4)
+  - MercadoPagoSDK (~> 0.2.4)
+  - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
+
+EXTERNAL SOURCES:
+  SQLite.swift:
+    :git: https://github.com/stephencelis/SQLite.swift.git
+
+CHECKOUT OPTIONS:
+  SQLite.swift:
+    :commit: d87e05da167bdded01ae74001c5adda865346867
+    :git: https://github.com/stephencelis/SQLite.swift.git
+
+SPEC CHECKSUMS:
+  CVCalendar: ebeb7b3cb9eaa2c136ed70ce655f07907fc785d7
+  MercadoPagoSDK: 2e63cb354b7f202da37e86c3f82cca7883a51d9f
+  SQLite.swift: 62bdf79b05b2a88b94d4b8f9a3b7aa94bfedc660
+
+COCOAPODS: 0.38.2

@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+platform :ios, '8.0'
+pod 'MercadoPagoSDK', '~> 0.2.4'
+
+use_frameworks!
+pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'
+
+pod 'CVCalendar', '~> 1.1.4'
