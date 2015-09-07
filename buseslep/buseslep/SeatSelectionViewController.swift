@@ -154,7 +154,7 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
-        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:SeleccionarButaca id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma><NroButaca i:type='d:int'>\(num)</NroButaca><IDVenta i:type='d:int'>\(self.idVenta)</IDVenta><EsIda i:type='d:int'>\(self.esIda)</EsIda><EsSeleccion i:type='d:int'>\(esSeleccion)</EsSeleccion></n0:SeleccionarButaca></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
+        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:SeleccionarButaca id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><id_Plataforma i:type='d:int'>\(id_plataforma)</id_Plataforma><NroButaca i:type='d:int'>\(num)</NroButaca><IDVenta i:type='d:int'>\(self.idVenta)</IDVenta><EsIda i:type='d:int'>\(self.esIda)</EsIda><EsSeleccion i:type='d:int'>\(esSeleccion)</EsSeleccion></n0:SeleccionarButaca></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
         var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
         var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
         var session = NSURLSession.sharedSession()
@@ -171,12 +171,11 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
                     var resultCode: String = parser[rangeF.endIndex..<rangeT.startIndex]
                     println(resultCode)
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        if resultCode != "0"{
+                        if resultCode == "-1"{
                            // let alert = UIAlertView(title: "Atencion!", message: "Error al realizar la reserva", delegate:nil, cancelButtonTitle: "Aceptar")
                             //alert.show()
                         }
                         else{ //si esta todo ok
-                            
                             if(esSeleccion == 1){
                                 self.cantSeatsSelected++
                                 self.seats[posicion] = self.selected_seat
@@ -205,6 +204,7 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
         })
         task.resume()
     }
-
+    
+    
     
 }
