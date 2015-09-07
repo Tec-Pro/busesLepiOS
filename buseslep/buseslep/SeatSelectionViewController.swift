@@ -16,6 +16,9 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
     var horario : Horario?
     var ciudadOrigen :  CiudadOrigen?
     var ciudadDestino : CiudadDestino?
+    var esIda : Int = 0
+    var idVenta : Int = 0
+    
     let free_seat: UIImage = UIImage(named:"free_seat")!
     let occupied_seat: UIImage = UIImage(named:"occupied_seat")!
     let selected_seat: UIImage = UIImage(named:"selected_seat")!
@@ -30,6 +33,7 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
                         0,0,0,0,0]*/
     
     var seats = [UIImage](count: 60, repeatedValue: UIImage(named:"none_seat")!)
+    var seatsNumbers = [Int](count:60, repeatedValue: 0)
     var butacas: [Butaca]?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +56,12 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if seats[indexPath.row] == free_seat{
             if cantSeatsSelected < cantPasajes{
-                cantSeatsSelected++
-                seats[indexPath.row] = selected_seat
+                self.seleccionarButaca(self.seatsNumbers[indexPath.row], esSeleccion: 1, posicion: indexPath.row)
             }
         }
         else{
             if seats[indexPath.row] == selected_seat{
-                cantSeatsSelected--
-                seats[indexPath.row] = free_seat
+                self.seleccionarButaca(self.seatsNumbers[indexPath.row], esSeleccion: 0, posicion: indexPath.row)
             }
         }
         seatsView.reloadData()
@@ -86,7 +88,7 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
                 self.seats[index] = self.occupied_seat
             }
             
-            // seatsArr[index][1] = num;
+            seatsNumbers[index] = num;
         }
         self.seatsView.reloadData()
     }
@@ -119,7 +121,7 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
                     // Move to the UI thread
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.butacas = Butaca.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
-                        println(self.butacas?.count)
+                      //  println(self.butacas?.count)
                         self.cargarButacas()
                        // self.loadImage.hidden = true
                     })
@@ -138,4 +140,71 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
         task.resume()
     }
 
+   /* request.addProperty("userWS","UsuarioLep"); //paso los parametros que pide el metodo
+    request.addProperty("passWS","Lep1234");
+    request.addProperty("NroButaca",NroButaca);
+    request.addProperty("IDVenta",IDVenta);
+    request.addProperty("EsIda", EsIda);
+    request.addProperty("EsSeleccion",EsSeleccion);
+    request.addProperty("id_Plataforma",1);*/
+    
+    
+    func seleccionarButaca(num : Int, esSeleccion: Int, posicion: Int){
+        //self.loadImage.hidden =  false
+        var userWS: String = "UsuarioLep" //paramatros
+        var passWS: String = "Lep1234"
+        var id_plataforma: Int = 2
+        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:SeleccionarButaca id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma><NroButaca i:type='d:int'>\(num)</NroButaca><IDVenta i:type='d:int'>\(self.idVenta)</IDVenta><EsIda i:type='d:int'>\(self.esIda)</EsIda><EsSeleccion i:type='d:int'>\(esSeleccion)</EsSeleccion></n0:SeleccionarButaca></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
+        var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
+        var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
+        var session = NSURLSession.sharedSession()
+        var err: NSError?
+        lobj_Request.HTTPMethod = "POST"
+        lobj_Request.HTTPBody = soapMessage.dataUsingEncoding(NSUTF8StringEncoding)
+        lobj_Request.addValue("text/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#SeleccionarButaca", forHTTPHeaderField: "SOAPAction") //aca cambio LocalidadesDesde por el nombre del ws que llamo
+        var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
+            var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
+            var parser : String = strData as String
+            if let rangeF = parser.rangeOfString("<return xsi:type=\"xsd:string\">") { // con esto hago un subrango
+                if let rangeT = parser.rangeOfString("</return>") {
+                    var resultCode: String = parser[rangeF.endIndex..<rangeT.startIndex]
+                    println(resultCode)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        if resultCode != "0"{
+                           // let alert = UIAlertView(title: "Atencion!", message: "Error al realizar la reserva", delegate:nil, cancelButtonTitle: "Aceptar")
+                            //alert.show()
+                        }
+                        else{ //si esta todo ok
+                            
+                            if(esSeleccion == 1){
+                                self.cantSeatsSelected++
+                                self.seats[posicion] = self.selected_seat
+                            }
+                            else{
+                                self.cantSeatsSelected--
+                                self.seats[posicion] = self.free_seat
+                            }
+                            self.seatsView.reloadData()
+                        }
+                        //self.loadIcon.hidden = true
+                    })
+                }
+            }
+
+
+            if error != nil{
+                // Move to the UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    var alert = UIAlertView( title: "Error!", message: "Ud. no posee conexión a internet; acceda a través de una red wi-fi o de su prestadora telefónica",delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                    self.butacas =  nil
+                    //self.loadImage.hidden = true
+                })
+            }
+        })
+        task.resume()
+    }
+
+    
 }
