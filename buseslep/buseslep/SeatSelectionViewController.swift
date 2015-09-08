@@ -10,6 +10,8 @@ import UIKit
 
 class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     @IBOutlet weak var seatsView: UICollectionView!
+    @IBOutlet weak var btnSiguiente: UIBarButtonItem!
+    var resumenViewController : ResumenViewController?
     
     var cantPasajes: Int = 0;
     var cantSeatsSelected: Int = 0;
@@ -37,10 +39,12 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
     
     var seats = [UIImage](count: 60, repeatedValue: UIImage(named:"none_seat")!)
     var seatsNumbers = [Int](count:60, repeatedValue: 0)
+    var seatsSelected = Set<Int>()
     var butacas: [Butaca]?
     override func viewDidLoad() {
         super.viewDidLoad()
         seatsView.delegate = self
+        cantSeatsSelected = 0
         obtenerButacas()
         seatsView.layer.borderColor = UIColor.blackColor().CGColor
         seatsView.layer.borderWidth = 0.5
@@ -71,6 +75,24 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
         seatsView.reloadData()
     }
     
+    @IBAction func btnSiguientePressed(sender: UIBarButtonItem) {
+        if(cantSeatsSelected < cantPasajes){
+            var asientosRestantes = cantPasajes - cantSeatsSelected
+            if(asientosRestantes > 1){
+                let alert = UIAlertView(title: "Faltan Asientos por Seleccionar!", message: "Quedan " + asientosRestantes.description + " asientos por seleccionar", delegate:nil, cancelButtonTitle: "Aceptar")
+                alert.show()
+            }
+            else{
+                let alert2 = UIAlertView(title: "Faltan Asientos por Seleccionar!", message: "Queda " + asientosRestantes.description + " asiento por seleccionar", delegate:nil, cancelButtonTitle: "Aceptar")
+                alert2.show()
+            }
+        }
+        else{
+            navigationController?.popViewControllerAnimated(true)
+            resumenViewController?.guardarAsientos(self.seatsSelected, esIda: self.esIda)
+        }
+
+    }
     func cargarButacas(){
         if(self.butacas == nil){
             return
@@ -282,15 +304,6 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
         })
         task.resume()
     }
-
-   /* request.addProperty("userWS","UsuarioLep"); //paso los parametros que pide el metodo
-    request.addProperty("passWS","Lep1234");
-    request.addProperty("NroButaca",NroButaca);
-    request.addProperty("IDVenta",IDVenta);
-    request.addProperty("EsIda", EsIda);
-    request.addProperty("EsSeleccion",EsSeleccion);
-    request.addProperty("id_Plataforma",1);*/
-    
     
     func seleccionarButaca(num : Int, esSeleccion: Int, posicion: Int){
         //self.loadImage.hidden =  false
@@ -322,11 +335,13 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
                             if(esSeleccion == 1){
                                 self.cantSeatsSelected++
                                 self.seats[posicion] = self.selected_seat
+                                self.seatsSelected.insert(num)
                                 println(num)
                             }
                             else{
                                 self.cantSeatsSelected--
                                 self.seats[posicion] = self.free_seat
+                                self.seatsSelected.remove(num)
                             }
                             self.seatsView.reloadData()
                         }

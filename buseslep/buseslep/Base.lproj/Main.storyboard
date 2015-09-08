@@ -624,12 +624,11 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PoQ-ux-vft">
-                                <rect key="frame" x="150" y="90" width="300" height="350"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PoQ-ux-vft">
+                                <rect key="frame" x="150" y="92" width="300" height="493"/>
                                 <color key="backgroundColor" red="0.98428052687959977" green="1" blue="0.95022856735765515" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="MWt-Xe-Vve"/>
-                                    <constraint firstAttribute="height" constant="350" id="rZb-Hu-4ve"/>
+                                    <constraint firstAttribute="width" constant="300" id="hwN-t8-Caz"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FQk-sh-b0l">
                                     <size key="itemSize" width="50" height="50"/>
@@ -670,17 +669,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nYj-Mc-IH5" firstAttribute="top" secondItem="PoQ-ux-vft" secondAttribute="bottom" constant="15" id="DvC-9d-DPB"/>
                             <constraint firstItem="Va8-Pm-jqR" firstAttribute="leading" secondItem="XwE-VU-GZh" secondAttribute="leadingMargin" constant="-16" id="J1B-m9-gMy"/>
-                            <constraint firstItem="PoQ-ux-vft" firstAttribute="top" secondItem="Va8-Pm-jqR" secondAttribute="bottom" constant="10" id="S1x-Yb-o7T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Va8-Pm-jqR" secondAttribute="trailing" constant="-16" id="Wje-xq-fh5"/>
-                            <constraint firstAttribute="centerX" secondItem="PoQ-ux-vft" secondAttribute="centerX" id="rfA-D9-3sW"/>
+                            <constraint firstAttribute="centerX" secondItem="PoQ-ux-vft" secondAttribute="centerX" id="YXo-0j-wAi"/>
+                            <constraint firstItem="PoQ-ux-vft" firstAttribute="top" secondItem="Va8-Pm-jqR" secondAttribute="bottom" constant="10" id="sb9-JM-KIs"/>
                             <constraint firstItem="Va8-Pm-jqR" firstAttribute="top" secondItem="WBl-un-cf6" secondAttribute="bottom" id="zts-R5-FX8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Seleccion Butacas" id="QFf-2y-iPF"/>
+                    <navigationItem key="navigationItem" title="Seleccion Butacas" id="QFf-2y-iPF">
+                        <barButtonItem key="rightBarButtonItem" title="Siguiente" id="I7T-kV-oYu">
+                            <connections>
+                                <action selector="btnSiguientePressed:" destination="aMm-tG-ILS" id="UVg-e7-HpB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="btnSiguiente" destination="I7T-kV-oYu" id="nhg-2R-2Wx"/>
                         <outlet property="seatsView" destination="PoQ-ux-vft" id="zBl-Ld-psA"/>
-                        <outlet property="widthConstraint" destination="MWt-Xe-Vve" id="JtV-xq-oDr"/>
+                        <outlet property="widthConstraint" destination="hwN-t8-Caz" id="BqE-ue-R6d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IsG-Qa-wTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1987,8 +1994,8 @@
         <image name="present-100" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wfF-XE-INw"/>
         <segue reference="ivo-Hq-b0d"/>
+        <segue reference="wfF-XE-INw"/>
         <segue reference="vAL-TL-GNR"/>
     </inferredMetricsTieBreakers>
 </document>

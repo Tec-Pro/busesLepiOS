@@ -48,6 +48,9 @@ class ResumenViewController: UIViewController {
     var precioIdaFloat : CGFloat?
     var precioIdaVueltaFloat : CGFloat?
     var idVenta: Int = 0
+    var asientosIda : Set<Int>?
+    var asientosVuelta :Set<Int>?
+    var seleccionarAsientosVuelta :Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,12 +114,39 @@ class ResumenViewController: UIViewController {
         if(segue.identifier == "Comprar"){
             let seatSelectionViewController = segue.destinationViewController as! SeatSelectionViewController
             seatSelectionViewController.idVenta = self.idVenta
-            seatSelectionViewController.esIda = 1
-            seatSelectionViewController.cantPasajes = self.cantidadPasajes!
-            seatSelectionViewController.horario = self.horarioIda!
-            seatSelectionViewController.ciudadDestino = self.ciudadDestino!
+            seatSelectionViewController.resumenViewController = self;
+            if(!seleccionarAsientosVuelta){
+                seatSelectionViewController.esIda = 1
+                seatSelectionViewController.cantPasajes = self.cantidadPasajes!
+                seatSelectionViewController.horario = self.horarioIda!
+                seatSelectionViewController.ciudadDestino = self.ciudadDestino!
+            }
+            else{
+                seatSelectionViewController.esIda = 0
+                seatSelectionViewController.cantPasajes = self.cantidadPasajes!
+                seatSelectionViewController.horario = self.horarioVuelta!
+                seatSelectionViewController.ciudadDestino = self.ciudadDestino!
+            }
         }
     }
+    
+    func guardarAsientos(asientos: Set<Int>, esIda :Int){ //este metodo se llama desde La seleccion de asientos antes de retornar
+        if(esIda == 1){
+            asientosIda = asientos
+            if(esIdaVuelta!){
+                 seleccionarAsientosVuelta = true
+                 self.performSegueWithIdentifier("Comprar", sender: self);
+            }
+            else{
+                println("ir a detalles de compra")
+            }
+        }
+        else{
+            asientosVuelta = asientos
+        }
+    }
+    
+    
     
     @IBAction func clickComprar(sender: UIButton) {
         let preferences = NSUserDefaults.standardUserDefaults()
