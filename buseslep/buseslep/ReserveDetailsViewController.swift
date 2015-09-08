@@ -10,6 +10,7 @@ import UIKit
 
 class ReserveDetailsViewController: UIViewController{
     
+    @IBOutlet weak var btnConfirm: UIBarButtonItem!
     @IBOutlet var btnReserve: UIButton!
     @IBOutlet var lblCiudadOrigen: UILabel!
     @IBOutlet var lblCiudadDestino: UILabel!
@@ -60,6 +61,9 @@ class ReserveDetailsViewController: UIViewController{
     var EsCompra: Int = 0
     var EsIdaVuelta: Bool = true
     var totalPrice: Float = 0
+    var butacasIda: Set<Int>?
+    var butacasVuelta: Set<Int>?
+    var idVenta: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,15 +80,23 @@ class ReserveDetailsViewController: UIViewController{
             lblButacaVueltaText.text = "Plataforma"
             lblCantButacaIda.text = ""
             lblCantButacaVuelta.text = ""
+            btnConfirm.enabled = false
+            btnConfirm.title = ""
             btnReserve.setTitle("Reservar", forState: UIControlState.Normal)
         }
         else{
+            btnConfirm.enabled = true
+            btnConfirm.title = "Confirmar"
+
+            btnReserve.hidden = true
             viewTotal.hidden = false
             lblButacaIdaText.text = "Butaca"
             lblButacaVueltaText.text = "Butaca"
-            lblCantButacaIda.text = "1"
-            lblCantButacaVuelta.text = "1"
             btnReserve.setTitle("Confirmar", forState: UIControlState.Normal)
+            lblCantButacaIda.text = butacasIda!.description
+            if(butacasVuelta != nil){
+                lblCantButacaVuelta.text  = butacasVuelta!.description
+            }
         }
         lblCiudadOrigen.text = self.ciudadOrigen!.nombre!
         lblCiudadDestino.text = self.ciudadDestino!.hasta!
@@ -125,6 +137,9 @@ class ReserveDetailsViewController: UIViewController{
             viewGreyBar.hidden = true
         }
     }
+    @IBAction func confirmarCompra(sender: UIBarButtonItem) {
+        println("Cargar cosas de mercadopago")
+    }
     
     @IBAction func reservar(sender: UIButton) {
         self.loadIcon.hidden = false
@@ -132,7 +147,7 @@ class ReserveDetailsViewController: UIViewController{
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
    
-        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:AgregarReserva id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><DNI i:type='d:string'>\(dni)</DNI><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma><IDEmpresaIda i:type='d:int'>\(IDEmpresaIda)</IDEmpresaIda><IDDestinoIda i:type='d:int'>\(IDDestinoIda)</IDDestinoIda><CodHorarioIda i:type='d:int'>\(CodHorarioIda)</CodHorarioIda><IdLocalidadDesdeIda i:type='d:int'>\(IdLocalidadDesdeIda)</IdLocalidadDesdeIda><IdlocalidadHastaIda i:type='d:int'>\(IdlocalidadHastaIda)</IdlocalidadHastaIda><CantidadIda i:type='d:int'>\(CantidadIda)</CantidadIda><IDEmpresaVuelta i:type='d:int'>\(IDEmpresaVuelta)</IDEmpresaVuelta><IDDestinoVuelta i:type='d:int'>\(IDDestinoVuelta)</IDDestinoVuelta><CodHorarioVuelta i:type='d:int'>\(CodHorarioVuelta)</CodHorarioVuelta><IdLocalidadDesdeVuelta i:type='d:int'>\(IdLocalidadDesdeVuelta)</IdLocalidadDesdeVuelta><IdlocalidadHastaVuelta i:type='d:int'>\(IdlocalidadHastaVuelta)</IdlocalidadHastaVuelta><CantidadVuelta i:type='d:int'>\(self.CantidadVuelta)</CantidadVuelta><EsCompra i:type='d:int'>\(EsCompra)</EsCompra></n0:AgregarReserva></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
+        var soapMessage = "<v:Envelope xmlns:i='http://www.w3.org/2001/XMLSchema-instance' xmlns:d='http://www.w3.org/2001/XMLSchema' xmlns:c='http://www.w3.org/2003/05/soap-encoding' xmlns:v='http://schemas.xmlsoap.org/soap/envelope/'><v:Header /><v:Body><n0:AgregarReserva id='o0' c:root='1' xmlns:n0='urn:LepWebServiceIntf-ILepWebService'><userWS i:type='d:string'>\(userWS)</userWS><passWS i:type='d:string'>\(passWS)</passWS><DNI i:type='d:string'>\(dni)</DNI><id_plataforma i:type='d:int'>\(id_plataforma)</id_plataforma><IDEmpresaIda i:type='d:int'>\(IDEmpresaIda)</IDEmpresaIda><IDDestinoIda i:type='d:int'>\(IDDestinoIda)</IDDestinoIda><CodHorarioIda i:type='d:int'>\(CodHorarioIda)</CodHorarioIda><IdLocalidadDesdeIda i:type='d:int'>\(IdLocalidadDesdeIda)</IdLocalidadDesdeIda><IdlocalidadHastaIda i:type='d:int'>\(IdlocalidadHastaIda)</IdlocalidadHastaIda><CantidadIda i:type='d:int'>\(CantidadIda)</CantidadIda><IDEmpresaVuelta i:type='d:int'>\(IDEmpresaVuelta)</IDEmpresaVuelta><IDDestinoVuelta i:type='d:int'>\(IDDestinoVuelta)</IDDestinoVuelta><CodHorarioVuelta i:type='d:int'>\(CodHorarioVuelta)</CodHorarioVuelta><IdLocalidadDesdeVuelta i:type='d:int'>\(IdLocalidadDesdeVuelta)</IdLocalidadDesdeVuelta><IdlocalidadHastaVuelta i:type='d:int'>\(IdlocalidadHastaVuelta)</IdlocalidadHastaVuelta><CantidadVuelta i:type='d:int'>\(self.CantidadVuelta)</CantidadVuelta><EsCompra i:type='d:int'>\(0)</EsCompra></n0:AgregarReserva></v:Body></v:Envelope>" //request para el ws, esto es recomendable copiarlo de Android Studio, sino saber que meter bien, los parametros los paso con \(nombre_vairable)
         //holaokkkk
         var is_URL: String = "https://webservices.buseslep.com.ar/WebServices/WebServiceLep.dll/soap/ILepWebService" //url del ws
         var lobj_Request = NSMutableURLRequest(URL: NSURL(string: is_URL)!)
@@ -169,6 +184,7 @@ class ReserveDetailsViewController: UIViewController{
                             else{
                                 let alert2 = UIAlertView(title: "Tu Reserva Ha Sido Exitosa!", message: "Te enviamos un mail a " + self.mail + " con los detalles", delegate:nil, cancelButtonTitle: "Aceptar")
                                 alert2.show()
+                                self.performSegueWithIdentifier("BackToMain", sender: self);
                             }
                             self.loadIcon.hidden = true
                         })

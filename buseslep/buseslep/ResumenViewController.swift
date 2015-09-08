@@ -111,6 +111,21 @@ class ResumenViewController: UIViewController {
             reserveDetailsViewController.ciudadOrigen = self.ciudadOrigen!
             reserveDetailsViewController.ciudadDestino = self.ciudadDestino!
         }
+        if(segue.identifier == "DetallesCompra"){
+            let reserveDetailsViewController = segue.destinationViewController as! ReserveDetailsViewController
+            reserveDetailsViewController.EsCompra = 1;
+            reserveDetailsViewController.EsIdaVuelta = self.esIdaVuelta!
+            reserveDetailsViewController.CantidadIda = self.cantidadPasajes!
+            reserveDetailsViewController.horarioIda = self.horarioIda!
+            reserveDetailsViewController.butacasIda = self.asientosIda!
+            reserveDetailsViewController.idVenta = self.idVenta
+            if self.esIdaVuelta! {
+                reserveDetailsViewController.horarioVuelta = self.horarioVuelta!
+                reserveDetailsViewController.butacasVuelta = self.asientosVuelta!
+            }
+            reserveDetailsViewController.ciudadOrigen = self.ciudadOrigen!
+            reserveDetailsViewController.ciudadDestino = self.ciudadDestino!
+        }
         if(segue.identifier == "Comprar"){
             let seatSelectionViewController = segue.destinationViewController as! SeatSelectionViewController
             seatSelectionViewController.idVenta = self.idVenta
@@ -138,11 +153,12 @@ class ResumenViewController: UIViewController {
                  self.performSegueWithIdentifier("Comprar", sender: self);
             }
             else{
-                println("ir a detalles de compra")
+                 self.performSegueWithIdentifier("DetallesCompra", sender: self);
             }
         }
         else{
             asientosVuelta = asientos
+            self.performSegueWithIdentifier("DetallesCompra", sender: self);
         }
     }
     

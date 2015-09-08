@@ -1077,9 +1077,16 @@
                             <constraint firstAttribute="centerY" secondItem="De3-Dg-78b" secondAttribute="centerY" id="yGl-nT-Xit"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Detalle" id="0Vf-H9-a8e"/>
+                    <navigationItem key="navigationItem" title="Detalle" id="0Vf-H9-a8e">
+                        <barButtonItem key="rightBarButtonItem" title="Confirmar" id="F4i-Am-O58">
+                            <connections>
+                                <action selector="confirmarCompra:" destination="hYm-lC-fJc" id="twg-xZ-g49"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="borderView" destination="XhV-lo-v4R" id="1Fv-0f-3O4"/>
+                        <outlet property="btnConfirm" destination="F4i-Am-O58" id="vR4-hs-GiM"/>
                         <outlet property="btnReserve" destination="A81-k1-Y0B" id="nYt-Hj-Zff"/>
                         <outlet property="lblButacaIdaText" destination="nC9-yI-ARI" id="MYY-t2-0jQ"/>
                         <outlet property="lblButacaVueltaText" destination="ZcD-TC-olU" id="Tej-SZ-bn8"/>
@@ -1105,6 +1112,7 @@
                         <outlet property="viewPlataformaVuelta" destination="n5h-Ob-aTL" id="7bq-PS-9FB"/>
                         <outlet property="viewSalidaVuelta" destination="xFn-yq-ZF4" id="jF3-Pg-GgE"/>
                         <outlet property="viewTotal" destination="EcE-Q0-bOc" id="IpA-U7-6iJ"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="BackToMain" id="3zL-zn-ePX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fp-w2-uFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1673,6 +1681,7 @@
                         <segue destination="hYm-lC-fJc" kind="show" identifier="Reservar" id="lnc-Jg-l4u"/>
                         <segue destination="aMm-tG-ILS" kind="show" identifier="Comprar" id="Bb4-31-8DV"/>
                         <segue destination="7eb-rr-VIh" kind="show" identifier="Login" id="t13-q0-qWg"/>
+                        <segue destination="hYm-lC-fJc" kind="show" identifier="DetallesCompra" id="ZZA-8A-Q75"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdi-aN-neR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1995,7 +2004,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ivo-Hq-b0d"/>
+        <segue reference="3zL-zn-ePX"/>
+        <segue reference="ZZA-8A-Q75"/>
+        <segue reference="t13-q0-qWg"/>
         <segue reference="wfF-XE-INw"/>
-        <segue reference="vAL-TL-GNR"/>
     </inferredMetricsTieBreakers>
 </document>
