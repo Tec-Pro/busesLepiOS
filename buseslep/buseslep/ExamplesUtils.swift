@@ -18,22 +18,22 @@ class ExamplesUtils {
 		// "2b66598b-8b0f-4588-bd2f-c80ca21c6d18" // VZ
 		// "aa371283-ad00-4d5d-af5d-ed9f58e139f1" // CO
     }
-    class var MERCHANT_MOCK_BASE_URL : String {
-        return "https://www.mercadopago.com"
-    }
+   // class var MERCHANT_MOCK_BASE_URL : String {
+   //     return "https://www.mercadopago.com"
+   // }
    // class var MERCHANT_MOCK_GET_CUSTOMER_URI : String {
    //     return "/checkout/examples/getCustomer"
    // }
-    
-    class var MERCHANT_MOCK_CREATE_PAYMENT_URI : String {
-        return  "/checkout/examples/doPayment"
-    }
+   
+   // class var MERCHANT_MOCK_CREATE_PAYMENT_URI : String {
+   //     return  "/checkout/examples/doPayment"
+   // }
    // class var MERCHANT_MOCK_GET_DISCOUNT_URI : String {
    //     return  "/checkout/examples/getDiscounts"
    // }
 
-    class var MERCHANT_ACCESS_TOKEN : String {
-        return "mla-cards-data"
+    //class var MERCHANT_ACCESS_TOKEN : String {
+    //    return "mla-cards-data"
 		// "mla-cards-data" // AR
 		// "mlb-cards-data" // BR
 		// "mlm-cards-data" // MX
@@ -41,41 +41,27 @@ class ExamplesUtils {
 		// "mco-cards-data" // CO
 		// "mla-cards-data-tarshop" // NO CVV
         // return "mla-cards-data-tarshop" // No CVV
-    }
+   // }
 
     
-    class var ITEM_ID : String {
-        return "id1"
-    }
-    
-    class var ITEM_QUANTITY : Int {
-        return 1
-    }
-    
-    class var ITEM_UNIT_PRICE : Double {
-        return 100.00
-    }
+
 
  
 
-    class func startAdvancedVaultActivity(merchantPublicKey: String, merchantBaseUrl: String, merchantAccessToken: String, amount: Double, supportedPaymentTypes: [String], callback: (paymentMethod: PaymentMethod, token: String?, issuerId: Int64?, installments: Int) -> Void) -> AdvancedVaultViewController {
-        return AdvancedVaultViewController(merchantPublicKey: merchantPublicKey, merchantBaseUrl: merchantBaseUrl,  merchantAccessToken: merchantAccessToken, amount: amount, supportedPaymentTypes: supportedPaymentTypes, callback: callback)
+    class func startAdvancedVaultActivity(merchantPublicKey: String, amount: Double, supportedPaymentTypes: [String], callback: (paymentMethod: PaymentMethod, token: String?, issuerId: Int64?, installments: Int) -> Void) -> AdvancedVaultViewController {
+        return AdvancedVaultViewController(merchantPublicKey: merchantPublicKey, amount: amount, supportedPaymentTypes: supportedPaymentTypes, callback: callback)
     }
     
 
     
     class func createPayment(token: String, installments: Int, idSell: Int, transactionAmount: Double, paymentMethod: PaymentMethod, callback: (payment: Payment) -> Void) {
         // Set item
-        let item : Item = Item(_id: ExamplesUtils.ITEM_ID, quantity: ExamplesUtils.ITEM_QUANTITY,
-            unitPrice: ExamplesUtils.ITEM_UNIT_PRICE)
 
-		
-        // Set merchant payment borrar estoooooo
-        let payment : MerchantPayment = MerchantPayment(item: item, installments: installments, cardIssuerId: 0, token: token, paymentMethodId: paymentMethod._id, campaignId: 0, merchantAccessToken: ExamplesUtils.MERCHANT_ACCESS_TOKEN)
+
         
         
         //seteo el pago tecpro
-        let paymentTecPro : PaymentTecPro = PaymentTecPro(description: "descripcion", externalReference : "boleto:1457", installments: installments, token: token, paymentMethodId: paymentMethod._id, transactionAmount : transactionAmount, email: "nico.orcasitas@gmail.com")
+        let paymentTecPro : PaymentTecPro = PaymentTecPro(description: "descripcion", externalReference : "boleto:\(idSell)", installments: installments, token: token, paymentMethodId: paymentMethod._id, transactionAmount : transactionAmount, email: "nico.orcasitas@gmail.com")
         println(paymentTecPro.toJSONString())
         //self.realizarPagoMercadoPago("s")
         

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MercadoPagoSDK
 
 class ReserveDetailsViewController: UIViewController{
     
@@ -60,7 +61,7 @@ class ReserveDetailsViewController: UIViewController{
     var IdlocalidadHastaVuelta: Int = 0
     var EsCompra: Int = 0
     var EsIdaVuelta: Bool = true
-    var totalPrice: Float = 0
+    var totalPrice: Double = 0
     var butacasIda: Set<Int>?
     var butacasVuelta: Set<Int>?
     var idVenta: Int = -1
@@ -139,6 +140,53 @@ class ReserveDetailsViewController: UIViewController{
     }
     @IBAction func confirmarCompra(sender: UIBarButtonItem) {
         println("Cargar cosas de mercadopago")
+        self.showViewController(ExamplesUtils.startAdvancedVaultActivity(ExamplesUtils.MERCHANT_PUBLIC_KEY, amount: totalPrice, supportedPaymentTypes: ["credit_card", "debit_card", "prepaid_card"], callback: {(paymentMethod: PaymentMethod, token: String?, issuerId: Int64?, installments: Int) -> Void in
+            self.createPayment(token, paymentMethod: paymentMethod, installments: installments, idSell: self.idVenta,transactionAmount: self.totalPrice, discount: nil)
+        }), sender: self)
+    }
+    
+    func createPayment(token: String?, paymentMethod: PaymentMethod, installments: Int,idSell: Int ,transactionAmount: Double, discount: Discount?) {
+        if token != nil {
+            ExamplesUtils.createPayment(token!, installments: installments, idSell: idSell,transactionAmount: transactionAmount, paymentMethod: paymentMethod, callback: { (payment: Payment) -> Void in
+                self.showViewController(MercadoPago.startCongratsViewController(payment, paymentMethod: paymentMethod), sender: self)
+                var messageError : String = "ERROR"
+                var exito: Bool = false;
+                switch (payment.statusDetail){
+                case "accredited": //Pago aprobado
+                    exito = true;
+                case "pending_contingency": //Pago pendiente
+                    messageError = "ERROR: Pago pendiente";
+                    var alert = UIAlertView( title: "Error!", message: messageError,delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                case "cc_rejected_call_for_authorize": //Pago rechazado, llamar para autorizar.
+                    messageError = "ERROR: Pago rechazado, llamar para autorizar.";
+                    var alert = UIAlertView( title: "Error!", message: messageError,delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                case "cc_rejected_insufficient_amount": //Pago rechazado, saldo insuficiente.
+                    messageError = "ERROR: Pago rechazado, saldo insuficiente.";
+                    var alert = UIAlertView( title: "Error!", message: messageError,delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                case "cc_rejected_bad_filled_security_code": //Pago rechazado por código de seguridad.
+                    messageError = "ERROR: Pago rechazado por código de seguridad.";
+                    var alert = UIAlertView( title: "Error!", message: messageError,delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                case "cc_rejected_bad_filled_date": //Pago rechazado por fecha de expiración.
+                    messageError = "ERROR: Pago rechazado por fecha de expiración.";
+                    var alert = UIAlertView( title: "Error!", message: messageError,delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                case "cc_rejected_bad_filled_other": //Pago rechazado por error en el formulario
+                    messageError = "ERROR: Pago rechazado por error en el formulario";
+                    var alert = UIAlertView( title: "Error!", message: messageError,delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                default: //Pago rechazado
+                    messageError = "ERROR";
+                    var alert = UIAlertView( title: "Error!", message: messageError,delegate: nil,  cancelButtonTitle: "Entendido")
+                    alert.show()
+                }
+            })
+        } else {
+            println("no tengo token")
+        }
     }
     
     @IBAction func reservar(sender: UIButton) {

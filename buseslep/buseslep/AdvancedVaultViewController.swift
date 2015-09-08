@@ -23,8 +23,8 @@ class AdvancedVaultViewController : SimpleVaultViewController {
         super.init(coder: aDecoder)
     }
     
-    init(merchantPublicKey: String, merchantBaseUrl: String, merchantAccessToken: String, amount: Double, supportedPaymentTypes: [String], callback: ((paymentMethod: PaymentMethod, token: String?, issuerId: Int64?, installments: Int) -> Void)?) {
-        super.init(merchantPublicKey: merchantPublicKey, merchantBaseUrl: merchantBaseUrl, merchantAccessToken: merchantAccessToken, supportedPaymentTypes: supportedPaymentTypes, callback: nil)
+    init(merchantPublicKey: String, amount: Double, supportedPaymentTypes: [String], callback: ((paymentMethod: PaymentMethod, token: String?, issuerId: Int64?, installments: Int) -> Void)?) {
+        super.init(merchantPublicKey: merchantPublicKey,  supportedPaymentTypes: supportedPaymentTypes, callback: nil)
         advancedCallback = callback
         self.amount = amount
     }

@@ -37,11 +37,9 @@ class SimpleVaultViewController: UIViewController, UITableViewDataSource, UITabl
     var securityCodeLength : Int = 0
     var bin : String?
     
-    init(merchantPublicKey: String, merchantBaseUrl: String, merchantAccessToken: String, supportedPaymentTypes: [String], callback: ((paymentMethod: PaymentMethod, token: Token?) -> Void)?) {
+    init(merchantPublicKey: String, supportedPaymentTypes: [String], callback: ((paymentMethod: PaymentMethod, token: Token?) -> Void)?) {
         super.init(nibName: "SimpleVaultViewController", bundle: nil)
         self.publicKey = merchantPublicKey
-        self.baseUrl = merchantBaseUrl
-        self.merchantAccessToken = merchantAccessToken
         self.supportedPaymentTypes = supportedPaymentTypes
         self.callback = callback
     }
