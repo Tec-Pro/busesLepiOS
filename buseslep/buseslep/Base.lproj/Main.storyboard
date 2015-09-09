@@ -2109,7 +2109,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vd1-Ny-MbV" kind="show" id="RGT-Ci-6R4"/>
+                                    <segue destination="vd1-Ny-MbV" kind="show" id="tCG-7s-rts"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

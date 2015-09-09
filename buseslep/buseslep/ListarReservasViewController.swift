@@ -39,6 +39,28 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
         return cell!
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        mostrarAlerta()
+    }
+    
+    func mostrarAlerta() {
+        var alerta = UIAlertController(title: "Seleccione una opcion", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+        alerta.addAction(UIAlertAction(title: "Realizar compra", style: UIAlertActionStyle.Default, handler: { alertAction in
+            println("compra")
+            alerta.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        alerta.addAction(UIAlertAction(title: "Cancelar reserva", style: UIAlertActionStyle.Default, handler: { alertAction in
+            println("cancelar")
+            alerta.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        alerta.addAction(UIAlertAction(title: "Salir", style: UIAlertActionStyle.Default, handler: { alertAction in
+            alerta.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        self.presentViewController(alerta, animated: true, completion: nil)
+    }
+    
     func obtenerReservas(){
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"

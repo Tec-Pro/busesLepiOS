@@ -107,6 +107,11 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             }
         }
         
+        if(BusquedaViewController.cargarUltimasBusquedas){
+            self.performSegueWithIdentifier("UltimasBusquedas", sender: self);
+            BusquedaViewController.cargarUltimasBusquedas = false
+        }
+        
     }
     
     
