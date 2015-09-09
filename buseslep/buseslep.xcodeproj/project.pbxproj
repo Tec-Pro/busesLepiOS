@@ -32,6 +32,7 @@
 		3FB7B9AF1B9E02CF00619459 /* AdvancedVaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7B9AE1B9E02CF00619459 /* AdvancedVaultViewController.swift */; };
 		3FB7B9B11B9E031800619459 /* ExamplesUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7B9B01B9E031800619459 /* ExamplesUtils.swift */; };
 		3FB7B9B41B9E077300619459 /* SimpleVaultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7B9B31B9E077300619459 /* SimpleVaultViewController.xib */; };
+		3FC731E91BA0710700891FDC /* FinalizarCompraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC731E81BA0710700891FDC /* FinalizarCompraViewController.swift */; };
 		3FFCB9801B9351DB00C043F6 /* HorarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */; };
 		3FFCB9821B93548D00C043F6 /* HorarioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB9811B93548D00C043F6 /* HorarioModel.swift */; };
 		3FFCB9881B936C9700C043F6 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB9871B936C9700C043F6 /* WebServices.swift */; };
@@ -84,6 +85,7 @@
 		3FB7B9AE1B9E02CF00619459 /* AdvancedVaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedVaultViewController.swift; sourceTree = "<group>"; };
 		3FB7B9B01B9E031800619459 /* ExamplesUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplesUtils.swift; sourceTree = "<group>"; };
 		3FB7B9B31B9E077300619459 /* SimpleVaultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleVaultViewController.xib; sourceTree = "<group>"; };
+		3FC731E81BA0710700891FDC /* FinalizarCompraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalizarCompraViewController.swift; sourceTree = "<group>"; };
 		3FFCB97F1B9351DB00C043F6 /* HorarioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorarioViewController.swift; sourceTree = "<group>"; };
 		3FFCB9811B93548D00C043F6 /* HorarioModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorarioModel.swift; sourceTree = "<group>"; };
 		3FFCB9871B936C9700C043F6 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				3F4C68D81B99CDEA001FBA9A /* PasajesTableViewController.swift */,
 				3F4C690F1B99EE07001FBA9A /* CalendarViewController.swift */,
 				3F58E7AF1B9B374F00858739 /* ResumenViewController.swift */,
+				3FC731E81BA0710700891FDC /* FinalizarCompraViewController.swift */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				3F583FBA1B91DED700161918 /* buseslep.xcdatamodeld in Sources */,
 				3F0F42BC1B965AB60075A10D /* SWRevealViewController.m in Sources */,
 				3FFCB9821B93548D00C043F6 /* HorarioModel.swift in Sources */,
+				3FC731E91BA0710700891FDC /* FinalizarCompraViewController.swift in Sources */,
 				3FFCB9881B936C9700C043F6 /* WebServices.swift in Sources */,
 				3F583FB71B91DED700161918 /* AppDelegate.swift in Sources */,
 				EDF021431B9BB94D00AC12AC /* ReserveDetailsViewController.swift in Sources */,

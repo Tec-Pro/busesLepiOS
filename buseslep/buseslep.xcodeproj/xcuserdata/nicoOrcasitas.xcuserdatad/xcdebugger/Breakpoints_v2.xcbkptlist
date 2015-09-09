@@ -223,7 +223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "220"
             endingLineNumber = "220"
-            landmarkName = "fechaIda(_:month:year:)"
+            landmarkName = "fechaVuelta(_:month:year:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -239,7 +239,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "218"
             endingLineNumber = "218"
-            landmarkName = "fechaIda(_:month:year:)"
+            landmarkName = "fechaVuelta(_:month:year:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -255,7 +255,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "219"
             endingLineNumber = "219"
-            landmarkName = "fechaIda(_:month:year:)"
+            landmarkName = "fechaVuelta(_:month:year:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -271,7 +271,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "221"
             endingLineNumber = "221"
-            landmarkName = "fechaIda(_:month:year:)"
+            landmarkName = "fechaVuelta(_:month:year:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -488,8 +488,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "231"
             endingLineNumber = "231"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
+            landmarkName = "BusquedaViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -532,7 +532,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "230"
             endingLineNumber = "230"
-            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkName = "fechaIda(_:month:year:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -548,7 +548,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "229"
             endingLineNumber = "229"
-            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkName = "fechaIda(_:month:year:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -660,7 +660,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "506"
             endingLineNumber = "506"
-            landmarkName = "obtenerPrecios(_:ID_LocalidadDestino:)"
+            landmarkName = "obtenerHorarios(_:IdLocalidadDestino:Fecha:esVuelta:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -676,8 +676,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "225"
             endingLineNumber = "225"
-            landmarkName = "BusquedaViewController"
-            landmarkType = "3">
+            landmarkName = "fechaIda(_:month:year:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -708,7 +708,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "226"
             endingLineNumber = "226"
-            landmarkName = "prepareForSegue(_:sender:)"
+            landmarkName = "fechaIda(_:month:year:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -724,7 +724,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "223"
             endingLineNumber = "223"
-            landmarkName = "fechaIda(_:month:year:)"
+            landmarkName = "fechaVuelta(_:month:year:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -756,8 +756,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "182"
             endingLineNumber = "182"
-            landmarkName = "BusquedaViewController"
-            landmarkType = "3">
+            landmarkName = "ciudadOrigenElegida(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -836,8 +836,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "190"
             endingLineNumber = "190"
-            landmarkName = "horarioIda(_:)"
-            landmarkType = "5">
+            landmarkName = "BusquedaViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -868,8 +868,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "453"
             endingLineNumber = "453"
-            landmarkName = "obtenerHorarios(_:IdLocalidadDestino:Fecha:esVuelta:)"
-            landmarkType = "5">
+            landmarkName = "BusquedaViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

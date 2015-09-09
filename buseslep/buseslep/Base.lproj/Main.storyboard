@@ -684,6 +684,113 @@
             </objects>
             <point key="canvasLocation" x="2802" y="1136"/>
         </scene>
+        <!--Compra finalizada-->
+        <scene sceneID="o7Q-WR-EXd">
+            <objects>
+                <viewController id="8qb-mN-2l7" customClass="FinalizarCompraViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TeA-qM-Z1Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="c4c-rn-kJJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kyg-46-uVM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Podrá consultar el código en Mis compras dentro del menú de usuario" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnf-Ue-WCU">
+                                <rect key="frame" x="30" y="335" width="540" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="una vez que haya salido de esta pantalla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFj-P5-BHZ">
+                                <rect key="frame" x="145" y="356" width="311" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icx-73-uKs">
+                                <rect key="frame" x="277" y="422" width="57" height="30"/>
+                                <state key="normal" title="Finalizar">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickFinalizar:" destination="8qb-mN-2l7" eventType="touchUpInside" id="P0Y-LK-I2Z"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JdW-NH-jML">
+                                <rect key="frame" x="16" y="58" width="568" height="239"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="C4W1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="148" translatesAutoresizingMaskIntoConstraints="NO" id="uBb-yV-wsW">
+                                        <rect key="frame" x="210" y="132" width="148" height="46"/>
+                                        <color key="backgroundColor" red="0.44925820707070707" green="0.38836853000677735" blue="0.34933054164393973" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="en boleterìa para obtener su boleto:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJJ-zR-v5k">
+                                        <rect key="frame" x="147" y="91" width="274" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Usted deberá presentar el siguiente código" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQh-Hs-0on">
+                                        <rect key="frame" x="119" y="62" width="332" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="¡Su compra se ha realizado con éxito!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfz-mb-mru">
+                                        <rect key="frame" x="42" y="21" width="485" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Código de compra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV7-SM-ucK">
+                                        <rect key="frame" x="212" y="186" width="144" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="UV7-SM-ucK" secondAttribute="centerX" id="7l3-ys-9HL"/>
+                                    <constraint firstAttribute="centerX" secondItem="rJJ-zR-v5k" secondAttribute="centerX" id="KJc-t2-Wyd"/>
+                                    <constraint firstItem="rJJ-zR-v5k" firstAttribute="top" secondItem="UQh-Hs-0on" secondAttribute="bottom" constant="8" id="LzX-F1-B9g"/>
+                                    <constraint firstItem="UV7-SM-ucK" firstAttribute="top" secondItem="uBb-yV-wsW" secondAttribute="bottom" constant="8" id="REQ-fc-9FI"/>
+                                    <constraint firstAttribute="centerX" secondItem="uBb-yV-wsW" secondAttribute="centerX" id="b9h-M2-KtI"/>
+                                    <constraint firstAttribute="centerX" secondItem="mfz-mb-mru" secondAttribute="centerX" id="e92-r1-4MV"/>
+                                    <constraint firstItem="uBb-yV-wsW" firstAttribute="top" secondItem="rJJ-zR-v5k" secondAttribute="bottom" constant="20" id="fRa-El-cV1"/>
+                                    <constraint firstAttribute="centerX" secondItem="UQh-Hs-0on" secondAttribute="centerX" id="hyi-aM-lfH"/>
+                                    <constraint firstItem="UQh-Hs-0on" firstAttribute="top" secondItem="mfz-mb-mru" secondAttribute="bottom" constant="20" id="k9b-ae-vyR"/>
+                                    <constraint firstItem="mfz-mb-mru" firstAttribute="top" secondItem="JdW-NH-jML" secondAttribute="top" constant="21" id="vFt-BP-6NI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JdW-NH-jML" firstAttribute="top" secondItem="TeA-qM-Z1Z" secondAttribute="bottom" constant="38" id="39n-I3-UBH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JdW-NH-jML" secondAttribute="trailing" id="4He-Xt-exd"/>
+                            <constraint firstAttribute="centerX" secondItem="kFj-P5-BHZ" secondAttribute="centerX" id="QUZ-K2-E9k"/>
+                            <constraint firstAttribute="centerX" secondItem="Lnf-Ue-WCU" secondAttribute="centerX" id="Y5D-FQ-xhV"/>
+                            <constraint firstItem="JdW-NH-jML" firstAttribute="leading" secondItem="Kyg-46-uVM" secondAttribute="leadingMargin" id="ZWb-6D-Xe4"/>
+                            <constraint firstItem="kFj-P5-BHZ" firstAttribute="top" secondItem="Lnf-Ue-WCU" secondAttribute="bottom" id="aFK-yi-UB7"/>
+                            <constraint firstItem="Lnf-Ue-WCU" firstAttribute="top" secondItem="JdW-NH-jML" secondAttribute="bottom" constant="38" id="rSC-3t-wK3"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Compra finalizada" id="Qlm-QJ-ksH"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="lblCodImpresion" destination="uBb-yV-wsW" id="imE-PR-od3"/>
+                        <outlet property="viewGrande" destination="JdW-NH-jML" id="ScG-TT-YOf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ls2-ad-pER" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3609" y="1136"/>
+        </scene>
         <!--Detalle-->
         <scene sceneID="h8L-n2-YTf">
             <objects>
@@ -1103,6 +1210,7 @@
                         <outlet property="viewSalidaVuelta" destination="xFn-yq-ZF4" id="jF3-Pg-GgE"/>
                         <outlet property="viewTotal" destination="EcE-Q0-bOc" id="IpA-U7-6iJ"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="BackToMain" id="3zL-zn-ePX"/>
+                        <segue destination="8qb-mN-2l7" kind="show" identifier="finalizarCompra" id="uI5-8r-MDF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fp-w2-uFe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2077,10 +2185,10 @@
         <image name="present-100" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vAL-TL-GNR"/>
-        <segue reference="5kS-aB-Zi6"/>
-        <segue reference="wfF-XE-INw"/>
-        <segue reference="ivo-Hq-b0d"/>
+        <segue reference="3zL-zn-ePX"/>
         <segue reference="ZZA-8A-Q75"/>
+        <segue reference="ivo-Hq-b0d"/>
+        <segue reference="vAL-TL-GNR"/>
+        <segue reference="wfF-XE-INw"/>
     </inferredMetricsTieBreakers>
 </document>

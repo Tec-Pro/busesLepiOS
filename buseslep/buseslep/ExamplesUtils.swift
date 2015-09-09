@@ -54,19 +54,15 @@ class ExamplesUtils {
     
 
     
-    class func createPayment(token: String, installments: Int, idSell: Int, transactionAmount: Double, paymentMethod: PaymentMethod, callback: (payment: Payment) -> Void) {
+    class func createPayment(token: String, installments: Int, idSell: Int, transactionAmount: Double, paymentMethod: PaymentMethod, callback: (payment: Payment, codImpresion: String) -> Void) {
         // Set item
 
-
-        
-        
+        let preferences = NSUserDefaults.standardUserDefaults()// obtengo el mail
+        var email: AnyObject? = preferences.objectForKey("email")
         //seteo el pago tecpro
-        let paymentTecPro : PaymentTecPro = PaymentTecPro(description: "descripcion", externalReference : "boleto:\(idSell)", installments: installments, token: token, paymentMethodId: paymentMethod._id, transactionAmount : transactionAmount, email: "nico.orcasitas@gmail.com")
+        let paymentTecPro : PaymentTecPro = PaymentTecPro(description: "boletos", externalReference : "boleto:\(idSell)", installments: installments, token: token, paymentMethodId: paymentMethod._id, transactionAmount : transactionAmount, email: email as! String)
         println(paymentTecPro.toJSONString())
         //self.realizarPagoMercadoPago("s")
-        
- 
-
         
         var UserCobro: String = "54GFDG2224785486DG" //paramatros
         var PassCobro: String = "15eQiDeCtCaDmS2506"
@@ -86,15 +82,26 @@ class ExamplesUtils {
             var parser : String = strData as String
             println(strData)
             if let rangeFrom = parser.rangeOfString(":string\">") { // con esto hago un subrango
-                if let rangeTo = parser.rangeOfString("Cod_Impresion") {
+                //TESTEO SIMULANDO ACEPTACION DE PAGOOOOO
+                //var rangeTotest = parser.rangeOfString("</return>")
+                //var auxParser: String = parser.substringToIndex(rangeTotest!.startIndex)
+                //auxParser.extend(" \"Cod_Impresion\":\"Q1Q2\"")
+                //auxParser.extend(parser.substringFromIndex(rangeTotest!.startIndex))
+                //parser = auxParser
+                if let rangeTo = parser.rangeOfString("\"Cod_Impresion") {
                     var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
-                    datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
+                    datos.extend("}")
                     //println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    
+                    let rangeFromCod = parser.rangeOfString("Cod_Impresion\":\"")
+                    let rangeToCod = parser.rangeOfString("\"</return>")
+                    var codImpresion: String = parser[rangeFromCod!.endIndex..<rangeToCod!.startIndex]
                     println(json)
-                    callback(payment: Payment.fromJSON(json))
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        callback(payment: Payment.fromJSON(json),codImpresion: codImpresion)
+                    })
+
                 }else{
                    let rangeTo = parser.rangeOfString("</return>")
                     var datos: String = parser[rangeFrom.endIndex..<rangeTo!.startIndex]
@@ -105,16 +112,16 @@ class ExamplesUtils {
                     
                     println(json)
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        callback(payment: Payment.fromJSON(json))
+                        callback(payment: Payment.fromJSON(json),codImpresion: "-1")
                     })
                 }
             }
             if error != nil{
                 // ove to the UI thread
-                // dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                //     var alert = UIAlertView( title: "Error!", message: "Ud. no posee conexión a internet; acceda a través de una red wi-fi o de su prestadora telefónica",delegate: nil,  cancelButtonTitle: "Entendido")
-                //     alert.show()
-                // })
+                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                     var alert = UIAlertView( title: "Error!", message: "Ud. no posee conexión a internet; acceda a través de una red wi-fi o de su prestadora telefónica",delegate: nil,  cancelButtonTitle: "Entendido")
+                     alert.show()
+                 })
             }
         })
         task.resume()

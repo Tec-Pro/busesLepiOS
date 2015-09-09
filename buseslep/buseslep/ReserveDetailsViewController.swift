@@ -66,6 +66,7 @@ class ReserveDetailsViewController: UIViewController{
     var butacasVuelta: Set<Int>?
     var idVenta: Int = -1
     
+    var CodImpresion: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         let preferences = NSUserDefaults.standardUserDefaults()
@@ -139,6 +140,17 @@ class ReserveDetailsViewController: UIViewController{
             viewGreyBar.hidden = true
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let identifier = segue.identifier
+        if identifier == "finalizarCompra"{ //largo el segue para elegir la ciudad de origen
+            let finalizarCompra = segue.destinationViewController as! FinalizarCompraViewController
+            finalizarCompra.lblCodImpresion.text = CodImpresion
+
+        }
+    }
+
+    
     @IBAction func confirmarCompra(sender: UIBarButtonItem) {
         println("Cargar cosas de mercadopago")
         self.showViewController(ExamplesUtils.startAdvancedVaultActivity(ExamplesUtils.MERCHANT_PUBLIC_KEY, amount: totalPrice, supportedPaymentTypes: ["credit_card", "debit_card", "prepaid_card"], callback: {(paymentMethod: PaymentMethod, token: String?, issuerId: Int64?, installments: Int) -> Void in
@@ -148,13 +160,16 @@ class ReserveDetailsViewController: UIViewController{
     
     func createPayment(token: String?, paymentMethod: PaymentMethod, installments: Int,idSell: Int ,transactionAmount: Double, discount: Discount?) {
         if token != nil {
-            ExamplesUtils.createPayment(token!, installments: installments, idSell: idSell,transactionAmount: transactionAmount, paymentMethod: paymentMethod, callback: { (payment: Payment) -> Void in
+            ExamplesUtils.createPayment(token!, installments: installments, idSell: idSell,transactionAmount: transactionAmount, paymentMethod: paymentMethod, callback: { (payment: Payment,  codImpresion: String) -> Void in
                 self.showViewController(MercadoPago.startCongratsViewController(payment, paymentMethod: paymentMethod), sender: self)
                 var messageError : String = "ERROR"
                 var exito: Bool = false;
+                self.CodImpresion = codImpresion
+                //payment.statusDetail = "accredited"
                 switch (payment.statusDetail){
                 case "accredited": //Pago aprobado
                     exito = true;
+                    self.performSegueWithIdentifier("finalizarCompra", sender: self);
                 case "pending_contingency": //Pago pendiente
                     messageError = "ERROR: Pago pendiente";
                     var alert = UIAlertView( title: "Error!", message: messageError,delegate: nil,  cancelButtonTitle: "Entendido")

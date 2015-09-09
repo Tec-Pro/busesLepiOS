@@ -531,18 +531,18 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                 var rangeFrom = parser.rangeOfString("TarIda:")
                 var rangeTo = parser.rangeOfString(" - Tar")
                 if (rangeFrom == nil){
-                    self.precioIda = "0,00"
-                    self.precioIdaVuelta = "0,00"
+                    self.precioIda = "0.00"
+                    self.precioIdaVuelta = "0.00"
                 }else{
                     self.precioIda = parser[rangeFrom!.endIndex..<rangeTo!.startIndex]
                     rangeFrom = parser.rangeOfString("TarIdAVuelta:")
                     rangeTo = parser.rangeOfString("</return>")
                     self.precioIdaVuelta = parser[rangeFrom!.endIndex..<rangeTo!.startIndex]
-                    if((self.precioIda!.rangeOfString(",")) == nil){
-                        self.precioIda?.extend(",00")
+                    if((self.precioIda!.rangeOfString(".")) == nil){
+                        self.precioIda?.extend(".00")
                     }
-                    if((self.precioIdaVuelta!.rangeOfString(",")) == nil){
-                        self.precioIdaVuelta?.extend(",00")
+                    if((self.precioIdaVuelta!.rangeOfString(".")) == nil){
+                        self.precioIdaVuelta?.extend(".00")
                     }
                 }
                 self.loadImage.hidden = true
