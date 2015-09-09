@@ -2198,7 +2198,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ultimas Busquedas" id="IJL-nF-gmv">
-                        <barButtonItem key="rightBarButtonItem" title="Borrar" id="Zz2-wY-6JN">
+                        <barButtonItem key="rightBarButtonItem" image="icon_trash" id="Zz2-wY-6JN">
                             <connections>
                                 <action selector="btnDeletePressed:" destination="K3b-Xm-u8D" id="JgC-p8-7EO"/>
                             </connections>
@@ -2271,6 +2271,7 @@
     <resources>
         <image name="Calendar" width="18" height="18"/>
         <image name="Spinner" width="18" height="18"/>
+        <image name="icon_trash" width="18" height="18"/>
         <image name="login" width="32" height="32"/>
         <image name="menu-burger" width="23" height="23"/>
         <image name="present-100" width="33" height="33"/>

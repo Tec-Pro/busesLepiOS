@@ -21,8 +21,8 @@ class UltimasBusquedasViewController : UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searches = db.getSearches()
         db.deleteOldSearches()
+        searches = db.getSearches()
         tablaUB.reloadData()
         
     }
@@ -58,6 +58,7 @@ class UltimasBusquedasViewController : UIViewController, UITableViewDelegate, UI
     
     @IBAction func btnDeletePressed(sender: UIBarButtonItem) {
         db.delete()
+        searches = db.getSearches()
         tablaUB.reloadData()
     }
 }

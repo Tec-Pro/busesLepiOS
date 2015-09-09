@@ -71,8 +71,13 @@ class Sqlite {
         var currentDay = components.day
         var currentMonth = components.month
         var currentYear = components.year
-        let stmt = db.prepare("DELETE FROM searches WHERE date_go < ?")
-        stmt.run("\(currentYear)-\(currentMonth)-\(currentDay)")
+        println("day: " + currentDay.description)
+        println("month: " + currentMonth.description)
+        println("year: " + currentYear.description)
+        let stmt = db.prepare("DELETE FROM searches WHERE CAST(strftime('%s', date_go)  AS  integer) < ?")
+        stmt.run("CAST(strftime('%s', '\(currentYear)-\(currentMonth)-\(currentDay)')  AS  integer) ") //quiero ver si esto funca
+            //let stmt = db.prepare("DELETE FROM searches WHERE date_go < ?")
+        //stmt.run("\(currentYear)-\(currentMonth)-\(currentDay)")
     }
       //  var alice: Query?
       //  if let rowid = users.insert(name <- "Alice", email <- "alice@mac.com").rowid {
