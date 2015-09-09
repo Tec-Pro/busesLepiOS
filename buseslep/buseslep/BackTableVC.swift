@@ -28,10 +28,12 @@ class BackTableVC: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         let opcion = tableArray[indexPath.row]
         println(opcion)
         if(opcion == "Ultimas Busquedas"){
             BusquedaViewController.cargarUltimasBusquedas = true
+            //self.performSegueWithIdentifier(<#identifier: String?#>, sender: <#AnyObject?#>)
         }
     }
     

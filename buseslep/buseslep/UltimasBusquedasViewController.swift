@@ -12,36 +12,52 @@ class UltimasBusquedasViewController : UIViewController, UITableViewDelegate, UI
     
     
     
+    @IBOutlet weak var btnDelete: UIBarButtonItem!
     @IBOutlet weak var tablaUB: UITableView!
+    var db : Sqlite = Sqlite()
+    var searches : [BusquedasModel]?
     
-
     var busquedaViewController: BusquedaViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("wwwwwwwwwwwwwwwwwwwwww")
+        searches = db.getSearches()
+        db.deleteOldSearches()
         tablaUB.reloadData()
+        
     }
     
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        if(searches != nil){
+            return searches!.count
+        }
+        else{
+            return 0
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("celdaUltimaBusqueda") as? CeldaUltimaBusqueda
-      //  cell?.ciudades.text = "Rio Cuarto - Ciudad de los Niños"
-       // cell?.fechaIda.text = "20/08/2015"
-        //cell?.fechaVuelta.text = "13/11/2015"
-        println("asdasdasd2")
-        
-        
+        cell?.ciudades.text = searches![indexPath.row].city_origin! + " - " + searches![indexPath.row].city_destiny!
+        var dateGoArr = split(searches![indexPath.row].date_go!) {$0 == "-"}
+        cell?.fechaIda.text = dateGoArr[2] + "/" + dateGoArr[1] + "/" + dateGoArr[0]
+        if(searches![indexPath.row].is_roundtrip!){
+            var dateRetArr = split(searches![indexPath.row].date_return!) {$0 == "-"}
+            cell?.fechaVuelta.text = dateRetArr[2] + "/" + dateRetArr[1] + "/" + dateRetArr[0]
+        }
+        else{
+            cell?.fechaVuelta.text = ""
+        }
         return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //let ciudad = ciudadesOrigen![indexPath.row]
-        //busquedaViewController?.ciudadOrigenElegida(indexPath.row)
-        //navigationController?.popViewControllerAnimated(true)
+        
+    }
+    
+    @IBAction func btnDeletePressed(sender: UIBarButtonItem) {
+        db.delete()
+        tablaUB.reloadData()
     }
 }
