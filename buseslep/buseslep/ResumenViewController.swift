@@ -119,7 +119,11 @@ class ResumenViewController: UIViewController {
             reserveDetailsViewController.horarioIda = self.horarioIda!
             reserveDetailsViewController.butacasIda = self.asientosIda!
             reserveDetailsViewController.idVenta = self.idVenta
+            var precio = self.precioIdaFloat! * CGFloat(cantidadPasajes!)
+            reserveDetailsViewController.totalPrice = Double(precio)
             if self.esIdaVuelta! {
+                var precio2 = self.precioIdaVueltaFloat! * CGFloat(cantidadPasajes!)
+                reserveDetailsViewController.totalPrice = Double(precio2)
                 reserveDetailsViewController.horarioVuelta = self.horarioVuelta!
                 reserveDetailsViewController.butacasVuelta = self.asientosVuelta!
             }
@@ -166,8 +170,8 @@ class ResumenViewController: UIViewController {
     
     @IBAction func clickComprar(sender: UIButton) {
         let preferences = NSUserDefaults.standardUserDefaults()
-        var dni: AnyObject? = preferences.objectForKey("dni")
-        if dni != nil {
+        var login: String? = preferences.objectForKey("login")!.description
+        if login != "0" {
             reservaParaCompra()
         }
         else{
@@ -178,8 +182,8 @@ class ResumenViewController: UIViewController {
     
     @IBAction func clickReservar(sender: UIButton) {
         let preferences = NSUserDefaults.standardUserDefaults()
-        var dni: AnyObject? = preferences.objectForKey("dni")
-        if dni != nil {
+        var login: String? = preferences.objectForKey("login")!.description
+        if login != "0" {
             self.performSegueWithIdentifier("Reservar", sender: self);
         }
         else{

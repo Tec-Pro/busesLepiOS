@@ -95,6 +95,7 @@ class ReserveDetailsViewController: UIViewController{
             lblButacaVueltaText.text = "Butaca"
             btnReserve.setTitle("Confirmar", forState: UIControlState.Normal)
             lblCantButacaIda.text = butacasIda!.description
+            lblTotal.text = "$\(round(totalPrice).description)0"
             if(butacasVuelta != nil){
                 lblCantButacaVuelta.text  = butacasVuelta!.description
             }

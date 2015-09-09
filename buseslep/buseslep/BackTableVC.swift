@@ -30,6 +30,9 @@ class BackTableVC: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let opcion = tableArray[indexPath.row]
         println(opcion)
+        if(opcion == "Ultimas Busquedas"){
+            BusquedaViewController.cargarUltimasBusquedas = true
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

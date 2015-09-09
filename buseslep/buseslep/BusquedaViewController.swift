@@ -39,6 +39,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     var precioIdaVuelta: String? //precio de ida
     var cantidadPasajes: Int = 0 //cantidad de pasajes elegidos
     
+    static var cargarUltimasBusquedas : Bool = false
+    
     var diaIda: Int = 0
     var mesIda:  Int = 0
     var anioIda: Int = 0
@@ -52,6 +54,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     var db : Sqlite = Sqlite()
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         Menu.target = self.revealViewController() // cosas para activar el menu
         Menu.action = Selector("revealToggle:") // cosas para activar el menu
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer()) //para abrir el menu arrastrando para el costado
@@ -80,6 +83,10 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         //me deslogueo cada vez que inicia la app. SACAR ESTO CUANDO ESTE IMPLEMENTADO EL CERRAR SESION
         preferences.setInteger(0, forKey: "login")
         preferences.synchronize()
+        if(BusquedaViewController.cargarUltimasBusquedas){
+            self.performSegueWithIdentifier("UltimasBusquedas", sender: self);
+            BusquedaViewController.cargarUltimasBusquedas = false
+        }
     
     }
     override func viewDidAppear(animated: Bool) {
