@@ -8,16 +8,15 @@
 
 import UIKit
 
-class ListarReservasViewController: UITableViewController{
+class ListarReservasViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var a:[String] = ["hola","chau","capo"]
+    @IBOutlet weak var tableView: UITableView!
     var reservas = [Reserva]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var r: Reserva = Reserva(sentido: "ida", fechaReserva: "fecha", salida: "salida", destino: "c a c2", cantidad: 1)
-        reservas.append(r)
         self.obtenerReservas()
+        tableView.delegate = self
         tableView.reloadData()
     }
     
@@ -26,16 +25,17 @@ class ListarReservasViewController: UITableViewController{
         tableView.reloadData()
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println("gola1")
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reservas.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("c") as? UITableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("c") as? CeldaReservaViewController
         let reserva = reservas[indexPath.row]
-        cell?.textLabel?.text = reserva.destino
-        println("gola2")
+        cell?.sentido.text = reserva.sentido
+        cell?.salida.text = reserva.salida
+        cell?.cant.text = reserva.cantidad.description
+        cell?.destino.text = reserva.destino
         return cell!
     }
     
@@ -64,8 +64,6 @@ class ListarReservasViewController: UITableViewController{
                 if let rangeTo = parser.rangeOfString(",\"Cols") {
                     var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
                     datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
-                    println("PARSEADO")
-                    println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                     // dispatch_async(dispatch_get_main_queue(), { () -> Void in
