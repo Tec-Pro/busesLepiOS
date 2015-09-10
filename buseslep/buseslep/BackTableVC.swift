@@ -46,6 +46,9 @@ class BackTableVC: UITableViewController {
             preferences.setValue(0, forKey: "login")
             preferences.synchronize()
         }
+        if opcion == "Cambiar Contraseña"{
+            BusquedaViewController.cambiarContraseña = true
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

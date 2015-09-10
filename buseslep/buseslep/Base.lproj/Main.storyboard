@@ -256,6 +256,7 @@
                         <segue destination="K3b-Xm-u8D" kind="show" identifier="UltimasBusquedas" id="jWv-oO-KFs"/>
                         <segue destination="vd1-Ny-MbV" kind="show" identifier="verReservas" id="9VT-p6-Q8e"/>
                         <segue destination="hu1-iB-um1" kind="show" identifier="editProfile" id="ozZ-j3-GxD"/>
+                        <segue destination="v0v-Qk-zg1" kind="show" identifier="cambiarContraseña" id="cRG-hi-Zjp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -595,6 +596,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdX-wh-PJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1658" y="1507"/>
+        </scene>
+        <!--Cambiar contraseña-->
+        <scene sceneID="UMj-zV-ZFF">
+            <objects>
+                <viewController id="v0v-Qk-zg1" customClass="CambiarPassViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wep-vK-Wal"/>
+                        <viewControllerLayoutGuide type="bottom" id="gz8-K4-TkY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Ez-Cs-AYG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nueva contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYQ-Ak-ARM">
+                                <rect key="frame" x="26" y="114" width="548" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47V-5m-91O">
+                                <rect key="frame" x="26" y="254" width="548" height="30"/>
+                                <state key="normal" title="Guardar">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="guardar:" destination="v0v-Qk-zg1" eventType="touchUpInside" id="MKP-NG-6Ky"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmar contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t2M-Sv-5Gx">
+                                <rect key="frame" x="26" y="174" width="548" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="t2M-Sv-5Gx" secondAttribute="trailing" constant="10" id="Lwc-dM-ktI"/>
+                            <constraint firstItem="t2M-Sv-5Gx" firstAttribute="top" secondItem="lYQ-Ak-ARM" secondAttribute="bottom" constant="30" id="Q7h-MC-CZb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="47V-5m-91O" secondAttribute="trailing" constant="10" id="QCI-rD-F2U"/>
+                            <constraint firstItem="47V-5m-91O" firstAttribute="leading" secondItem="3Ez-Cs-AYG" secondAttribute="leadingMargin" constant="10" id="QIq-wR-TYl"/>
+                            <constraint firstItem="47V-5m-91O" firstAttribute="top" secondItem="t2M-Sv-5Gx" secondAttribute="bottom" constant="50" id="Tjq-v9-eaa"/>
+                            <constraint firstItem="lYQ-Ak-ARM" firstAttribute="top" secondItem="wep-vK-Wal" secondAttribute="bottom" constant="50" id="ZwK-dz-ecw"/>
+                            <constraint firstItem="t2M-Sv-5Gx" firstAttribute="leading" secondItem="3Ez-Cs-AYG" secondAttribute="leadingMargin" constant="10" id="dUq-3U-qcn"/>
+                            <constraint firstItem="lYQ-Ak-ARM" firstAttribute="leading" secondItem="3Ez-Cs-AYG" secondAttribute="leadingMargin" constant="10" id="imG-rj-ZAc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lYQ-Ak-ARM" secondAttribute="trailing" constant="10" id="pg0-ct-kmG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cambiar contraseña" id="mWH-vS-NHR"/>
+                    <connections>
+                        <outlet property="btnGuardar" destination="47V-5m-91O" id="8ig-dr-hcX"/>
+                        <outlet property="txtPass" destination="lYQ-Ak-ARM" id="WFW-b4-7sb"/>
+                        <outlet property="txtRepPass" destination="t2M-Sv-5Gx" id="lKT-g0-70y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mxv-a6-M5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2382" y="1859"/>
         </scene>
         <!--Recuperar contraseña-->
         <scene sceneID="DkK-ym-Q32">

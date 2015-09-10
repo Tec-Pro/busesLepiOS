@@ -38,6 +38,7 @@
 		3FFCB9881B936C9700C043F6 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCB9871B936C9700C043F6 /* WebServices.swift */; };
 		CFA3D023F18D26962020C46A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C260DF312EF2C0059DB3A3C0 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ED13CD111BA11CAF0048A592 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13CD101BA11CAF0048A592 /* EditProfileViewController.swift */; };
+		ED13CD131BA129780048A592 /* CambiarPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED13CD121BA129780048A592 /* CambiarPassViewController.swift */; };
 		ED2E0DCF1BA09D1600A185F2 /* ListarReservasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E0DCE1BA09D1600A185F2 /* ListarReservasViewController.swift */; };
 		ED2E0DD11BA0A03C00A185F2 /* ReservaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E0DD01BA0A03C00A185F2 /* ReservaModel.swift */; };
 		ED2E0DD31BA0A29600A185F2 /* CeldaReservaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2E0DD21BA0A29600A185F2 /* CeldaReservaViewController.swift */; };
@@ -97,6 +98,7 @@
 		C260DF312EF2C0059DB3A3C0 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D56973208DDA4BC6DAB9181C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ED13CD101BA11CAF0048A592 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		ED13CD121BA129780048A592 /* CambiarPassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CambiarPassViewController.swift; sourceTree = "<group>"; };
 		ED2E0DCE1BA09D1600A185F2 /* ListarReservasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListarReservasViewController.swift; sourceTree = "<group>"; };
 		ED2E0DD01BA0A03C00A185F2 /* ReservaModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservaModel.swift; sourceTree = "<group>"; };
 		ED2E0DD21BA0A29600A185F2 /* CeldaReservaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeldaReservaViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				ED2E0DCE1BA09D1600A185F2 /* ListarReservasViewController.swift */,
 				ED2E0DD21BA0A29600A185F2 /* CeldaReservaViewController.swift */,
 				ED13CD101BA11CAF0048A592 /* EditProfileViewController.swift */,
+				ED13CD121BA129780048A592 /* CambiarPassViewController.swift */,
 			);
 			name = Controladores;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				3F4C69101B99EE07001FBA9A /* CalendarViewController.swift in Sources */,
 				3FB7B9A91B9DFA4B00619459 /* ButacaModel.swift in Sources */,
 				3F26F02B1B9242F000A56BBE /* CiudadesDestinoViewController.swift in Sources */,
+				ED13CD131BA129780048A592 /* CambiarPassViewController.swift in Sources */,
 				EDD1C0FE1B93A1AD00B57510 /* LoginViewController.swift in Sources */,
 				ED5B0FE01B98B5AD0057B604 /* RecPassViewController.swift in Sources */,
 			);
