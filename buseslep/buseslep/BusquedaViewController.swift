@@ -80,11 +80,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if ciudadesOrigen == nil || ciudadesOrigen?.count==0{
             obtenerCiudadesOrigen()
         }
-        
-        let preferences = NSUserDefaults.standardUserDefaults()
-        //me deslogueo cada vez que inicia la app. SACAR ESTO CUANDO ESTE IMPLEMENTADO EL CERRAR SESION
-        preferences.setInteger(0, forKey: "login")
-        preferences.synchronize()
+       
         if(BusquedaViewController.cargarUltimasBusquedas){
             self.performSegueWithIdentifier("UltimasBusquedas", sender: self);
             BusquedaViewController.cargarUltimasBusquedas = false

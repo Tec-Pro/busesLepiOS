@@ -41,6 +41,11 @@ class BackTableVC: UITableViewController {
         if opcion == "Editar Perfil"{
             BusquedaViewController.editarPerfil = true
         }
+        if opcion == "Cerrar Sesion"{
+            let preferences = NSUserDefaults.standardUserDefaults()
+            preferences.setValue(0, forKey: "login")
+            preferences.synchronize()
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
