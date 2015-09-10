@@ -41,6 +41,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     
     static var cargarUltimasBusquedas : Bool = false
     static var verReservas : Bool = false
+    static var editarPerfil : Bool = false
     
     var diaIda: Int = 0
     var mesIda:  Int = 0
@@ -116,6 +117,10 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if(BusquedaViewController.verReservas){
             self.performSegueWithIdentifier("verReservas", sender: self);
             BusquedaViewController.verReservas = false
+        }
+        if(BusquedaViewController.editarPerfil){
+            self.performSegueWithIdentifier("editProfile", sender: self);
+            BusquedaViewController.editarPerfil = false
         }
         
     }

@@ -255,7 +255,7 @@
                         <segue destination="zFs-sw-cy2" kind="show" identifier="elegirReservaCompra" id="Ax3-8j-ecg"/>
                         <segue destination="K3b-Xm-u8D" kind="show" identifier="UltimasBusquedas" id="jWv-oO-KFs"/>
                         <segue destination="vd1-Ny-MbV" kind="show" identifier="verReservas" id="9VT-p6-Q8e"/>
-                        <segue destination="hu1-iB-um1" kind="show" id="ozZ-j3-GxD"/>
+                        <segue destination="hu1-iB-um1" kind="show" identifier="editProfile" id="ozZ-j3-GxD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -533,7 +533,7 @@
         <!--Edición de perfil-->
         <scene sceneID="GLy-qO-Cr0">
             <objects>
-                <viewController id="hu1-iB-um1" sceneMemberID="viewController">
+                <viewController id="hu1-iB-um1" customClass="EditProfileViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="niU-vO-RlO"/>
                         <viewControllerLayoutGuide type="bottom" id="ZVf-ct-ZAr"/>
@@ -582,6 +582,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edición de perfil" id="feP-Ma-ofd"/>
+                    <connections>
+                        <outlet property="apellido" destination="7L8-cK-XeF" id="5gk-Gh-8Bs"/>
+                        <outlet property="btnGuardar" destination="p1o-qr-FNQ" id="HNo-xh-9vz"/>
+                        <outlet property="mail" destination="qnr-PO-qJ5" id="A1q-vm-SQC"/>
+                        <outlet property="nombre" destination="tac-qP-SFs" id="lwj-b0-fdw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JdX-wh-PJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

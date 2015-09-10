@@ -38,6 +38,9 @@ class BackTableVC: UITableViewController {
         if opcion == "Mis Reservas"{
                 BusquedaViewController.verReservas = true
         }
+        if opcion == "Editar Perfil"{
+            BusquedaViewController.editarPerfil = true
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
