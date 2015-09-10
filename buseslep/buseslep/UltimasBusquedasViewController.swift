@@ -23,7 +23,7 @@ class UltimasBusquedasViewController : UIViewController, UITableViewDelegate, UI
         super.viewDidLoad()
         db.deleteOldSearches()
         searches = db.getSearches()
-        tablaUB.reloadData()
+        //tablaUB.reloadData()
         
     }
     
