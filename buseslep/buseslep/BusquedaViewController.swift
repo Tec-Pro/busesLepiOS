@@ -40,6 +40,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     var cantidadPasajes: Int = 0 //cantidad de pasajes elegidos
     
     static var cargarUltimasBusquedas : Bool = false
+    static var verReservas : Bool = false
     
     var diaIda: Int = 0
     var mesIda:  Int = 0
@@ -110,6 +111,11 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if(BusquedaViewController.cargarUltimasBusquedas){
             self.performSegueWithIdentifier("UltimasBusquedas", sender: self);
             BusquedaViewController.cargarUltimasBusquedas = false
+        }
+        
+        if(BusquedaViewController.verReservas){
+            self.performSegueWithIdentifier("verReservas", sender: self);
+            BusquedaViewController.verReservas = false
         }
         
     }

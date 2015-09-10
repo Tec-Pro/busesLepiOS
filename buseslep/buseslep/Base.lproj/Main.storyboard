@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jec-RF-o5f">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jec-RF-o5f">
                                 <rect key="frame" x="26" y="106" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="JoG-Ro-yvg"/>
@@ -28,7 +28,7 @@
                                     <action selector="SetIdaVuelta:" destination="BYZ-38-t0r" eventType="valueChanged" id="UkI-Bm-1nE"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ida y vuelta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-87-mAb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ida y vuelta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-87-mAb">
                                 <rect key="frame" x="83" y="104" width="79" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="zAr-d9-Iqa"/>
@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="-1" height="-1"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="oVD-Bx-uqV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="oVD-Bx-uqV">
                                 <rect key="frame" x="26" y="175" width="548" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="nYW-lg-zNR"/>
@@ -52,7 +52,7 @@
                                     <segue destination="wT5-AK-MdF" kind="show" identifier="CiudadesOrigen" id="2TH-Uv-vR9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vkw-sT-uyb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vkw-sT-uyb">
                                 <rect key="frame" x="26" y="205" width="548" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="xlB-F0-lfq"/>
@@ -66,14 +66,14 @@
                                     <segue destination="lLk-yG-tzm" kind="show" identifier="CiudadesDestino" id="eke-LO-pst"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="xLo-0R-Dzl">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="xLo-0R-Dzl">
                                 <rect key="frame" x="544" y="205" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IYK-yd-1XV"/>
                                     <constraint firstAttribute="width" constant="30" id="zJq-XR-baK"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="nMq-cq-EMM">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="nMq-cq-EMM">
                                 <rect key="frame" x="544" y="176" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="7QV-Cl-aog"/>
@@ -97,7 +97,7 @@
                                     <segue destination="vXZ-lx-hvc" kind="show" identifier="elegirFechaIda" id="gqg-iM-UU9"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-se-XTC">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-se-XTC">
                                 <rect key="frame" x="544" y="234" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="KTB-0w-bWE"/>
@@ -254,6 +254,7 @@
                         <segue destination="hPo-EP-NFm" kind="show" identifier="elegirHorarioIda" id="w1j-Cq-bBz"/>
                         <segue destination="zFs-sw-cy2" kind="show" identifier="elegirReservaCompra" id="Ax3-8j-ecg"/>
                         <segue destination="K3b-Xm-u8D" kind="show" identifier="UltimasBusquedas" id="jWv-oO-KFs"/>
+                        <segue destination="vd1-Ny-MbV" kind="show" identifier="verReservas" id="9VT-p6-Q8e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -272,17 +273,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DNI" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1vC-ma-i0U">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DNI" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1vC-ma-i0U">
                                 <rect key="frame" x="26" y="114" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5UR-bl-MOp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5UR-bl-MOp">
                                 <rect key="frame" x="26" y="164" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1a0-Hd-qXq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1a0-Hd-qXq">
                                 <rect key="frame" x="26" y="264" width="548" height="30"/>
                                 <state key="normal" title="Ingresar">
                                     <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -292,7 +293,7 @@
                                     <action selector="ingresar:" destination="7eb-rr-VIh" eventType="touchUpInside" id="4xv-rk-Vwo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1d-8l-y7B">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1d-8l-y7B">
                                 <rect key="frame" x="26" y="360" width="548" height="30"/>
                                 <state key="normal" title="¿Aún no tienes cuenta?">
                                     <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -302,7 +303,7 @@
                                     <segue destination="m1g-ae-6Q6" kind="show" id="VdC-rc-lJJ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSE-Zo-dCb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSE-Zo-dCb">
                                 <rect key="frame" x="129" y="214" width="342" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¿Olvidaste tu contraseña? Hacé" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXW-3X-ve0">
@@ -540,17 +541,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DNI" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XuT-CO-kcY">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DNI" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XuT-CO-kcY">
                                 <rect key="frame" x="26" y="114" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Direccion de correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="55k-bN-JOC">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Direccion de correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="55k-bN-JOC">
                                 <rect key="frame" x="26" y="174" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvp-q3-Y8J">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvp-q3-Y8J">
                                 <rect key="frame" x="26" y="234" width="548" height="30"/>
                                 <state key="normal" title="Recuperar">
                                     <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -607,14 +608,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Seleccione butacas para ida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-Pm-jqR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seleccione butacas para ida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Va8-Pm-jqR">
                                 <rect key="frame" x="0.0" y="64" width="600" height="18"/>
                                 <color key="backgroundColor" red="0.29411764705882354" green="0.29411764705882354" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PoQ-ux-vft">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PoQ-ux-vft">
                                 <rect key="frame" x="150" y="92" width="300" height="493"/>
                                 <color key="backgroundColor" red="0.98428052687959977" green="1" blue="0.95022856735765515" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -803,14 +804,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Detalle de informacion seleccionada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNj-hO-GcN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalle de informacion seleccionada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNj-hO-GcN">
                                 <rect key="frame" x="0.0" y="64" width="600" height="18"/>
                                 <color key="backgroundColor" red="0.36389283459595956" green="0.36389283459595956" blue="0.36389283459595956" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.10436395202020199" green="0.10084239400951124" blue="0.099525615086533986" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FsE-aO-Ibo">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FsE-aO-Ibo">
                                 <rect key="frame" x="133" y="92" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destino de Ida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zh4-fD-jfm">
@@ -832,7 +833,7 @@
                                     <constraint firstAttribute="height" constant="10" id="E9F-nu-paw"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SDF-z5-niW">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDF-z5-niW">
                                 <rect key="frame" x="133" y="105" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ciudad de los Niños" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqa-yU-cNk">
@@ -848,7 +849,7 @@
                                     <constraint firstAttribute="width" constant="334" id="VDk-2i-eio"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9y-mr-xPP">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9y-mr-xPP">
                                 <rect key="frame" x="133" y="120" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7y-Rp-LIK">
@@ -876,7 +877,7 @@
                                     <constraint firstAttribute="width" constant="334" id="jrh-IM-oaN"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJx-so-IN9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJx-so-IN9">
                                 <rect key="frame" x="133" y="135" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cant. Pasajes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47L-91-Po3">
@@ -898,7 +899,7 @@
                                     <constraint firstAttribute="width" constant="334" id="w4M-0z-aep"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2q-91-yYv">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O2q-91-yYv">
                                 <rect key="frame" x="133" y="150" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plataforma" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC9-yI-ARI">
@@ -920,7 +921,7 @@
                                     <constraint firstAttribute="width" constant="334" id="rwC-Qv-02L"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9K-UI-Ctn">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9K-UI-Ctn">
                                 <rect key="frame" x="133" y="165" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lugar de abordo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evn-dJ-YSW">
@@ -936,7 +937,7 @@
                                     <constraint firstAttribute="height" constant="10" id="y5u-BI-cuL"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DqJ-Sf-mk8">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DqJ-Sf-mk8">
                                 <rect key="frame" x="133" y="201" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destino de vuelta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifJ-8Y-5U4">
@@ -958,7 +959,7 @@
                                     <constraint firstAttribute="height" constant="10" id="ADO-9J-uhf"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9c-qT-zuL">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9c-qT-zuL">
                                 <rect key="frame" x="133" y="214" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ciudad de los Niños" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3n-A2-GPY">
@@ -974,7 +975,7 @@
                                     <constraint firstAttribute="height" constant="10" id="uvU-lf-EGG"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PAD-n5-pS9">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PAD-n5-pS9">
                                 <rect key="frame" x="133" y="274" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lugar de abordo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGW-59-UdZ">
@@ -990,7 +991,7 @@
                                     <constraint firstAttribute="width" constant="334" id="vay-vV-Zsf"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFn-yq-ZF4">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFn-yq-ZF4">
                                 <rect key="frame" x="133" y="229" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al4-6e-OUr">
@@ -1018,7 +1019,7 @@
                                     <constraint firstAttribute="width" constant="334" id="jvC-aC-gkv"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5h-Ob-aTL">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5h-Ob-aTL">
                                 <rect key="frame" x="133" y="259" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Plataforma" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcD-TC-olU">
@@ -1056,7 +1057,7 @@
                                     <constraint firstAttribute="height" constant="6" id="zOq-2E-99f"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s16-MP-cNY">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s16-MP-cNY">
                                 <rect key="frame" x="133" y="244" width="334" height="10"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cant. Pasajes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWQ-Dc-OCL">
@@ -1094,7 +1095,7 @@
                                 </constraints>
                                 <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EcE-Q0-bOc">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcE-Q0-bOc">
                                 <rect key="frame" x="133" y="310" width="334" height="21"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="87.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ruz-0k-XWd">
@@ -1229,37 +1230,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-Ka-EHG">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SrF-Ka-EHG">
                                 <rect key="frame" x="26" y="114" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zvV-y9-qwK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zvV-y9-qwK">
                                 <rect key="frame" x="26" y="164" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DNI" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYs-Nh-icu">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DNI" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYs-Nh-icu">
                                 <rect key="frame" x="26" y="214" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Direccion de correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5zp-oN-x6D">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Direccion de correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5zp-oN-x6D">
                                 <rect key="frame" x="26" y="264" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjH-Az-Lfm">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjH-Az-Lfm">
                                 <rect key="frame" x="26" y="314" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmacion Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ie-sR-2uN">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmacion Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ie-sR-2uN">
                                 <rect key="frame" x="26" y="364" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLt-D0-w1H">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLt-D0-w1H">
                                 <rect key="frame" x="26" y="424" width="548" height="30"/>
                                 <state key="normal" title="Registrame">
                                     <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -1957,7 +1958,7 @@
                                     <action selector="todayMonthView" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eal-6j-4IX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7z-nd-eus">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7z-nd-eus">
                                 <rect key="frame" x="16" y="445" width="568" height="30"/>
                                 <state key="normal" title="Listo!">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1967,7 +1968,7 @@
                                     <action selector="btnListo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EVU-JG-WUZ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T1w-UY-QHC" customClass="CVCalendarView" customModule="CVCalendar">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1w-UY-QHC" customClass="CVCalendarView" customModule="CVCalendar">
                                 <rect key="frame" x="16" y="137" width="568" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="3oZ-He-brt">
@@ -2010,7 +2011,7 @@
             </objects>
             <point key="canvasLocation" x="86" y="1407"/>
         </scene>
-        <!--Listar Reservas View Controller-->
+        <!--Mis Reservas-->
         <scene sceneID="jm4-uB-ZxG">
             <objects>
                 <viewController id="vd1-Ny-MbV" customClass="ListarReservasViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
@@ -2022,50 +2023,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sBe-gO-D1R">
-                                <rect key="frame" x="0.0" y="46" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sBe-gO-D1R">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="638"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="c" rowHeight="86" id="jUT-D5-Alg" customClass="CeldaReservaViewController" customModule="buseslep" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="c" rowHeight="68" id="jUT-D5-Alg" customClass="CeldaReservaViewController" customModule="buseslep" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jUT-D5-Alg" id="Rwc-Vd-pqY">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vuelta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nr-o5-2zb">
-                                                    <rect key="frame" x="8" y="13" width="48" height="21"/>
+                                                    <rect key="frame" x="8" y="0.0" width="48" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destino" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGN-hG-Ttj">
-                                                    <rect key="frame" x="64" y="13" width="310" height="21"/>
+                                                    <rect key="frame" x="64" y="0.0" width="310" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSt-ou-j7R">
-                                                    <rect key="frame" x="64" y="36" width="48" height="21"/>
+                                                    <rect key="frame" x="64" y="23" width="48" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGq-Mq-yEE">
-                                                    <rect key="frame" x="120" y="36" width="326" height="21"/>
+                                                    <rect key="frame" x="120" y="23" width="326" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.13612420732714098" green="0.55486505681818188" blue="0.13711093909683753" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cantidad de pasajeros:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIS-8T-b8d">
-                                                    <rect key="frame" x="64" y="59" width="178" height="21"/>
+                                                    <rect key="frame" x="64" y="46" width="178" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salida" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOV-QD-UPs">
-                                                    <rect key="frame" x="250" y="59" width="48" height="21"/>
+                                                    <rect key="frame" x="250" y="46" width="48" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gM-pH-Bab">
+                                                    <rect key="frame" x="481" y="46" width="48" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -2073,6 +2080,7 @@
                                         <connections>
                                             <outlet property="cant" destination="HOV-QD-UPs" id="MCE-x1-5g7"/>
                                             <outlet property="destino" destination="bGN-hG-Ttj" id="eDp-MT-HBJ"/>
+                                            <outlet property="fecha" destination="3gM-pH-Bab" id="FIl-AH-cfb"/>
                                             <outlet property="salida" destination="dGq-Mq-yEE" id="lqJ-GI-Dcn"/>
                                             <outlet property="sentido" destination="3nr-o5-2zb" id="F6K-sa-Jdj"/>
                                         </connections>
@@ -2086,6 +2094,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Mis Reservas" id="2Ye-DT-E5T"/>
                     <connections>
                         <outlet property="tableView" destination="sBe-gO-D1R" id="1Dz-k6-UUo"/>
                     </connections>

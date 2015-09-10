@@ -35,6 +35,9 @@ class BackTableVC: UITableViewController {
             BusquedaViewController.cargarUltimasBusquedas = true
             //self.performSegueWithIdentifier(<#identifier: String?#>, sender: <#AnyObject?#>)
         }
+        if opcion == "Mis Reservas"{
+                BusquedaViewController.verReservas = true
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

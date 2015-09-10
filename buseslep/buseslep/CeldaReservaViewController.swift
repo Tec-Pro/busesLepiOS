@@ -14,6 +14,7 @@ class CeldaReservaViewController: UITableViewCell {
     @IBOutlet weak var destino: UILabel!
     @IBOutlet weak var salida: UILabel!
     @IBOutlet weak var cant: UILabel!
+    @IBOutlet weak var fecha: UILabel!
     
     
     override func awakeFromNib() {
