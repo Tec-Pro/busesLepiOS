@@ -255,6 +255,7 @@
                         <segue destination="zFs-sw-cy2" kind="show" identifier="elegirReservaCompra" id="Ax3-8j-ecg"/>
                         <segue destination="K3b-Xm-u8D" kind="show" identifier="UltimasBusquedas" id="jWv-oO-KFs"/>
                         <segue destination="vd1-Ny-MbV" kind="show" identifier="verReservas" id="9VT-p6-Q8e"/>
+                        <segue destination="hu1-iB-um1" kind="show" id="ozZ-j3-GxD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -528,6 +529,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWu-l4-Szc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1910" y="-373"/>
+        </scene>
+        <!--Edición de perfil-->
+        <scene sceneID="GLy-qO-Cr0">
+            <objects>
+                <viewController id="hu1-iB-um1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="niU-vO-RlO"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZVf-ct-ZAr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qfh-FH-gRu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tac-qP-SFs">
+                                <rect key="frame" x="26" y="114" width="548" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7L8-cK-XeF">
+                                <rect key="frame" x="26" y="174" width="548" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qnr-PO-qJ5">
+                                <rect key="frame" x="26" y="234" width="548" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1o-qr-FNQ">
+                                <rect key="frame" x="26" y="294" width="548" height="30"/>
+                                <state key="normal" title="Guardar">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="p1o-qr-FNQ" secondAttribute="trailing" constant="10" id="1n3-T0-muj"/>
+                            <constraint firstItem="7L8-cK-XeF" firstAttribute="leading" secondItem="qfh-FH-gRu" secondAttribute="leadingMargin" constant="10" id="ECn-uP-eFR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qnr-PO-qJ5" secondAttribute="trailing" constant="10" id="F68-19-RoN"/>
+                            <constraint firstItem="qnr-PO-qJ5" firstAttribute="top" secondItem="7L8-cK-XeF" secondAttribute="bottom" constant="30" id="Y2e-xh-vuh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7L8-cK-XeF" secondAttribute="trailing" constant="10" id="crG-kA-e2y"/>
+                            <constraint firstItem="p1o-qr-FNQ" firstAttribute="top" secondItem="qnr-PO-qJ5" secondAttribute="bottom" constant="30" id="hdH-Jd-Rgd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tac-qP-SFs" secondAttribute="trailing" constant="10" id="kdu-7a-2p9"/>
+                            <constraint firstItem="qnr-PO-qJ5" firstAttribute="leading" secondItem="qfh-FH-gRu" secondAttribute="leadingMargin" constant="10" id="mnB-3Q-msW"/>
+                            <constraint firstItem="p1o-qr-FNQ" firstAttribute="leading" secondItem="qfh-FH-gRu" secondAttribute="leadingMargin" constant="10" id="qOe-Kh-SXg"/>
+                            <constraint firstItem="tac-qP-SFs" firstAttribute="top" secondItem="niU-vO-RlO" secondAttribute="bottom" constant="50" id="qQL-Ff-BFi"/>
+                            <constraint firstItem="tac-qP-SFs" firstAttribute="leading" secondItem="qfh-FH-gRu" secondAttribute="leadingMargin" constant="10" id="yd8-K1-pQC"/>
+                            <constraint firstItem="7L8-cK-XeF" firstAttribute="top" secondItem="tac-qP-SFs" secondAttribute="bottom" constant="30" id="zzl-yE-UE8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edición de perfil" id="feP-Ma-ofd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JdX-wh-PJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1658" y="1507"/>
         </scene>
         <!--Recuperar contraseña-->
         <scene sceneID="DkK-ym-Q32">
