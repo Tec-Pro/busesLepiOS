@@ -33,13 +33,53 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("c") as? CeldaReservaViewController
+        let cell: UITableViewCell? = UITableViewCell()
         let reserva = reservas[indexPath.row]
-        cell?.sentido.text = reserva.sentido
-        cell?.salida.text = reserva.salida
-        cell?.cant.text = reserva.cantidad.description
-        cell?.destino.text = reserva.destino
-        cell?.fecha.text = reserva.fechaReserva
+        var i: Int = 0
+        println("CANTIDAD DE RESERVAS")
+        println(indexPath.row)
+        println(reserva.sentido!)
+        if reserva.sentido! == "Ida"{
+            for i in indexPath.row ... reservas.count-1{
+                let r = reservas[i]
+                if ((r.fechaReserva == reserva.fechaReserva) && (r.sentido != reserva.sentido)){
+                    let cellIdaVuelta = tableView.dequeueReusableCellWithIdentifier("celdaIdaVuelta") as?CeldaReservaIdaVueltaViewController
+                    cellIdaVuelta?.salidaIda.text = reserva.salida
+                    cellIdaVuelta?.cantIda.text = reserva.cantidad.description
+                    cellIdaVuelta?.destinoIda.text = reserva.destino
+                    cellIdaVuelta?.salidaVuelta.text = r.salida
+                    cellIdaVuelta?.cantVuelta.text = r.cantidad.description
+                    cellIdaVuelta?.destinoVuelta.text = r.destino
+                    println("entre a celda uda y vuelta")
+                    
+                    return cellIdaVuelta!
+                }
+            }
+            let cellIda = tableView.dequeueReusableCellWithIdentifier("c") as? CeldaReservaViewController
+            cellIda?.sentido.text = reserva.sentido
+            cellIda?.salida.text = reserva.salida
+            cellIda?.cant.text = reserva.cantidad.description
+            cellIda?.destino.text = reserva.destino
+            cellIda?.fecha.text = reserva.fechaReserva
+            return cellIda!
+        }else{
+            i = indexPath.row
+            for i in indexPath.row ... reservas.count-1{
+                let r = reservas[i]
+                if ((r.fechaReserva == reserva.fechaReserva) && (r.sentido != reserva.sentido)){
+                    let cellIdaVuelta = tableView.dequeueReusableCellWithIdentifier("celdaIdaVuelta") as?CeldaReservaIdaVueltaViewController
+                    cellIdaVuelta?.salidaVuelta.text = reserva.salida
+                    cellIdaVuelta?.cantVuelta.text = reserva.cantidad.description
+                    cellIdaVuelta?.destinoVuelta.text = reserva.destino
+                    cellIdaVuelta?.salidaIda.text = r.salida
+                    cellIdaVuelta?.cantIda.text = r.cantidad.description
+                    cellIdaVuelta?.destinoIda.text = r.destino
+                    println("entre a celda uda y vuelta")
+                    return cellIdaVuelta!
+                }
+            }
+        }
+        println("no entre a niunguno")
         return cell!
     }
     
