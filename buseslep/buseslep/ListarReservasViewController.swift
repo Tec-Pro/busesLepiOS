@@ -15,8 +15,10 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
     var fechaReserva: String = ""
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.obtenerReservas()
+        super.viewDidLoad()
+        println("RESERVAS")
+        println(reservas.count)
         tableView.delegate = self
         tableView.reloadData()
     }
@@ -95,10 +97,18 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
                     datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    // dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.reservas = Reserva.fromDictionary(json)
-                   // self.listar()
-                    // })
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.reservas = Reserva.fromDictionary(json)
+                        if self.reservas.count == 0{
+                            
+                            let alert = UIAlertView(title: "Atencion!", message: "No tiene reservas", delegate:nil, cancelButtonTitle: "Aceptar")
+                            alert.show()
+                            self.navigationController?.popViewControllerAnimated(true)
+                            
+                            
+                        }
+                        
+                    })
                     
                 }
                 
@@ -148,27 +158,12 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
             println("RETORNOOOOO")
             println(strData)
             var parser : String = strData as String
-            if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
-                if let rangeTo = parser.rangeOfString(",\"Cols") {
-                    var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
-                    datos.extend("}") // le agrego el corchete al ultimo para que quede {"Data":[movidas de data ]}
-                    var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
-                    var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
-                    // dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    //self.reservas = Reserva.fromDictionary(json)
-                    // self.listar()
-                    // })
-                    
-                }
-                
-            } else {
-                if let rangeF = parser.rangeOfString("<return xsi:type=") { // con esto hago un subrango
-                    if let rangeT = parser.rangeOfString("</return>") {
-                        
-                    }
+            if let rangeF = parser.rangeOfString("<return xsi:type=") { // con esto hago un subrango
+                if let rangeT = parser.rangeOfString(">1</return>") {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        let alert = UIAlertView(title: "Atencion!", message: "No se ha podido iniciar sesión", delegate:nil, cancelButtonTitle: "Aceptar")
+                        let alert = UIAlertView(title: "Atencion!", message: "Reserva cancelada correctamente", delegate:nil, cancelButtonTitle: "Aceptar")
                         alert.show()
+                        self.navigationController?.popViewControllerAnimated(true)
                     })
                 }
             }
@@ -184,6 +179,6 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
         })
         task.resume()
     }
-
-
+    
+    
 }
