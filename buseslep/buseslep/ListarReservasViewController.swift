@@ -140,14 +140,12 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.reservas = Reserva.fromDictionary(json)
                         if self.reservas.count == 0{
-                            
-                            let alert = UIAlertView(title: "Atencion!", message: "No tiene reservas", delegate:nil, cancelButtonTitle: "Aceptar")
-                            alert.show()
                             self.navigationController?.popViewControllerAnimated(true)
-                            
+                            let alert = UIAlertView(title: "Atencion!", message: "No tiene reservas", delegate:nil, cancelButtonTitle: "Aceptar")
+                                alert.show()
                             
                         }
-                        
+                        self.tableView.reloadData()
                     })
                     
                 }
