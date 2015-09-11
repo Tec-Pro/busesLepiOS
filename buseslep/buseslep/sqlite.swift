@@ -28,6 +28,7 @@ class Sqlite {
 
         // db.drop(table: searches)
         db.execute("CREATE TABLE IF NOT EXISTS searches(id INTEGER PRIMARY KEY AUTOINCREMENT, city_origin TEXT NOT NULL, city_destiny TEXT NOT NULL, code_city_origin INTEGER NOT NULL, code_city_destiny INTEGER NOT NULL, date_go DATE NOT NULL, date_return DATE , number_tickets INTEGER NOT NULL, is_roundtrip INTEGER NOT NULL)")
+
         // CREATE TABLE "users" (
         //     "id" INTEGER PRIMARY KEY NOT NULL,
         //     "name" TEXT,
@@ -71,13 +72,11 @@ class Sqlite {
         var currentDay = components.day
         var currentMonth = components.month
         var currentYear = components.year
-        println("day: " + currentDay.description)
-        println("month: " + currentMonth.description)
-        println("year: " + currentYear.description)
-        let stmt = db.prepare("DELETE FROM searches WHERE CAST(strftime('%s', date_go)  AS  integer) < ?")
-        stmt.run("CAST(strftime('%s', '\(currentYear)-\(currentMonth)-\(currentDay)')  AS  integer) ") //quiero ver si esto funca
-            //let stmt = db.prepare("DELETE FROM searches WHERE date_go < ?")
-        //stmt.run("\(currentYear)-\(currentMonth)-\(currentDay)")
+        let stmt = db.prepare("DELETE FROM searches WHERE CAST(strftime('%s', date_go)  AS  integer) < CAST(strftime('%s', '\(convertirFecha(currentDay, month: currentMonth, year: currentYear))')  AS  integer)")
+        stmt.run();
+   //     stmt.run("CAST(strftime('%s', '\(convertirFecha(currentDay, month: currentMonth, year: currentYear))')  AS  integer) ") //quiero ver si esto funca
+        //let stmt = db.prepare("DELETE FROM searches WHERE date_go < ?")
+        //stmt.run(convertirFecha(currentDay, month: currentMonth, year: currentYear))
     }
       //  var alice: Query?
       //  if let rowid = users.insert(name <- "Alice", email <- "alice@mac.com").rowid {
@@ -103,5 +102,18 @@ class Sqlite {
         //println(users.count)
         // SELECT count(*) FROM "users"
     
-
+    func convertirFecha(day: Int, month: Int, year:Int) -> String{
+        var result :String = year.description
+        if count(month.description) < 2{ // es el dia 1-9
+            result.extend("-0\(month)")
+        }else{
+            result.extend("-\(month)")
+        }
+        if count(day.description) < 2{ // es el dia 1-9
+            result.extend("-0\(day)")
+        }else{
+            result.extend("-\(day)")
+        }
+        return result
+    }
 }

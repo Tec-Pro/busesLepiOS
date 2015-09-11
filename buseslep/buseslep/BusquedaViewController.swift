@@ -43,7 +43,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     static var verReservas : Bool = false
     static var editarPerfil : Bool = false
     static var cambiarContraseña : Bool = false
-    
+
     var diaIda: Int = 0
     var mesIda:  Int = 0
     var anioIda: Int = 0
@@ -115,6 +115,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             let login = preferences.integerForKey("login")
             if login == 0{
                 btnLogin.hidden = false
+                self.dniLoggeado = nil
             }else{
                 self.dniLoggeado = preferences.integerForKey("dni")
 
@@ -206,7 +207,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             alert.show()
             
         }else{
-            db.insert(ciudadesDestino![indexCiudadDestino!].desde!, city_destiny: ciudadesDestino![indexCiudadDestino!].hasta!, code_city_origin: ciudadesDestino![indexCiudadDestino!].id_localidad_origen!, code_city_destiny: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, date_go: "\(anioIda)-\(mesIda)-\(diaIda)", date_return: "\(anioVuelta)-\(mesVuelta)-\(diaVuelta)", number_tickets: self.cantidadPasajes, is_roundtrip: chkIdaVuelta.on)
+            db.insert(ciudadesDestino![indexCiudadDestino!].desde!, city_destiny: ciudadesDestino![indexCiudadDestino!].hasta!, code_city_origin: ciudadesDestino![indexCiudadDestino!].id_localidad_origen!, code_city_destiny: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, date_go: convertirFechaSql(diaIda, month: mesIda, year: anioIda), date_return: convertirFechaSql(diaVuelta, month: mesVuelta, year: anioVuelta), number_tickets: self.cantidadPasajes, is_roundtrip: chkIdaVuelta.on)
             if(!self.fromUltimasBusquedas){
                 obtenerPrecios(ciudadesOrigen![indexCiudadOrigen!].id!, ID_LocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!)
                 obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
@@ -219,6 +220,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             }
         }
     }
+    
     
     
     /*
@@ -408,6 +410,21 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                 }
             }
         }
+    }
+    
+    func convertirFechaSql(day: Int, month: Int, year:Int) -> String{
+        var result :String = year.description
+        if count(month.description) < 2{ // es el dia 1-9
+            result.extend("-0\(month)")
+        }else{
+            result.extend("-\(month)")
+        }
+        if count(day.description) < 2{ // es el dia 1-9
+            result.extend("-0\(day)")
+        }else{
+            result.extend("-\(day)")
+        }
+        return result
     }
     
     func convertirFecha(day: Int, month: Int, year:Int) -> String{
@@ -642,11 +659,5 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     }
     
 
-    
-
-    @IBAction func mercado(sender: AnyObject) {
-
-
-    }
 }
 

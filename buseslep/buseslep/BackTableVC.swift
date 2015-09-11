@@ -13,7 +13,24 @@ class BackTableVC: UITableViewController {
     var tableArray = [String]()
     
     override func viewDidLoad() {
-        tableArray = ["Ultimas Busquedas", "Editar Perfil" , "Cambiar Contraseña", "Mis Reservas", "Mis Compras", "Cerrar Sesion"]
+        let preferences = NSUserDefaults.standardUserDefaults()
+        if (preferences.integerForKey("login") == 1){
+            tableArray = ["Ultimas Busquedas", "Editar Perfil" , "Cambiar Contraseña", "Mis Reservas", "Mis Compras", "Cerrar Sesion"]
+        }else{
+            tableArray = ["Ultimas Busquedas"]
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let preferences = NSUserDefaults.standardUserDefaults()
+
+        if (preferences.integerForKey("login") == 1){
+            tableArray = ["Ultimas Busquedas", "Editar Perfil" , "Cambiar Contraseña", "Mis Reservas", "Mis Compras", "Cerrar Sesion"]
+        }else{
+            tableArray = ["Ultimas Busquedas"]
+        }
+        tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

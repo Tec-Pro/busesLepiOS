@@ -65,7 +65,7 @@ class HorarioIdaViewController: UIViewController ,UITableViewDelegate, UITableVi
             navigationController?.popViewControllerAnimated(true)
             busquedaViewController?.horarioIda(indexPath.row)
         }else{
-            var alert = UIAlertView( title: "Error!", message: "El servicio se encuentra en \(horario.ServicioPrestado!). Seleccione otro disponible por favor.",delegate: nil,  cancelButtonTitle: "Entendido")
+            var alert = UIAlertView( title: "Error!", message: "El servicio se encuentra  \(horario.ServicioPrestado!). Seleccione otro disponible por favor.",delegate: nil,  cancelButtonTitle: "Entendido")
             alert.show()
         }
 
@@ -132,7 +132,7 @@ class HorarioVueltaViewController: UIViewController ,UITableViewDelegate{
             navigationController?.popViewControllerAnimated(true)
             busquedaViewController?.horarioVuelta(indexPath.row)
         }else{
-            var alert = UIAlertView( title: "Error!", message: "El servicio se encuentra en \(horario.ServicioPrestado!). Seleccione otro disponible por favor.",delegate: nil,  cancelButtonTitle: "Entendido")
+            var alert = UIAlertView( title: "Error!", message: "El servicio se encuentra \(horario.ServicioPrestado!). Seleccione otro disponible por favor.",delegate: nil,  cancelButtonTitle: "Entendido")
             alert.show()
 
         }
