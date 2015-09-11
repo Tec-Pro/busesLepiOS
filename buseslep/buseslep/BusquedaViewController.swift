@@ -52,6 +52,14 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     var mesVuelta:  Int = 0
     var anioVuelta: Int = 0
     
+    var idCityOrigen : Int?
+    var idCityDestiny : Int?
+    var fromUltimasBusquedas : Bool = false
+    var cityOrigenText :String = ""
+    var cityDestinyText : String = ""
+    var isRoundTrip :Bool = false
+    var ultBusq2 : Bool = false
+    
     var dniLoggeado: Int?
     
     var db : Sqlite = Sqlite()
@@ -86,6 +94,14 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             self.performSegueWithIdentifier("UltimasBusquedas", sender: self);
             BusquedaViewController.cargarUltimasBusquedas = false
         }
+        
+        /*if(self.fromUltimasBusquedas){
+            println("eyeyeyeyeyeyeye")
+          //  obtenerPrecios(idCityOrigen!, ID_LocalidadDestino: idCityDestiny!)
+            //obtenerHorarios(idCityOrigen!, IdLocalidadDestino: idCityDestiny!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
+            btnBusqueda.sendActionsForControlEvents(UIControlEvents.TouchUpInside) //hace que el boton de busqueda se toque
+        }*/
+
     
     }
     override func viewDidAppear(animated: Bool) {
@@ -122,6 +138,17 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if(BusquedaViewController.cambiarContraseña){
             self.performSegueWithIdentifier("cambiarContraseña", sender: self);
             BusquedaViewController.cambiarContraseña = false
+        }
+        
+        if(self.fromUltimasBusquedas){
+            if(self.isRoundTrip){
+                chkIdaVuelta.setOn(true, animated: false)
+                println(chkIdaVuelta.on)
+            }
+            obtenerPrecios(idCityOrigen!, ID_LocalidadDestino: idCityDestiny!)
+            obtenerHorarios(idCityOrigen!, IdLocalidadDestino: idCityDestiny!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
+           
+            //btnBusqueda.sendActionsForControlEvents(UIControlEvents.TouchUpInside) //hace que el boton de busqueda se toque
         }
         
     }
@@ -180,8 +207,16 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             
         }else{
             db.insert(ciudadesDestino![indexCiudadDestino!].desde!, city_destiny: ciudadesDestino![indexCiudadDestino!].hasta!, code_city_origin: ciudadesDestino![indexCiudadDestino!].id_localidad_origen!, code_city_destiny: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, date_go: "\(anioIda)-\(mesIda)-\(diaIda)", date_return: "\(anioVuelta)-\(mesVuelta)-\(diaVuelta)", number_tickets: self.cantidadPasajes, is_roundtrip: chkIdaVuelta.on)
-        obtenerPrecios(ciudadesOrigen![indexCiudadOrigen!].id!, ID_LocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!)
-        obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
+            if(!self.fromUltimasBusquedas){
+                obtenerPrecios(ciudadesOrigen![indexCiudadOrigen!].id!, ID_LocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!)
+                obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
+            }
+            else{
+                obtenerPrecios(idCityOrigen!, ID_LocalidadDestino: idCityDestiny!)
+                obtenerHorarios(idCityOrigen!, IdLocalidadDestino: idCityDestiny!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
+                self.fromUltimasBusquedas = false
+
+            }
         }
     }
     
@@ -208,7 +243,12 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     func horarioIda(index : Int){
         self.indexHorarioIda = index
         if chkIdaVuelta.on {
-            obtenerHorarios(ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, IdLocalidadDestino: ciudadesOrigen![indexCiudadOrigen!].id!, Fecha: convertirFecha(diaVuelta, month: mesVuelta, year: anioVuelta), esVuelta: true)
+            if(!self.fromUltimasBusquedas){
+                obtenerHorarios(ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, IdLocalidadDestino: ciudadesOrigen![indexCiudadOrigen!].id!, Fecha: convertirFecha(diaVuelta, month: mesVuelta, year: anioVuelta), esVuelta: true)
+            }
+            else{
+                 obtenerHorarios(self.idCityDestiny!, IdLocalidadDestino: self.idCityOrigen!, Fecha: convertirFecha(diaVuelta, month: mesVuelta, year: anioVuelta), esVuelta: true)
+            }
         }
         else{// si no es vuelta largo para elegir reservar o comprar
             self.performSegueWithIdentifier("elegirReservaCompra", sender: self);
@@ -266,7 +306,12 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if identifier == "elegirHorarioIda"{ //largo el segue para elegir el horario de ida
             let horariosViewController = segue.destinationViewController as! HorarioIdaViewController
             horariosViewController.horarios = self.horariosIda
-            horariosViewController.lblDesdeHastaTexto = "\(ciudadesDestino![indexCiudadDestino!].desde!) - \(ciudadesDestino![indexCiudadDestino!].hasta!)"
+            if(!fromUltimasBusquedas){
+                horariosViewController.lblDesdeHastaTexto = "\(ciudadesDestino![indexCiudadDestino!].desde!) - \(ciudadesDestino![indexCiudadDestino!].hasta!)"
+            }
+            else{
+                  horariosViewController.lblDesdeHastaTexto = "\(self.cityOrigenText) - \(self.cityDestinyText)"
+            }
             horariosViewController.lblPrecioIdaTexto = self.precioIda
             horariosViewController.lblPrecioIdaVueltaTexto = self.precioIdaVuelta
             horariosViewController.busquedaViewController = self
@@ -274,7 +319,14 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if identifier == "elegirHorarioVuelta"{ //largo el segue para elegir el horario de vuelta
             let horariosViewController = segue.destinationViewController as! HorarioVueltaViewController
             horariosViewController.horarios = self.horariosVuelta
-            horariosViewController.lblDesdeHastaTexto = "\(ciudadesDestino![indexCiudadDestino!].hasta!) - \(ciudadesDestino![indexCiudadDestino!].desde!)"
+            if(!self.fromUltimasBusquedas){
+                horariosViewController.lblDesdeHastaTexto = "\(ciudadesDestino![indexCiudadDestino!].hasta!) - \(ciudadesDestino![indexCiudadDestino!].desde!)"
+            }
+            else{
+                horariosViewController.lblDesdeHastaTexto = "\(self.cityDestinyText) - \(self.cityOrigenText)"
+                self.fromUltimasBusquedas = false
+                ultBusq2 = true
+            }
             horariosViewController.lblPrecioIdaTexto = self.precioIda
             horariosViewController.lblPrecioIdaVueltaTexto = self.precioIdaVuelta
             horariosViewController.busquedaViewController = self
@@ -301,16 +353,26 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             resumenViewController.horarioIda = self.horariosIda![indexHorarioIda!]
             resumenViewController.precioIda = self.precioIda
             resumenViewController.precioIdaVuelta = self.precioIdaVuelta
-            resumenViewController.ciudadOrigen = self.ciudadesOrigen![indexCiudadOrigen!]
-            resumenViewController.ciudadDestino = self.ciudadesDestino![indexCiudadDestino!]
+            if(!fromUltimasBusquedas && !self.ultBusq2){
+                resumenViewController.ciudadOrigen = self.ciudadesOrigen![indexCiudadOrigen!]
+                resumenViewController.ciudadDestino = self.ciudadesDestino![indexCiudadDestino!]
+            }
+            else{
+                resumenViewController.ciudadOrigen = CiudadOrigen(id: self.idCityOrigen! , nombre: self.cityOrigenText)
+                resumenViewController.ciudadDestino = CiudadDestino(id_localidad_origen: self.idCityOrigen! , id_localidad_destino: self.idCityDestiny!, hasta: self.cityDestinyText, desde: self.cityOrigenText)
+            }
             resumenViewController.cantidadPasajes = self.cantidadPasajes
             if chkIdaVuelta.on { //es ida y vuelta
                 resumenViewController.horarioVuelta = self.horariosVuelta![indexHorarioVuelta!]
                 resumenViewController.esIdaVuelta = true
+                self.ultBusq2 = false
+                
             }
             else{
                 resumenViewController.esIdaVuelta = false
+                self.fromUltimasBusquedas = false
             }
+            
         }
     }
     
@@ -449,6 +511,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     // Move to the UI thread
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.ciudadesDestino = CiudadDestino.fromDictionary(json) // parseo  y obtengo un arreglo de Ciudades
+
                         self.loadImage.hidden = true
                     })
                 }
