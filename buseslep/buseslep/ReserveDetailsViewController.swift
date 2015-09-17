@@ -145,7 +145,7 @@ class ReserveDetailsViewController: UIViewController{
         let identifier = segue.identifier
         if identifier == "finalizarCompra"{ //largo el segue para elegir la ciudad de origen
             let finalizarCompra = segue.destinationViewController as! FinalizarCompraViewController
-            finalizarCompra.lblCodImpresion.text = CodImpresion
+            finalizarCompra.CodImpresion = self.CodImpresion!
 
         }
     }

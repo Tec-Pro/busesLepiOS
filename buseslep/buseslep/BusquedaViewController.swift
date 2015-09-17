@@ -91,8 +91,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         }
        
         if(BusquedaViewController.cargarUltimasBusquedas){
-            self.performSegueWithIdentifier("UltimasBusquedas", sender: self);
             BusquedaViewController.cargarUltimasBusquedas = false
+            self.performSegueWithIdentifier("UltimasBusquedas", sender: self);
         }
         
         /*if(self.fromUltimasBusquedas){
@@ -124,21 +124,21 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         }
         
         if(BusquedaViewController.cargarUltimasBusquedas){
-            self.performSegueWithIdentifier("UltimasBusquedas", sender: self);
             BusquedaViewController.cargarUltimasBusquedas = false
+            self.performSegueWithIdentifier("UltimasBusquedas", sender: self);
         }
         
         if(BusquedaViewController.verReservas){
-            self.performSegueWithIdentifier("verReservas", sender: self);
             BusquedaViewController.verReservas = false
+            self.performSegueWithIdentifier("verReservas", sender: self);
         }
         if(BusquedaViewController.editarPerfil){
-            self.performSegueWithIdentifier("editProfile", sender: self);
             BusquedaViewController.editarPerfil = false
+            self.performSegueWithIdentifier("editProfile", sender: self);
         }
         if(BusquedaViewController.cambiarContraseña){
-            self.performSegueWithIdentifier("cambiarContraseña", sender: self);
             BusquedaViewController.cambiarContraseña = false
+            self.performSegueWithIdentifier("cambiarContraseña", sender: self);
         }
         
         if(self.fromUltimasBusquedas){

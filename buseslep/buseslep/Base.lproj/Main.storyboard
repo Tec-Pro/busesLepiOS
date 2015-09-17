@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Busqueda de horarios-->
+        <!--Busqueda-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="BusquedaViewController" customModule="buseslep" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,6 +48,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="131" width="548" height="30"/>
+                                </variation>
                                 <connections>
                                     <segue destination="wT5-AK-MdF" kind="show" identifier="CiudadesOrigen" id="2TH-Uv-vR9"/>
                                 </connections>
@@ -62,6 +65,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="161" width="548" height="29"/>
+                                </variation>
                                 <connections>
                                     <segue destination="lLk-yG-tzm" kind="show" identifier="CiudadesDestino" id="eke-LO-pst"/>
                                 </connections>
@@ -72,6 +78,9 @@
                                     <constraint firstAttribute="height" constant="30" id="IYK-yd-1XV"/>
                                     <constraint firstAttribute="width" constant="30" id="zJq-XR-baK"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="544" y="161" width="30" height="30"/>
+                                </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="nMq-cq-EMM">
                                 <rect key="frame" x="544" y="176" width="30" height="30"/>
@@ -79,6 +88,9 @@
                                     <constraint firstAttribute="width" constant="30" id="7QV-Cl-aog"/>
                                     <constraint firstAttribute="height" constant="30" id="fqp-wm-zux"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="544" y="132" width="30" height="30"/>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSp-5z-0sZ">
                                 <rect key="frame" x="26" y="233" width="548" height="30"/>
@@ -103,6 +115,9 @@
                                     <constraint firstAttribute="width" constant="30" id="KTB-0w-bWE"/>
                                     <constraint firstAttribute="height" constant="30" id="zz7-Fs-kfj"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="544" y="190" width="30" height="30"/>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="277-n6-InT">
                                 <rect key="frame" x="26" y="262" width="548" height="30"/>
@@ -236,7 +251,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="mSp-5z-0sZ" secondAttribute="trailing" constant="10" id="zXz-kb-6fn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Busqueda de horarios" id="fuq-i0-Bt9">
+                    <navigationItem key="navigationItem" title="Busqueda" id="fuq-i0-Bt9">
                         <barButtonItem key="leftBarButtonItem" image="menu-burger" id="o4L-p3-eOX">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -281,11 +296,17 @@
                                 <rect key="frame" x="26" y="114" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="70" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5UR-bl-MOp">
                                 <rect key="frame" x="26" y="164" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="120" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1a0-Hd-qXq">
                                 <rect key="frame" x="26" y="264" width="548" height="30"/>
@@ -293,6 +314,9 @@
                                     <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="220" width="548" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="ingresar:" destination="7eb-rr-VIh" eventType="touchUpInside" id="4xv-rk-Vwo"/>
                                 </connections>
@@ -303,6 +327,9 @@
                                     <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="316" width="548" height="30"/>
+                                </variation>
                                 <connections>
                                     <segue destination="m1g-ae-6Q6" kind="show" id="VdC-rc-lJJ"/>
                                 </connections>
@@ -333,6 +360,9 @@
                                     <constraint firstAttribute="width" constant="342" id="nru-Ur-M3J"/>
                                     <constraint firstAttribute="height" constant="30" id="rBf-3T-5Bf"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="129" y="170" width="342" height="30"/>
+                                </variation>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Es0-0a-js7">
                                 <rect key="frame" x="281" y="303" width="37" height="37"/>
@@ -549,16 +579,25 @@
                                 <rect key="frame" x="26" y="114" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="70" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7L8-cK-XeF">
                                 <rect key="frame" x="26" y="174" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="130" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qnr-PO-qJ5">
                                 <rect key="frame" x="26" y="234" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="190" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1o-qr-FNQ">
                                 <rect key="frame" x="26" y="294" width="548" height="30"/>
@@ -566,6 +605,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="250" width="548" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="editarPerfil:" destination="hu1-iB-um1" eventType="touchUpInside" id="JY3-yn-5R8"/>
                                 </connections>
@@ -615,6 +657,9 @@
                                 <rect key="frame" x="26" y="114" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="70" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47V-5m-91O">
                                 <rect key="frame" x="26" y="254" width="548" height="30"/>
@@ -622,6 +667,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="210" width="548" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="guardar:" destination="v0v-Qk-zg1" eventType="touchUpInside" id="MKP-NG-6Ky"/>
                                 </connections>
@@ -630,6 +678,9 @@
                                 <rect key="frame" x="26" y="174" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="130" width="548" height="30"/>
+                                </variation>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -672,11 +723,17 @@
                                 <rect key="frame" x="26" y="114" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="70" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Direccion de correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="55k-bN-JOC">
                                 <rect key="frame" x="26" y="174" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="130" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvp-q3-Y8J">
                                 <rect key="frame" x="26" y="234" width="548" height="30"/>
@@ -684,6 +741,9 @@
                                     <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="190" width="548" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="recuperar:" destination="mMe-vK-FVX" eventType="touchUpInside" id="H4I-SZ-gfz"/>
                                 </connections>
@@ -741,6 +801,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="600" height="18"/>
+                                </variation>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PoQ-ux-vft">
                                 <rect key="frame" x="150" y="92" width="300" height="493"/>
@@ -779,6 +842,9 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="150" y="48" width="300" height="537"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="aMm-tG-ILS" id="4le-WY-lHV"/>
                                     <outlet property="delegate" destination="aMm-tG-ILS" id="VU1-K2-ETu"/>
@@ -824,20 +890,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Podrá consultar el código en Mis compras dentro del menú de usuario" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnf-Ue-WCU">
-                                <rect key="frame" x="30" y="335" width="540" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="una vez que haya salido de esta pantalla" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFj-P5-BHZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="una vez que haya salido de esta pantalla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFj-P5-BHZ">
                                 <rect key="frame" x="145" y="356" width="311" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icx-73-uKs">
-                                <rect key="frame" x="277" y="422" width="57" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icx-73-uKs">
+                                <rect key="frame" x="272" y="422" width="57" height="30"/>
                                 <state key="normal" title="Finalizar">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -855,30 +915,42 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="246" y="132" width="76" height="34"/>
+                                        </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="en boleterìa para obtener su boleto:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJJ-zR-v5k">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="en boleterìa para obtener su boleto:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJJ-zR-v5k">
                                         <rect key="frame" x="147" y="91" width="274" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Usted deberá presentar el siguiente código" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQh-Hs-0on">
                                         <rect key="frame" x="119" y="62" width="332" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="119" y="62" width="331" height="21"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="¡Su compra se ha realizado con éxito!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfz-mb-mru">
                                         <rect key="frame" x="42" y="21" width="485" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="11"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="125" y="21" width="320" height="21"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Código de compra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UV7-SM-ucK">
                                         <rect key="frame" x="212" y="186" width="144" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="212" y="174" width="144" height="21"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -895,16 +967,25 @@
                                     <constraint firstItem="mfz-mb-mru" firstAttribute="top" secondItem="JdW-NH-jML" secondAttribute="top" constant="21" id="vFt-BP-6NI"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Podrá consultar el código en Mis compras dentro del menú de usuario" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lnf-Ue-WCU">
+                                <rect key="frame" x="30" y="335" width="540" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Lnf-Ue-WCU" firstAttribute="leading" secondItem="Kyg-46-uVM" secondAttribute="leadingMargin" constant="14" id="2uI-Sw-8vg"/>
                             <constraint firstItem="JdW-NH-jML" firstAttribute="top" secondItem="TeA-qM-Z1Z" secondAttribute="bottom" constant="38" id="39n-I3-UBH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JdW-NH-jML" secondAttribute="trailing" id="4He-Xt-exd"/>
                             <constraint firstAttribute="centerX" secondItem="kFj-P5-BHZ" secondAttribute="centerX" id="QUZ-K2-E9k"/>
                             <constraint firstAttribute="centerX" secondItem="Lnf-Ue-WCU" secondAttribute="centerX" id="Y5D-FQ-xhV"/>
                             <constraint firstItem="JdW-NH-jML" firstAttribute="leading" secondItem="Kyg-46-uVM" secondAttribute="leadingMargin" id="ZWb-6D-Xe4"/>
                             <constraint firstItem="kFj-P5-BHZ" firstAttribute="top" secondItem="Lnf-Ue-WCU" secondAttribute="bottom" id="aFK-yi-UB7"/>
+                            <constraint firstAttribute="centerX" secondItem="icx-73-uKs" secondAttribute="centerX" id="f1M-cp-sEk"/>
                             <constraint firstItem="Lnf-Ue-WCU" firstAttribute="top" secondItem="JdW-NH-jML" secondAttribute="bottom" constant="38" id="rSC-3t-wK3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lnf-Ue-WCU" secondAttribute="trailing" constant="14" id="wfI-V7-UOS"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -937,6 +1018,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.10436395202020199" green="0.10084239400951124" blue="0.099525615086533986" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="600" height="18"/>
+                                </variation>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FsE-aO-Ibo">
                                 <rect key="frame" x="133" y="92" width="334" height="10"/>
@@ -959,6 +1043,9 @@
                                     <constraint firstAttribute="width" constant="334" id="BFU-5U-cMv"/>
                                     <constraint firstAttribute="height" constant="10" id="E9F-nu-paw"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="48" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SDF-z5-niW">
                                 <rect key="frame" x="133" y="105" width="334" height="10"/>
@@ -975,6 +1062,9 @@
                                     <constraint firstAttribute="height" constant="10" id="Hm5-1t-tpd"/>
                                     <constraint firstAttribute="width" constant="334" id="VDk-2i-eio"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="61" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9y-mr-xPP">
                                 <rect key="frame" x="133" y="120" width="334" height="10"/>
@@ -1003,6 +1093,9 @@
                                     <constraint firstAttribute="height" constant="10" id="LwM-kH-Xqi"/>
                                     <constraint firstAttribute="width" constant="334" id="jrh-IM-oaN"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="76" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJx-so-IN9">
                                 <rect key="frame" x="133" y="135" width="334" height="10"/>
@@ -1025,6 +1118,9 @@
                                     <constraint firstAttribute="height" constant="10" id="0pm-oj-1g8"/>
                                     <constraint firstAttribute="width" constant="334" id="w4M-0z-aep"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="91" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O2q-91-yYv">
                                 <rect key="frame" x="133" y="150" width="334" height="10"/>
@@ -1047,6 +1143,9 @@
                                     <constraint firstAttribute="height" constant="10" id="jTA-7x-yOs"/>
                                     <constraint firstAttribute="width" constant="334" id="rwC-Qv-02L"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="106" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H9K-UI-Ctn">
                                 <rect key="frame" x="133" y="165" width="334" height="10"/>
@@ -1063,6 +1162,9 @@
                                     <constraint firstAttribute="width" constant="334" id="XXH-Me-Onc"/>
                                     <constraint firstAttribute="height" constant="10" id="y5u-BI-cuL"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="121" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DqJ-Sf-mk8">
                                 <rect key="frame" x="133" y="201" width="334" height="10"/>
@@ -1085,6 +1187,9 @@
                                     <constraint firstAttribute="width" constant="334" id="4kE-XP-3Xb"/>
                                     <constraint firstAttribute="height" constant="10" id="ADO-9J-uhf"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="157" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U9c-qT-zuL">
                                 <rect key="frame" x="133" y="214" width="334" height="10"/>
@@ -1101,6 +1206,9 @@
                                     <constraint firstAttribute="width" constant="334" id="Gm0-iY-6hY"/>
                                     <constraint firstAttribute="height" constant="10" id="uvU-lf-EGG"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="170" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PAD-n5-pS9">
                                 <rect key="frame" x="133" y="274" width="334" height="10"/>
@@ -1117,6 +1225,9 @@
                                     <constraint firstAttribute="height" constant="10" id="UFs-QC-7Pi"/>
                                     <constraint firstAttribute="width" constant="334" id="vay-vV-Zsf"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="230" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFn-yq-ZF4">
                                 <rect key="frame" x="133" y="229" width="334" height="10"/>
@@ -1145,6 +1256,9 @@
                                     <constraint firstAttribute="height" constant="10" id="7N1-vs-YHO"/>
                                     <constraint firstAttribute="width" constant="334" id="jvC-aC-gkv"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="185" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5h-Ob-aTL">
                                 <rect key="frame" x="133" y="259" width="334" height="10"/>
@@ -1167,6 +1281,9 @@
                                     <constraint firstAttribute="height" constant="10" id="QaS-ch-KBF"/>
                                     <constraint firstAttribute="width" constant="334" id="jKS-Zg-FxJ"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="215" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVr-d1-iFQ">
                                 <rect key="frame" x="133" y="185" width="300" height="6"/>
@@ -1175,6 +1292,9 @@
                                     <constraint firstAttribute="height" constant="6" id="Yju-ST-Sdr"/>
                                     <constraint firstAttribute="width" constant="300" id="e0E-ZY-MTT"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="150" y="141" width="300" height="6"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fqG-BD-i0K">
                                 <rect key="frame" x="139" y="294" width="300" height="6"/>
@@ -1183,6 +1303,9 @@
                                     <constraint firstAttribute="width" constant="300" id="eaE-mw-c4F"/>
                                     <constraint firstAttribute="height" constant="6" id="zOq-2E-99f"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="150" y="250" width="300" height="6"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s16-MP-cNY">
                                 <rect key="frame" x="133" y="244" width="334" height="10"/>
@@ -1205,6 +1328,9 @@
                                     <constraint firstAttribute="width" constant="334" id="2qr-r8-htY"/>
                                     <constraint firstAttribute="height" constant="10" id="WYK-Mi-WhE"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="200" width="334" height="10"/>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XhV-lo-v4R">
                                 <rect key="frame" x="139" y="84" width="300" height="216"/>
@@ -1213,6 +1339,9 @@
                                     <constraint firstAttribute="width" constant="300" id="vHj-M2-LJi"/>
                                     <constraint firstAttribute="height" constant="213" id="zPy-ks-Yxs"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="150" y="43" width="300" height="213"/>
+                                </variation>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="De3-Dg-78b">
                                 <rect key="frame" x="281" y="282" width="37" height="37"/>
@@ -1243,6 +1372,9 @@
                                     <constraint firstAttribute="height" constant="21" id="6LO-ga-177"/>
                                     <constraint firstAttribute="width" constant="334" id="iA9-Ia-UFV"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="133" y="266" width="334" height="21"/>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A81-k1-Y0B">
                                 <rect key="frame" x="139" y="351" width="300" height="30"/>
@@ -1254,6 +1386,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="150" y="307" width="300" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="reservar:" destination="hYm-lC-fJc" eventType="touchUpInside" id="iij-B8-2NS"/>
                                 </connections>
@@ -1362,31 +1497,49 @@
                                 <rect key="frame" x="26" y="114" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="70" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zvV-y9-qwK">
                                 <rect key="frame" x="26" y="164" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="120" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DNI" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lYs-Nh-icu">
                                 <rect key="frame" x="26" y="214" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="170" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Direccion de correo electronico" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5zp-oN-x6D">
                                 <rect key="frame" x="26" y="264" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="220" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjH-Az-Lfm">
                                 <rect key="frame" x="26" y="314" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="270" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmacion Contraseña" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ie-sR-2uN">
                                 <rect key="frame" x="26" y="364" width="548" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="320" width="548" height="30"/>
+                                </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLt-D0-w1H">
                                 <rect key="frame" x="26" y="424" width="548" height="30"/>
@@ -1394,6 +1547,9 @@
                                     <color key="titleColor" red="0.0" green="0.0017601957199999999" blue="0.0036892361109999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="26" y="380" width="548" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="registrar:" destination="m1g-ae-6Q6" eventType="touchUpInside" id="VJr-xb-ubq"/>
                                 </connections>
@@ -1660,6 +1816,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="28" width="284" height="14"/>
+                                </variation>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qlM-17-HUF">
                                 <rect key="frame" x="16" y="101" width="284" height="58"/>
@@ -1726,6 +1885,9 @@
                                     <constraint firstItem="9Uw-Aa-b9F" firstAttribute="leading" secondItem="qlM-17-HUF" secondAttribute="leading" constant="8" id="ob9-UI-nzR"/>
                                     <constraint firstItem="Cgl-dF-OgW" firstAttribute="top" secondItem="qlM-17-HUF" secondAttribute="top" constant="8" id="vet-ls-7Pe"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="50" width="284" height="58"/>
+                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rìo Cuarto - Còrdoba" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kF6-il-YEf">
                                 <rect key="frame" x="300" y="72" width="284" height="21"/>
@@ -1733,6 +1895,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="300" y="28" width="284" height="14"/>
+                                </variation>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gM0-ss-MoU">
                                 <rect key="frame" x="300" y="101" width="284" height="58"/>
@@ -1799,6 +1964,9 @@
                                     <constraint firstItem="xvo-s0-zhj" firstAttribute="leading" secondItem="gM0-ss-MoU" secondAttribute="leading" constant="8" id="rPd-n2-xFB"/>
                                     <constraint firstAttribute="trailing" secondItem="EL3-b8-oV1" secondAttribute="trailing" constant="8" id="sOU-ES-3X3"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="300" y="50" width="284" height="58"/>
+                                </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Importe Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zS8-h0-gn1">
                                 <rect key="frame" x="16" y="196" width="284" height="21"/>
@@ -1806,6 +1974,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="141" width="284" height="18"/>
+                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUz-dS-QeB">
                                 <rect key="frame" x="16" y="253" width="568" height="30"/>
@@ -1813,6 +1984,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="195" width="568" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="clickComprar:" destination="zFs-sw-cy2" eventType="touchUpInside" id="5Ph-36-3mY"/>
                                 </connections>
@@ -1823,6 +1997,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="248" width="568" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="clickReservar:" destination="zFs-sw-cy2" eventType="touchUpInside" id="tOa-zf-8iX"/>
                                 </connections>
@@ -1833,18 +2010,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="300" y="141" width="284" height="18"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cantidad de pasajes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0Z-cx-C6H">
                                 <rect key="frame" x="16" y="167" width="284" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="116" width="284" height="17"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCv-TE-du5">
                                 <rect key="frame" x="300" y="167" width="285" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="300" y="116" width="284" height="17"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2067,12 +2253,18 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="25" width="568" height="28"/>
+                                </variation>
                             </label>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZPD-eB-kRA" customClass="CVCalendarMenuView" customModule="CVCalendar">
                                 <rect key="frame" x="16" y="101" width="568" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0yV-t0-ZAP"/>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="58" width="568" height="30"/>
+                                </variation>
                                 <connections>
                                     <outlet property="menuViewDelegate" destination="vXZ-lx-hvc" id="S19-Z5-mn8"/>
                                 </connections>
@@ -2082,6 +2274,9 @@
                                 <state key="normal" image="present-100">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="551" y="25" width="33" height="33"/>
+                                </variation>
                                 <connections>
                                     <action selector="todayMonthView" destination="vXZ-lx-hvc" eventType="touchUpInside" id="eal-6j-4IX"/>
                                 </connections>
@@ -2092,6 +2287,9 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="401" width="568" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="btnListo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EVU-JG-WUZ"/>
                                 </connections>
@@ -2103,6 +2301,9 @@
                                         <variation key="heightClass=regular-widthClass=regular" constant="480"/>
                                     </constraint>
                                 </constraints>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="93" width="568" height="300"/>
+                                </variation>
                                 <connections>
                                     <outlet property="calendarAppearanceDelegate" destination="vXZ-lx-hvc" id="esW-84-Ric"/>
                                     <outlet property="calendarDelegate" destination="vXZ-lx-hvc" id="BGr-mw-JIs"/>
@@ -2480,7 +2681,9 @@
                             <outlet property="delegate" destination="lLk-yG-tzm" id="Ka3-2H-bSe"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Ciudad de destino" id="uMt-XG-W4s"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0i-at-iUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2515,10 +2718,10 @@
         <image name="present-100" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1KV-a2-hml"/>
+        <segue reference="5kS-aB-Zi6"/>
+        <segue reference="2Mq-sl-XdW"/>
         <segue reference="vAL-TL-GNR"/>
         <segue reference="ivo-Hq-b0d"/>
         <segue reference="ZZA-8A-Q75"/>
-        <segue reference="2Mq-sl-XdW"/>
     </inferredMetricsTieBreakers>
 </document>

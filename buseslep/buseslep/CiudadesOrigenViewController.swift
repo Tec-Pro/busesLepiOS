@@ -17,6 +17,11 @@ class CiudadesOrigenViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        if (ciudadesOrigen?.count == 0 || ciudadesOrigen == nil){
+            navigationController?.popViewControllerAnimated(true)
+            var alert = UIAlertView( title: "Error!", message: "No se encontraron ciudades, intente nuevamente",delegate: nil,  cancelButtonTitle: "Entendido")
+            alert.show()
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

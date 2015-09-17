@@ -11,12 +11,9 @@ import MercadoPagoSDK
 
 class ExamplesUtils {
     class var MERCHANT_PUBLIC_KEY : String {
-		return "APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c"
-		// "444a9ef5-8a6b-429f-abdf-587639155d88" // AR
-		// "APP_USR-f163b2d7-7462-4e7b-9bd5-9eae4a7f99c3" // BR
-		// "6c0d81bc-99c1-4de8-9976-c8d1d62cd4f2" // MX
-		// "2b66598b-8b0f-4588-bd2f-c80ca21c6d18" // VZ
-		// "aa371283-ad00-4d5d-af5d-ed9f58e139f1" // CO
+        return "TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254"
+		//return "APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c"
+
     }
    // class var MERCHANT_MOCK_BASE_URL : String {
    //     return "https://www.mercadopago.com"
@@ -61,7 +58,7 @@ class ExamplesUtils {
         var email: AnyObject? = preferences.objectForKey("email")
         //seteo el pago tecpro
         let paymentTecPro : PaymentTecPro = PaymentTecPro(description: "boletos", externalReference : "boleto:\(idSell)", installments: installments, token: token, paymentMethodId: paymentMethod._id, transactionAmount : transactionAmount, email: email as! String)
-        println(paymentTecPro.toJSONString())
+        //println(paymentTecPro.toJSONString())
         //self.realizarPagoMercadoPago("s")
         
         var UserCobro: String = "54GFDG2224785486DG" //paramatros
@@ -80,7 +77,7 @@ class ExamplesUtils {
         var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
             var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
             var parser : String = strData as String
-            println(strData)
+  //          println(strData)
             if let rangeFrom = parser.rangeOfString(":string\">") { // con esto hago un subrango
                 //TESTEO SIMULANDO ACEPTACION DE PAGOOOOO
                 //var rangeTotest = parser.rangeOfString("</return>")
@@ -88,14 +85,14 @@ class ExamplesUtils {
                 //auxParser.extend(" \"Cod_Impresion\":\"Q1Q2\"")
                 //auxParser.extend(parser.substringFromIndex(rangeTotest!.startIndex))
                 //parser = auxParser
-                if let rangeTo = parser.rangeOfString("\"Cod_Impresion") {
-                    var datos: String = parser[rangeFrom.startIndex..<rangeTo.startIndex]
+                if let rangeTo = parser.rangeOfString("}{") {
+                    var datos: String = parser[rangeFrom.endIndex..<rangeTo.startIndex]
                     datos.extend("}")
-                    //println(datos)
+                  //  println(datos)
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                     let rangeFromCod = parser.rangeOfString("Cod_Impresion\":\"")
-                    let rangeToCod = parser.rangeOfString("\"</return>")
+                    let rangeToCod = parser.rangeOfString("\"}</return>")
                     var codImpresion: String = parser[rangeFromCod!.endIndex..<rangeToCod!.startIndex]
                     println(json)
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in

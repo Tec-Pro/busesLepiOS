@@ -10,25 +10,27 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="  Copyright (c) 2015 Tec-Pro Software. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Tec-Pro Software. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                     <rect key="frame" x="20" y="439" width="441" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="icono" translatesAutoresizingMaskIntoConstraints="NO" id="UsO-JF-rgP">
-                    <rect key="frame" x="10" y="30" width="440" height="379"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icono" translatesAutoresizingMaskIntoConstraints="NO" id="UsO-JF-rgP">
+                    <rect key="frame" x="165" y="165" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="KX7-N9-NvV"/>
+                        <constraint firstAttribute="width" constant="150" id="Wod-RF-ohH"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="UsO-JF-rgP" secondAttribute="trailing" constant="30" id="7ft-Hb-WMP"/>
+                <constraint firstAttribute="centerY" secondItem="UsO-JF-rgP" secondAttribute="centerY" id="JXT-EW-IDR"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
                 <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
+                <constraint firstAttribute="centerX" secondItem="UsO-JF-rgP" secondAttribute="centerX" id="VAU-vx-EkP"/>
                 <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="UsO-JF-rgP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="coe-dv-SRx"/>
-                <constraint firstItem="UsO-JF-rgP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="orK-T8-Tvx"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="UsO-JF-rgP" secondAttribute="bottom" constant="30" id="w0E-4w-Zvz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -17,6 +17,11 @@ class CiudadesDestinoViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        if (ciudadesDestino?.count == 0 || ciudadesDestino == nil){
+            navigationController?.popViewControllerAnimated(true)
+            var alert = UIAlertView( title: "Error!", message: "Seleccione una ciudad de origen",delegate: nil,  cancelButtonTitle: "Entendido")
+            alert.show()
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

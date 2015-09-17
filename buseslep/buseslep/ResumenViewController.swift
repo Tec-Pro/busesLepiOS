@@ -170,8 +170,7 @@ class ResumenViewController: UIViewController {
     
     @IBAction func clickComprar(sender: UIButton) {
         let preferences = NSUserDefaults.standardUserDefaults()
-        var login: String? = preferences.objectForKey("login")!.description
-        if login != "0" {
+        if ( preferences.objectForKey("login") != nil && preferences.integerForKey("login") != 0 ) {
             reservaParaCompra()
         }
         else{
@@ -182,8 +181,7 @@ class ResumenViewController: UIViewController {
     
     @IBAction func clickReservar(sender: UIButton) {
         let preferences = NSUserDefaults.standardUserDefaults()
-        var login: String? = preferences.objectForKey("login")!.description
-        if login != "0" {
+        if preferences.objectForKey("login") != nil && preferences.integerForKey("login") != 0 {
             self.performSegueWithIdentifier("Reservar", sender: self);
         }
         else{
