@@ -9,20 +9,32 @@
 import Foundation
 
 class Reserva{
-    var sentido: String?
-    var fechaReserva: String?
-    var salida: String?
-    var destino: String?
-    var cantidad: Int
+    var sentidoIda: String?
+    var fechaReservaIda: String?
+    var salidaIda: String?
+    var destinoIda: String?
+    var cantidadIda: Int
+    
+    var sentidoVuelta: String?
+    var fechaReservaVuelta: String?
+    var salidaVuelta: String?
+    var destinoVuelta: String?
+    var cantidadVuelta: Int
     
     
     
-    init(sentido: String , fechaReserva: String, salida:String, destino: String, cantidad: Int){
-        self.sentido = sentido
-        self.fechaReserva = fechaReserva
-        self.salida = salida
-        self.destino = destino
-        self.cantidad = cantidad
+    init(sentido: String , fechaReserva: String, salida:String, destino: String, cantidad: Int,sentidoV: String , fechaReservaV: String, salidaV:String, destinoV: String, cantidadV: Int){
+        self.sentidoIda = sentido
+        self.fechaReservaIda = fechaReserva
+        self.salidaIda = salida
+        self.destinoIda = destino
+        self.cantidadIda = cantidad
+        
+        self.sentidoVuelta = sentidoV
+        self.fechaReservaVuelta = fechaReservaV
+        self.salidaVuelta = salidaV
+        self.destinoVuelta = destinoV
+        self.cantidadVuelta = cantidadV
     }
     
     
@@ -35,10 +47,49 @@ class Reserva{
             let sal = item["Salida"] as! String
             let dest = item["Destino"] as! String
             let cant = item["cantidad"] as! Int
-            let reserva = Reserva(sentido: sen, fechaReserva: fechaReser, salida: sal, destino: dest, cantidad: cant)
+            
+            var rangeFrom = sal.rangeOfString(" ")?.endIndex
+            var rangeTo = sal.rangeOfString(":00", options: .BackwardsSearch)?.startIndex
+            var hora = sal.substringWithRange(rangeFrom!..<rangeTo!)
+            
+            
+            
+            var fecha_llega = sal.substringToIndex(sal.rangeOfString(" ")!.startIndex)
+            
+            
+            //parseo la fecha para tener el formato 11/11/2015
+            var fechaLlegaArray = split(fecha_llega) {$0 == "-"}
+            var anioLlega: String = fechaLlegaArray[0]
+            var mesLlega: String = fechaLlegaArray[1]
+            var diaLlega: String = fechaLlegaArray[2]
+            
+            
+            let reserva = Reserva(sentido: sen, fechaReserva: fechaReser, salida: diaLlega+"/"+mesLlega+"/"+anioLlega+"   "+hora, destino: dest, cantidad: cant, sentidoV:"",fechaReservaV:"",salidaV:"",destinoV:"",cantidadV:0)
             reservas.append(reserva)
             }
         )
-        return reservas
+        var i: Int = 0
+        var j: Int = 0
+        for i in 0 ... reservas.count-1{
+                for j in i ... reservas.count-1{
+                    if(reservas[i].sentidoIda! == "Ida"){
+                    if((reservas[i].fechaReservaIda! == reservas[j].fechaReservaIda!) && reservas[i].sentidoIda != reservas[j].sentidoIda){
+                        reservas[i].destinoVuelta = reservas[j].destinoIda
+                        reservas[i].cantidadVuelta = reservas[j].cantidadIda
+                        reservas[i].sentidoVuelta = reservas[j].sentidoIda
+                        reservas[i].fechaReservaVuelta = reservas[j].fechaReservaIda
+                        reservas[i].salidaVuelta = reservas[j].salidaIda
+                        
+                    }
+                    }
+            }
+        }
+        var reservasFinal = [Reserva]()
+        for i in 0 ... reservas.count-1{
+            if reservas[i].sentidoIda! == "Ida"{
+                reservasFinal.append(reservas[i])
+            }
+        }
+        return reservasFinal
     }
 }

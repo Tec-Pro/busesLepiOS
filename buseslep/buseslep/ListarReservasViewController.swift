@@ -21,11 +21,13 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
         println(reservas.count)
         tableView.delegate = self
         tableView.reloadData()
+        tableView.tableFooterView = UIView()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         tableView.reloadData()
+        tableView.tableFooterView = UIView()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,56 +37,33 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell? = UITableViewCell()
         let reserva = reservas[indexPath.row]
-        var i: Int = 0
-        println("CANTIDAD DE RESERVAS")
-        println(indexPath.row)
-        println(reserva.sentido!)
-        if reserva.sentido! == "Ida"{
-            for i in indexPath.row ... reservas.count-1{
-                let r = reservas[i]
-                if ((r.fechaReserva == reserva.fechaReserva) && (r.sentido != reserva.sentido)){
+        if reserva.sentidoVuelta != ""{
+            
+            
                     let cellIdaVuelta = tableView.dequeueReusableCellWithIdentifier("celdaIdaVuelta") as?CeldaReservaIdaVueltaViewController
-                    cellIdaVuelta?.salidaIda.text = reserva.salida
-                    cellIdaVuelta?.cantIda.text = reserva.cantidad.description
-                    cellIdaVuelta?.destinoIda.text = reserva.destino
-                    cellIdaVuelta?.salidaVuelta.text = r.salida
-                    cellIdaVuelta?.cantVuelta.text = r.cantidad.description
-                    cellIdaVuelta?.destinoVuelta.text = r.destino
+                    cellIdaVuelta?.salidaIda.text = reserva.salidaIda
+                    cellIdaVuelta?.cantIda.text = reserva.cantidadIda.description
+                    cellIdaVuelta?.destinoIda.text = reserva.destinoIda
+                    cellIdaVuelta?.salidaVuelta.text = reserva.salidaVuelta
+                    cellIdaVuelta?.cantVuelta.text = reserva.cantidadVuelta.description
+                    cellIdaVuelta?.destinoVuelta.text = reserva.destinoVuelta
                     println("entre a celda uda y vuelta")
                     
                     return cellIdaVuelta!
-                }
-            }
-            let cellIda = tableView.dequeueReusableCellWithIdentifier("c") as? CeldaReservaViewController
-            cellIda?.sentido.text = reserva.sentido
-            cellIda?.salida.text = reserva.salida
-            cellIda?.cant.text = reserva.cantidad.description
-            cellIda?.destino.text = reserva.destino
-            cellIda?.fecha.text = reserva.fechaReserva
-            return cellIda!
+            
         }else{
-            i = indexPath.row
-            for i in indexPath.row ... reservas.count-1{
-                let r = reservas[i]
-                if ((r.fechaReserva == reserva.fechaReserva) && (r.sentido != reserva.sentido)){
-                    let cellIdaVuelta = tableView.dequeueReusableCellWithIdentifier("celdaIdaVuelta") as?CeldaReservaIdaVueltaViewController
-                    cellIdaVuelta?.salidaVuelta.text = reserva.salida
-                    cellIdaVuelta?.cantVuelta.text = reserva.cantidad.description
-                    cellIdaVuelta?.destinoVuelta.text = reserva.destino
-                    cellIdaVuelta?.salidaIda.text = r.salida
-                    cellIdaVuelta?.cantIda.text = r.cantidad.description
-                    cellIdaVuelta?.destinoIda.text = r.destino
-                    println("entre a celda uda y vuelta")
-                    return cellIdaVuelta!
-                }
-            }
+            let cellIda = tableView.dequeueReusableCellWithIdentifier("c") as? CeldaReservaViewController
+            cellIda?.sentido.text = reserva.sentidoIda
+            cellIda?.salida.text = reserva.salidaIda
+            cellIda?.cant.text = reserva.cantidadIda.description
+            cellIda?.destino.text = reserva.destinoIda
+            return cellIda!
         }
-        println("no entre a niunguno")
         return cell!
-    }
+   }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        fechaReserva = reservas[indexPath.row].fechaReserva!
+        fechaReserva = reservas[indexPath.row].fechaReservaIda!
         println(fechaReserva)
         mostrarAlerta()
         
