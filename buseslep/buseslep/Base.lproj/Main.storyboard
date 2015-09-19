@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -555,8 +555,16 @@
                             <constraint firstItem="q2u-Df-TEW" firstAttribute="top" secondItem="tZO-oU-r98" secondAttribute="bottom" id="r8G-Gk-4Gj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Horario ida" id="jkV-Df-5sY"/>
+                    <navigationItem key="navigationItem" title="Horario ida" id="jkV-Df-5sY">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="hSG-nF-VZr">
+                            <connections>
+                                <action selector="atrasPressed:" destination="hPo-EP-NFm" id="CVZ-Ct-BSf"/>
+                                <segue destination="BYZ-38-t0r" kind="show" id="NUY-hK-dTQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="btnAtras" destination="hSG-nF-VZr" id="Lfi-4r-mZC"/>
                         <outlet property="lblDesdeHasta" destination="u7z-Gc-c7g" id="QCc-vO-nw7"/>
                         <outlet property="lblPrecioIda" destination="MY6-4d-zYW" id="UXj-FD-zIJ"/>
                         <outlet property="lblPrecioIdaVuelta" destination="x5g-fH-rRx" id="W4d-do-Qv8"/>
@@ -1451,6 +1459,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="borderView" destination="XhV-lo-v4R" id="1Fv-0f-3O4"/>
+                        <outlet property="boxHeight" destination="zPy-ks-Yxs" id="3X3-bN-OTL"/>
                         <outlet property="btnConfirm" destination="F4i-Am-O58" id="vR4-hs-GiM"/>
                         <outlet property="btnReserve" destination="A81-k1-Y0B" id="nYt-Hj-Zff"/>
                         <outlet property="lblButacaIdaText" destination="nC9-yI-ARI" id="MYY-t2-0jQ"/>
@@ -1790,7 +1799,14 @@
                             <constraint firstItem="xyg-o9-8GI" firstAttribute="top" secondItem="Ocg-US-XGR" secondAttribute="bottom" id="ka3-4A-eFb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Horario vuelta" id="qdd-50-f1b"/>
+                    <navigationItem key="navigationItem" title="Horario vuelta" id="qdd-50-f1b">
+                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="YK8-lw-FmG">
+                            <connections>
+                                <action selector="atrasPressed:" destination="L9W-Cv-XU2" id="fia-Kg-IbO"/>
+                                <segue destination="BYZ-38-t0r" kind="show" id="uhx-ax-k6Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lblDesdeHasta" destination="xyg-o9-8GI" id="gbO-P9-0Vt"/>
                         <outlet property="lblPrecioIda" destination="mZV-md-fhu" id="7Dq-9j-aMX"/>
@@ -2741,10 +2757,10 @@
         <image name="present-100" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZZA-8A-Q75"/>
-        <segue reference="5kS-aB-Zi6"/>
-        <segue reference="2Mq-sl-XdW"/>
-        <segue reference="ivo-Hq-b0d"/>
         <segue reference="vAL-TL-GNR"/>
+        <segue reference="3zL-zn-ePX"/>
+        <segue reference="ZZA-8A-Q75"/>
+        <segue reference="ivo-Hq-b0d"/>
+        <segue reference="2Mq-sl-XdW"/>
     </inferredMetricsTieBreakers>
 </document>

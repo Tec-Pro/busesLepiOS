@@ -17,6 +17,7 @@ class HorarioIdaViewController: UIViewController ,UITableViewDelegate, UITableVi
     @IBOutlet weak var lblPrecioIda: UILabel!
     @IBOutlet weak var lblPrecioIdaVuelta: UILabel!
     
+    @IBOutlet weak var btnAtras: UIBarButtonItem!
     var horarios: [Horario]?
     var indexHorarioElegido: Int?
     var busquedaViewController: BusquedaViewController?
@@ -33,6 +34,10 @@ class HorarioIdaViewController: UIViewController ,UITableViewDelegate, UITableVi
     }
     
     
+
+    @IBAction func atrasPressed(sender: UIBarButtonItem) {
+        busquedaViewController!.fromUltimasBusquedas = false;
+    }
 
     
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,8 +105,10 @@ class HorarioVueltaViewController: UIViewController ,UITableViewDelegate{
 
     }
     
-    
-    
+    @IBAction func atrasPressed(sender: UIBarButtonItem) {
+        busquedaViewController!.fromUltimasBusquedas = false;
+    }
+   
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (horarios == nil ) ? 0 : horarios!.count

@@ -39,6 +39,7 @@ class ReserveDetailsViewController: UIViewController{
     @IBOutlet var viewGreyBar: UIView!
     @IBOutlet var viewTotal: UIView!
     
+    @IBOutlet weak var boxHeight: NSLayoutConstraint!
     var dni: String = ""
     var mail: String = ""
     var horarioIda : Horario?
@@ -138,6 +139,7 @@ class ReserveDetailsViewController: UIViewController{
             viewPlataformaVuelta.hidden = true
             viewCantPasajesVuelta.hidden = true
             viewGreyBar.hidden = true
+            boxHeight.constant = 105
         }
     }
     
@@ -246,7 +248,7 @@ class ReserveDetailsViewController: UIViewController{
                                 alert.show()
                             }
                             else{
-                                let alert2 = UIAlertView(title: "Tu Reserva Ha Sido Exitosa!", message: "Te enviamos un mail a " + self.mail + " con los detalles", delegate:nil, cancelButtonTitle: "Aceptar")
+                                let alert2 = UIAlertView(title: "Tu Reserva Ha Sido Exitosa!", message: "Le enviamos un email a \n " + self.mail + "\n con los detalles de la reserva. \n \n Puede comprar el pasaje en el menu \"mis reservas\" o ir a la boleteria para abonar y obtener su boleto.", delegate:nil, cancelButtonTitle: "FINALIZAR")
                                 alert2.show()
                                 self.performSegueWithIdentifier("BackToMain", sender: self);
                             }

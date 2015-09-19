@@ -258,6 +258,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
             }
         }
         else{// si no es vuelta largo para elegir reservar o comprar
+            
             self.performSegueWithIdentifier("elegirReservaCompra", sender: self);
         }
     }
