@@ -43,6 +43,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     static var verReservas : Bool = false
     static var editarPerfil : Bool = false
     static var cambiarContraseña : Bool = false
+    static var verCompras: Bool = false
 
     var diaIda: Int = 0
     var mesIda:  Int = 0
@@ -139,6 +140,10 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         if(BusquedaViewController.cambiarContraseña){
             BusquedaViewController.cambiarContraseña = false
             self.performSegueWithIdentifier("cambiarContraseña", sender: self);
+        }
+        if(BusquedaViewController.verCompras){
+            BusquedaViewController.verCompras = false
+            self.performSegueWithIdentifier("verCompras", sender: self);
         }
         
         if(self.fromUltimasBusquedas){

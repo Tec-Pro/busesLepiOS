@@ -47,7 +47,6 @@ class BackTableVC: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let opcion = tableArray[indexPath.row]
-        println(opcion)
         if(opcion == "Ultimas Busquedas"){
             BusquedaViewController.cargarUltimasBusquedas = true
             //self.performSegueWithIdentifier(<#identifier: String?#>, sender: <#AnyObject?#>)
@@ -65,6 +64,9 @@ class BackTableVC: UITableViewController {
         }
         if opcion == "Cambiar Contraseña"{
             BusquedaViewController.cambiarContraseña = true
+        }
+        if opcion == "Mis Compras"{
+            BusquedaViewController.verCompras = true
         }
     }
     
