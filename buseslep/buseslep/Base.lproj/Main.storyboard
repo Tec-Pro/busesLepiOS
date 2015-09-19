@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A4B-58-loi">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jec-RF-o5f">
-                                <rect key="frame" x="26" y="106" width="51" height="31"/>
+                                <rect key="frame" x="16" y="84" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="JoG-Ro-yvg"/>
                                 </constraints>
@@ -29,7 +29,7 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ida y vuelta" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-87-mAb">
-                                <rect key="frame" x="83" y="104" width="79" height="31"/>
+                                <rect key="frame" x="73" y="84" width="79" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="zAr-d9-Iqa"/>
                                 </constraints>
@@ -39,9 +39,9 @@
                                 <size key="shadowOffset" width="-1" height="-1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="oVD-Bx-uqV">
-                                <rect key="frame" x="26" y="175" width="548" height="30"/>
+                                <rect key="frame" x="16" y="135" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="nYW-lg-zNR"/>
+                                    <constraint firstAttribute="height" constant="40" id="nYW-lg-zNR"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Ciudad de origen">
@@ -56,9 +56,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vkw-sT-uyb">
-                                <rect key="frame" x="26" y="205" width="548" height="29"/>
+                                <rect key="frame" x="16" y="175" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="xlB-F0-lfq"/>
+                                    <constraint firstAttribute="height" constant="40" id="xlB-F0-lfq"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Ciudad de destino">
@@ -73,9 +73,9 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="xLo-0R-Dzl">
-                                <rect key="frame" x="544" y="205" width="30" height="30"/>
+                                <rect key="frame" x="554" y="175" width="30" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="IYK-yd-1XV"/>
+                                    <constraint firstAttribute="height" constant="40" id="IYK-yd-1XV"/>
                                     <constraint firstAttribute="width" constant="30" id="zJq-XR-baK"/>
                                 </constraints>
                                 <variation key="widthClass=compact" misplaced="YES">
@@ -83,19 +83,19 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="nMq-cq-EMM">
-                                <rect key="frame" x="544" y="176" width="30" height="30"/>
+                                <rect key="frame" x="554" y="135" width="30" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="7QV-Cl-aog"/>
-                                    <constraint firstAttribute="height" constant="30" id="fqp-wm-zux"/>
+                                    <constraint firstAttribute="height" constant="40" id="fqp-wm-zux"/>
                                 </constraints>
                                 <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="544" y="132" width="30" height="30"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSp-5z-0sZ">
-                                <rect key="frame" x="26" y="233" width="548" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSp-5z-0sZ">
+                                <rect key="frame" x="16" y="214" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Kjk-t9-GIM"/>
+                                    <constraint firstAttribute="height" constant="40" id="Kjk-t9-GIM"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Fecha de ida">
@@ -109,20 +109,20 @@
                                     <segue destination="vXZ-lx-hvc" kind="show" identifier="elegirFechaIda" id="gqg-iM-UU9"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-se-XTC">
-                                <rect key="frame" x="544" y="234" width="30" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="zxb-se-XTC">
+                                <rect key="frame" x="554" y="214" width="30" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="KTB-0w-bWE"/>
-                                    <constraint firstAttribute="height" constant="30" id="zz7-Fs-kfj"/>
+                                    <constraint firstAttribute="height" constant="40" id="zz7-Fs-kfj"/>
                                 </constraints>
                                 <variation key="widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="544" y="190" width="30" height="30"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="277-n6-InT">
-                                <rect key="frame" x="26" y="262" width="548" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="277-n6-InT">
+                                <rect key="frame" x="16" y="254" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="sze-LP-qA2"/>
+                                    <constraint firstAttribute="height" constant="40" id="sze-LP-qA2"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Solo ida">
@@ -136,20 +136,20 @@
                                     <segue destination="vXZ-lx-hvc" kind="show" identifier="elegirFechaVuelta" id="ivo-Hq-b0d"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="USF-OX-lCk">
-                                <rect key="frame" x="544" y="263" width="30" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="USF-OX-lCk">
+                                <rect key="frame" x="554" y="255" width="30" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="FAi-4c-QWt"/>
+                                    <constraint firstAttribute="height" constant="40" id="FAi-4c-QWt"/>
                                     <constraint firstAttribute="width" constant="30" id="IZt-Zo-KTf"/>
                                 </constraints>
                                 <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="344" y="263" width="30" height="30"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRV-Fw-sV2">
-                                <rect key="frame" x="26" y="291" width="548" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRV-Fw-sV2">
+                                <rect key="frame" x="16" y="292" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6iP-8C-5S2"/>
+                                    <constraint firstAttribute="height" constant="40" id="6iP-8C-5S2"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Cantidad de pasajes">
@@ -163,20 +163,10 @@
                                     <segue destination="3KG-x3-hyO" kind="show" identifier="elegirCantidadPasajes" id="B0M-xh-vfy"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="zpN-bF-dfn">
-                                <rect key="frame" x="544" y="292" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gir-Hu-H7i">
+                                <rect key="frame" x="16" y="362" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="XPc-DU-QaL"/>
-                                    <constraint firstAttribute="width" constant="30" id="dxL-cf-aPW"/>
-                                </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="344" y="292" width="30" height="30"/>
-                                </variation>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gir-Hu-H7i">
-                                <rect key="frame" x="26" y="364" width="548" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="3mc-pl-moH"/>
+                                    <constraint firstAttribute="height" constant="40" id="3mc-pl-moH"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Busqueda">
@@ -190,10 +180,10 @@
                                     <action selector="clickBusqueda:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oxk-NC-Gda"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDz-Zf-9t8">
-                                <rect key="frame" x="26" y="404" width="548" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDz-Zf-9t8">
+                                <rect key="frame" x="16" y="415" width="568" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="LMb-rP-MlR"/>
+                                    <constraint firstAttribute="height" constant="40" id="LMb-rP-MlR"/>
                                 </constraints>
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Iniciar sesion / Registrarse" image="login">
@@ -211,44 +201,57 @@
                                 <rect key="frame" x="282" y="282" width="37" height="37"/>
                                 <color key="color" red="0.97647058823529409" green="0.0" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Spinner" translatesAutoresizingMaskIntoConstraints="NO" id="zpN-bF-dfn">
+                                <rect key="frame" x="554" y="292" width="30" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="XPc-DU-QaL"/>
+                                    <constraint firstAttribute="width" constant="30" id="dxL-cf-aPW"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="344" y="292" width="30" height="30"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="277-n6-InT" secondAttribute="trailing" constant="10" id="35c-zJ-vz1"/>
-                            <constraint firstItem="jec-RF-o5f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="8Kj-SR-eS0"/>
-                            <constraint firstItem="gir-Hu-H7i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="BbA-U6-oyT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vkw-sT-uyb" secondAttribute="trailing" constant="10" id="CPs-xG-LWn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JRV-Fw-sV2" secondAttribute="trailing" constant="10" id="CQ1-0q-r62"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="277-n6-InT" secondAttribute="trailing" id="35c-zJ-vz1"/>
+                            <constraint firstItem="jec-RF-o5f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="8Kj-SR-eS0"/>
+                            <constraint firstItem="gir-Hu-H7i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="BbA-U6-oyT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vkw-sT-uyb" secondAttribute="trailing" id="CPs-xG-LWn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JRV-Fw-sV2" secondAttribute="trailing" id="CQ1-0q-r62"/>
                             <constraint firstAttribute="centerX" secondItem="rkz-ff-fT8" secondAttribute="centerX" id="EgI-Lj-T9q"/>
-                            <constraint firstItem="gir-Hu-H7i" firstAttribute="top" secondItem="zpN-bF-dfn" secondAttribute="bottom" constant="42" id="FIy-dL-1Bn"/>
+                            <constraint firstItem="gir-Hu-H7i" firstAttribute="top" secondItem="zpN-bF-dfn" secondAttribute="bottom" constant="30" id="FIy-dL-1Bn"/>
                             <constraint firstItem="xLo-0R-Dzl" firstAttribute="top" secondItem="oVD-Bx-uqV" secondAttribute="bottom" id="Ikc-wN-ijM"/>
                             <constraint firstItem="zxb-se-XTC" firstAttribute="top" secondItem="Vkw-sT-uyb" secondAttribute="bottom" id="ImE-t7-huX"/>
-                            <constraint firstItem="kDz-Zf-9t8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="NAO-HW-8cp"/>
-                            <constraint firstItem="Vkw-sT-uyb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="NGW-rc-dM5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gir-Hu-H7i" secondAttribute="trailing" constant="10" id="PrX-ir-kZr"/>
-                            <constraint firstItem="mSp-5z-0sZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Qxi-kJ-yax"/>
-                            <constraint firstItem="nMq-cq-EMM" firstAttribute="top" secondItem="7NU-87-mAb" secondAttribute="bottom" constant="41" id="TCi-j3-qiV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kDz-Zf-9t8" secondAttribute="trailing" constant="10" id="THq-uc-mhS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="USF-OX-lCk" secondAttribute="trailing" constant="10" id="U3g-X6-ytE"/>
-                            <constraint firstItem="JRV-Fw-sV2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="Y41-F6-faz"/>
-                            <constraint firstItem="jec-RF-o5f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="b5n-Zm-aKA"/>
+                            <constraint firstItem="kDz-Zf-9t8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NAO-HW-8cp"/>
+                            <constraint firstItem="Vkw-sT-uyb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="NGW-rc-dM5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gir-Hu-H7i" secondAttribute="trailing" id="PrX-ir-kZr"/>
+                            <constraint firstItem="mSp-5z-0sZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Qxi-kJ-yax"/>
+                            <constraint firstItem="JRV-Fw-sV2" firstAttribute="top" secondItem="USF-OX-lCk" secondAttribute="bottom" id="SaL-cp-IJl"/>
+                            <constraint firstItem="nMq-cq-EMM" firstAttribute="top" secondItem="7NU-87-mAb" secondAttribute="bottom" constant="20" id="TCi-j3-qiV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kDz-Zf-9t8" secondAttribute="trailing" id="THq-uc-mhS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="USF-OX-lCk" secondAttribute="trailing" id="U3g-X6-ytE"/>
+                            <constraint firstItem="JRV-Fw-sV2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Y41-F6-faz"/>
+                            <constraint firstItem="jec-RF-o5f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="b5n-Zm-aKA"/>
                             <constraint firstItem="Vkw-sT-uyb" firstAttribute="top" secondItem="oVD-Bx-uqV" secondAttribute="bottom" id="b6S-Ia-kYK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zpN-bF-dfn" secondAttribute="trailing" constant="10" id="cP5-8K-a29"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zpN-bF-dfn" secondAttribute="trailing" id="cP5-8K-a29"/>
                             <constraint firstItem="USF-OX-lCk" firstAttribute="top" secondItem="mSp-5z-0sZ" secondAttribute="bottom" id="d0Y-bK-heI"/>
                             <constraint firstItem="7NU-87-mAb" firstAttribute="leading" secondItem="jec-RF-o5f" secondAttribute="trailing" constant="8" id="dJh-uJ-aJy"/>
-                            <constraint firstItem="277-n6-InT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="iHJ-Qq-kXa"/>
+                            <constraint firstItem="277-n6-InT" firstAttribute="top" secondItem="zxb-se-XTC" secondAttribute="bottom" id="ebH-7S-BsX"/>
+                            <constraint firstItem="277-n6-InT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="iHJ-Qq-kXa"/>
+                            <constraint firstItem="mSp-5z-0sZ" firstAttribute="top" secondItem="xLo-0R-Dzl" secondAttribute="bottom" id="loB-h5-2Ke"/>
                             <constraint firstItem="zpN-bF-dfn" firstAttribute="top" secondItem="277-n6-InT" secondAttribute="bottom" id="oak-aS-RdG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nMq-cq-EMM" secondAttribute="trailing" constant="10" id="poK-YE-E2Y"/>
-                            <constraint firstItem="7NU-87-mAb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="qD4-q1-RmR"/>
-                            <constraint firstItem="oVD-Bx-uqV" firstAttribute="top" secondItem="7NU-87-mAb" secondAttribute="bottom" constant="40" id="qip-Rx-RVt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nMq-cq-EMM" secondAttribute="trailing" id="poK-YE-E2Y"/>
+                            <constraint firstItem="7NU-87-mAb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="qD4-q1-RmR"/>
+                            <constraint firstItem="oVD-Bx-uqV" firstAttribute="top" secondItem="7NU-87-mAb" secondAttribute="bottom" constant="20" id="qip-Rx-RVt"/>
                             <constraint firstAttribute="centerY" secondItem="rkz-ff-fT8" secondAttribute="centerY" id="r8L-I6-34Y"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oVD-Bx-uqV" secondAttribute="trailing" constant="10" id="rtw-NC-gb1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oVD-Bx-uqV" secondAttribute="trailing" id="rtw-NC-gb1"/>
                             <constraint firstItem="zxb-se-XTC" firstAttribute="top" secondItem="Vkw-sT-uyb" secondAttribute="bottom" id="sia-Mb-udG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xLo-0R-Dzl" secondAttribute="trailing" constant="10" id="sqw-2E-RHm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zxb-se-XTC" secondAttribute="trailing" constant="10" id="vKz-Vy-VVJ"/>
-                            <constraint firstItem="oVD-Bx-uqV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="xF5-Vw-sXT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xLo-0R-Dzl" secondAttribute="trailing" id="sqw-2E-RHm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zxb-se-XTC" secondAttribute="trailing" id="vKz-Vy-VVJ"/>
+                            <constraint firstItem="oVD-Bx-uqV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xF5-Vw-sXT"/>
                             <constraint firstItem="kDz-Zf-9t8" firstAttribute="top" secondItem="gir-Hu-H7i" secondAttribute="bottom" constant="10" id="z8L-zV-Kpe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mSp-5z-0sZ" secondAttribute="trailing" constant="10" id="zXz-kb-6fn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mSp-5z-0sZ" secondAttribute="trailing" id="zXz-kb-6fn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Busqueda" id="fuq-i0-Bt9">
