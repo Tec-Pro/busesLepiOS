@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CambiarPassViewController: UIViewController{
+class CambiarPassViewController: UIViewController, UITextFieldDelegate{
     
     
     @IBOutlet weak var txtPass: UITextField!
@@ -19,6 +19,13 @@ class CambiarPassViewController: UIViewController{
         super.viewDidLoad()
         btnGuardar.layer.borderColor = UIColor.blackColor().CGColor
         btnGuardar.layer.borderWidth = 0.5
+        txtPass.delegate = self
+        txtRepPass.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func dataOk()-> Bool{

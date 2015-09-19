@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController{
+class EditProfileViewController: UIViewController, UITextFieldDelegate{
     
     
     @IBOutlet weak var nombre: UITextField!
@@ -25,12 +25,21 @@ class EditProfileViewController: UIViewController{
         nombre.text = preferences.valueForKey("nombre") as! String
         apellido.text = preferences.valueForKey("apellido") as! String
         mail.text = preferences.valueForKey("email") as! String
+        
+        nombre.delegate = self
+        apellido.delegate = self
+        mail.delegate = self
     }
     
     func dataOk()-> Bool{
         return (count(nombre.text) >= 1 &&
             count(apellido.text) >= 1 &&
             count(mail.text) >= 1)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func editarPerfil(sender: UIButton) {

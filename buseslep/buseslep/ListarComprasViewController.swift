@@ -8,18 +8,37 @@
 
 import UIKit
 
-class ListarComprasViewController: UIViewController{
+class ListarComprasViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
+    
+  var compras = [Compra]()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        obtenerReservas()
+        obtenerCompras()
     }
     
-    func obtenerReservas(){
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return compras.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("celdaCompra") as? CeldaCompra
+        cell?.lblDestino.text = compras[indexPath.row].destino
+        cell?.lblSalida.text = compras[indexPath.row].salida
+        cell?.lblCod.text = compras[indexPath.row].codigo.description
+        cell?.lblCant.text = compras[indexPath.row].cantidad.description
+        return cell!
+    }
+
+    func obtenerCompras(){
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
         var id_plataforma: Int = 2
@@ -48,14 +67,14 @@ class ListarComprasViewController: UIViewController{
                     var data: NSData = datos.dataUsingEncoding(NSUTF8StringEncoding)! //parseo a data para serializarlo
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        /*self.reservas = Reserva.fromDictionary(json)
-                        if self.reservas.count == 0{
+                        self.compras = Compra.fromDictionary(json)
+                        if self.compras.count == 0{
                             self.navigationController?.popViewControllerAnimated(true)
-                            let alert = UIAlertView(title: "Atencion!", message: "No tiene reservas", delegate:nil, cancelButtonTitle: "Aceptar")
+                            let alert = UIAlertView(title: "Atencion!", message: "No tiene compras", delegate:nil, cancelButtonTitle: "Aceptar")
                             alert.show()
                             
                         }
-                        self.tableView.reloadData()*/
+                        self.tableView.reloadData()
                     })
                     
                 }
