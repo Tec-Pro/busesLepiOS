@@ -26,9 +26,9 @@ class HorarioIdaViewController: UIViewController ,UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.lblDesdeHasta.text = lblDesdeHastaTexto
-        self.lblPrecioIda.text = "Ida $\(lblPrecioIdaTexto!) "
-        self.lblPrecioIdaVuelta.text = "Ida vuelta  $\(lblPrecioIdaVueltaTexto!) "
+        self.lblDesdeHasta.text = "  \(lblDesdeHastaTexto!)"
+        self.lblPrecioIda.text = "  Ida $\(lblPrecioIdaTexto!) "
+        self.lblPrecioIdaVuelta.text = "Ida vuelta  $\(lblPrecioIdaVueltaTexto!)  "
         tablaHorario.delegate =  self
     }
     
@@ -91,9 +91,9 @@ class HorarioVueltaViewController: UIViewController ,UITableViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.lblDesdeHasta.text = lblDesdeHastaTexto
-        self.lblPrecioIda.text = "Ida $\(lblPrecioIdaTexto!)"
-        self.lblPrecioIdaVuelta.text = "Ida $\(lblPrecioIdaVueltaTexto!)"
+        self.lblDesdeHasta.text = "  \(lblDesdeHastaTexto!)"
+        self.lblPrecioIda.text = "  Ida $\(lblPrecioIdaTexto!) "
+        self.lblPrecioIdaVuelta.text = "Ida vuelta  $\(lblPrecioIdaVueltaTexto!)  "
         tablaHorario.delegate = self
         
    //     tablaHorario.reloadData()
