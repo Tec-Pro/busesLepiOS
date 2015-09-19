@@ -130,15 +130,12 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
                 }
                 
             } else {
-                if let rangeF = parser.rangeOfString("<return xsi:type=") { // con esto hago un subrango
-                    if let rangeT = parser.rangeOfString("</return>") {
-                        
-                    }
+                
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         let alert = UIAlertView(title: "Atencion!", message: "No se ha podido iniciar sesión", delegate:nil, cancelButtonTitle: "Aceptar")
                         alert.show()
                     })
-                }
+                
             }
             if error != nil{
                 // Move to the UI thread

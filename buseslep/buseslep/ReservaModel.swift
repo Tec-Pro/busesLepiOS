@@ -68,28 +68,35 @@ class Reserva{
             reservas.append(reserva)
             }
         )
-        var i: Int = 0
-        var j: Int = 0
-        for i in 0 ... reservas.count-1{
+        var reservasFinal = [Reserva]()
+        if reservas.count > 1{
+            var i: Int = 0
+            var j: Int = 0
+            
+            for i in 0 ... reservas.count-1{
                 for j in i ... reservas.count-1{
                     if(reservas[i].sentidoIda! == "Ida"){
-                    if((reservas[i].fechaReservaIda! == reservas[j].fechaReservaIda!) && reservas[i].sentidoIda != reservas[j].sentidoIda){
-                        reservas[i].destinoVuelta = reservas[j].destinoIda
-                        reservas[i].cantidadVuelta = reservas[j].cantidadIda
-                        reservas[i].sentidoVuelta = reservas[j].sentidoIda
-                        reservas[i].fechaReservaVuelta = reservas[j].fechaReservaIda
-                        reservas[i].salidaVuelta = reservas[j].salidaIda
-                        
+                        if((reservas[i].fechaReservaIda! == reservas[j].fechaReservaIda!) && reservas[i].sentidoIda != reservas[j].sentidoIda){
+                            reservas[i].destinoVuelta = reservas[j].destinoIda
+                            reservas[i].cantidadVuelta = reservas[j].cantidadIda
+                            reservas[i].sentidoVuelta = reservas[j].sentidoIda
+                            reservas[i].fechaReservaVuelta = reservas[j].fechaReservaIda
+                            reservas[i].salidaVuelta = reservas[j].salidaIda
+                            
+                        }
                     }
-                    }
+                }
             }
-        }
-        var reservasFinal = [Reserva]()
-        for i in 0 ... reservas.count-1{
-            if reservas[i].sentidoIda! == "Ida"{
-                reservasFinal.append(reservas[i])
+            
+            for i in 0 ... reservas.count-1{
+                if reservas[i].sentidoIda! == "Ida"{
+                    reservasFinal.append(reservas[i])
+                }
             }
+            return reservasFinal
+        }else{
+            return reservas
         }
-        return reservasFinal
+        
     }
 }
