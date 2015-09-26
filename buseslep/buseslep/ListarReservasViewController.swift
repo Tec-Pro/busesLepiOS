@@ -356,7 +356,10 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
             var importeIdaFloat = CGFloat((self.precio as NSString).floatValue)
             var importeIdaVueltaFloat = CGFloat((self.precioIdaVuelta as NSString).floatValue)
             var importFinal = importeIdaFloat + importeIdaVueltaFloat
-            res.precioIdaVuelta = importFinal.description
+            var pasajes: String = self.cantidadPasajes.description
+            pasajes.extend(".00")
+            var cantPasajesFloat = CGFloat((pasajes as NSString).floatValue)
+            res.precioIdaVuelta = (importFinal/cantPasajesFloat).description
             res.ciudadDestino = self.ciudadDestino!
             res.ciudadOrigen = self.ciudadOrigen!
             res.horarioIda = self.horarioIda!
