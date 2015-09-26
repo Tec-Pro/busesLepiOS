@@ -51,6 +51,7 @@ class ResumenViewController: UIViewController {
     var asientosIda : Set<Int>?
     var asientosVuelta :Set<Int>?
     var seleccionarAsientosVuelta :Bool = false
+    var pasarSeleccionarAsientos: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,6 +95,17 @@ class ResumenViewController: UIViewController {
             lblImporte.text = "$\(precioIdaFloat! * CGFloat(cantidadPasajes!))0"
             
 
+        }
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if pasarSeleccionarAsientos{
+            pasarSeleccionarAsientos = false
+            println("paso de largo capo")
+            println(self.idVenta)
+            println(self.cantidadPasajes)
+            self.performSegueWithIdentifier("Comprar", sender: self);
         }
         
     }

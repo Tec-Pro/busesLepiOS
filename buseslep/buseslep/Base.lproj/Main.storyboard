@@ -2643,6 +2643,7 @@
                     <navigationItem key="navigationItem" title="Mis Reservas" id="2Ye-DT-E5T"/>
                     <connections>
                         <outlet property="tableView" destination="sBe-gO-D1R" id="1Dz-k6-UUo"/>
+                        <segue destination="zFs-sw-cy2" kind="show" identifier="Resumen" id="187-7F-Ku5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CI1-1k-cgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2835,9 +2836,10 @@
         <image name="present-100" width="33" height="33"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ivo-Hq-b0d"/>
-        <segue reference="3zL-zn-ePX"/>
         <segue reference="ZZA-8A-Q75"/>
+        <segue reference="187-7F-Ku5"/>
+        <segue reference="3zL-zn-ePX"/>
+        <segue reference="ivo-Hq-b0d"/>
         <segue reference="t13-q0-qWg"/>
         <segue reference="2Mq-sl-XdW"/>
     </inferredMetricsTieBreakers>
