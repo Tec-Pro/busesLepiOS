@@ -30,12 +30,17 @@ class UltimasBusquedasViewController : UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        db.deleteOldSearches()
+       /* db.deleteOldSearches()
         searches = db.getSearches()
-        //tablaUB.reloadData()
+        tablaUB.reloadData()*/
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        db.deleteOldSearches()
+        searches = db.getSearches()
+        tablaUB.reloadData()
+    }
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(searches != nil){

@@ -22,6 +22,7 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
     var idVenta : Int = 0
     var driverAdded : Bool = false
     
+    @IBOutlet weak var lblSeatsSelection: UILabel!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     let free_seat: UIImage = UIImage(named:"free_seat")!
     let occupied_seat: UIImage = UIImage(named:"occupied_seat")!
@@ -48,6 +49,12 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
         obtenerButacas()
         seatsView.layer.borderColor = UIColor.blackColor().CGColor
         seatsView.layer.borderWidth = 0.5
+        if(esIda == 0){
+            lblSeatsSelection.text = "Seleccione butacas para vuelta"
+        }
+        else{
+            lblSeatsSelection.text = "Seleccione butacas para ida"
+        }
         
     }
     
