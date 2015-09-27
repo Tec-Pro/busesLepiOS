@@ -57,8 +57,8 @@ class ListarComprasViewController: UIViewController,UITableViewDelegate, UITable
         lobj_Request.addValue("urn:LepWebServiceIntf-ILepWebService#ListarMisCompras", forHTTPHeaderField: "SOAPAction") //aca cambio login por el nombre del ws que llamo
         var task = session.dataTaskWithRequest(lobj_Request, completionHandler: {data, response, error -> Void in
             var strData : NSString = NSString(data: data, encoding: NSUTF8StringEncoding)!
-            print("DATA")
-            println(strData)
+           // print("DATA")
+            //println(strData)
             var parser : String = strData as String
             if let rangeFrom = parser.rangeOfString("{\"Data\":[") { // con esto hago un subrango
                 if let rangeTo = parser.rangeOfString(",\"Cols") {

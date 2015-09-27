@@ -11,7 +11,7 @@ import MercadoPagoSDK
 
 class ExamplesUtils {
     class var MERCHANT_PUBLIC_KEY : String {
-        return "TEST-2e5d7d95-7cb8-48d3-8bd6-cfde1bc34254"
+        return "APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c"
 		//return "APP_USR-3f8dc194-8894-4d07-bb6c-b4a786a19c6c"
 
     }

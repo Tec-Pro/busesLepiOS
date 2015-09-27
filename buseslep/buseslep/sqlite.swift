@@ -72,6 +72,7 @@ class Sqlite {
         var currentDay = components.day
         var currentMonth = components.month
         var currentYear = components.year
+
         let stmt = db.prepare("DELETE FROM searches WHERE CAST(strftime('%s', date_go)  AS  integer) < CAST(strftime('%s', '\(convertirFecha(currentDay, month: currentMonth, year: currentYear))')  AS  integer)")
         stmt.run();
    //     stmt.run("CAST(strftime('%s', '\(convertirFecha(currentDay, month: currentMonth, year: currentYear))')  AS  integer) ") //quiero ver si esto funca
