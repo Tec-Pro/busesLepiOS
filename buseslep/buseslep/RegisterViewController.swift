@@ -38,6 +38,34 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == self.txtDni || textField == self.txtMail {
+            animateViewMoving(true, moveValue: 100)
+        }
+        if textField == self.txtPass || textField == self.txtRepetirPass{
+            animateViewMoving(true, moveValue: 150)
+        }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField == self.txtDni || textField == self.txtMail {
+            animateViewMoving(false, moveValue: 100)
+        }
+        if textField == self.txtPass || textField == self.txtRepetirPass{
+            animateViewMoving(false, moveValue: 150)
+        }
+    }
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        var movementDuration:NSTimeInterval = 0.3
+        var movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
+        UIView.commitAnimations()
+    }
 
     func addDoneButtonOnKeyboard()
     {

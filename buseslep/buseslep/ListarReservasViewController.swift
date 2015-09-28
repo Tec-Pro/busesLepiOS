@@ -32,6 +32,11 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
     var ciudadDesdeVuelta: String?
     var ciudadHastaVuelta: String?
     var control: Int = 0
+    
+    var asientosIda : Set<Int>?
+    var asientosVuelta :Set<Int>?
+    var seleccionarAsientosVuelta :Bool = false
+
     override func viewDidLoad() {
         self.obtenerReservas()
         super.viewDidLoad()
@@ -78,7 +83,6 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
             cellIda?.destino.text = reserva.destinoIda
             return cellIda!
         }
-        return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -318,7 +322,7 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
                             }
                             self.control = self.control + 1
                             if self.control == 1{
-                                self.performSegueWithIdentifier("Resumen", sender: self)
+                                self.performSegueWithIdentifier("Comprar", sender: self)
                             }
                             
                         })
@@ -340,31 +344,72 @@ class ListarReservasViewController: UIViewController, UITableViewDelegate, UITab
         task.resume()
 
     }
+    
+    func elegirAsiento(){
+        
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "Resumen"){
-            let res = segue.destinationViewController as! ResumenViewController
-            res.pasarSeleccionarAsientos = true
-            res.idVenta = self.idVenta
-            res.cantidadPasajes = self.cantidadPasajes
-            if esIda {
-                res.esIdaVuelta = false
-            }else{
-                res.esIdaVuelta = true
+        if(segue.identifier == "Comprar"){
+            let seatSelectionViewController = segue.destinationViewController as! SeatSelectionViewController
+            seatSelectionViewController.idVenta = self.idVenta
+            seatSelectionViewController.vieneDeReserva = true
+            seatSelectionViewController.reservaViewController = self;
+            if(!seleccionarAsientosVuelta){
+                seatSelectionViewController.esIda = 1
+                seatSelectionViewController.cantPasajes = self.cantidadPasajes
+                seatSelectionViewController.horario = self.horarioIda!
+                seatSelectionViewController.ciudadDestino = self.ciudadDestino!
             }
-            res.precioIda = self.precio
+            else{
+                seatSelectionViewController.esIda = 0
+                seatSelectionViewController.cantPasajes = self.cantidadPasajes
+                seatSelectionViewController.horario = self.horarioVuelta!
+                seatSelectionViewController.ciudadDestino = self.ciudadDestino!
+            }
+        }
+        if(segue.identifier == "DetallesCompra"){
+            let reserveDetailsViewController = segue.destinationViewController as! ReserveDetailsViewController
+            reserveDetailsViewController.EsCompra = 1;
+            if esIda {
+                reserveDetailsViewController.EsIdaVuelta = false
+            }else{
+                reserveDetailsViewController.EsIdaVuelta = true
+            }
+            reserveDetailsViewController.CantidadIda = self.cantidadPasajes
+            reserveDetailsViewController.horarioIda = self.horarioIda!
+            reserveDetailsViewController.butacasIda = self.asientosIda!
+            reserveDetailsViewController.idVenta = self.idVenta
+            
             var importeIdaFloat = CGFloat((self.precio as NSString).floatValue)
             var importeIdaVueltaFloat = CGFloat((self.precioIdaVuelta as NSString).floatValue)
             var importFinal = importeIdaFloat + importeIdaVueltaFloat
-            var pasajes: String = self.cantidadPasajes.description
-            pasajes.extend(".00")
-            var cantPasajesFloat = CGFloat((pasajes as NSString).floatValue)
-            res.precioIdaVuelta = (importFinal/cantPasajesFloat).description
-            res.ciudadDestino = self.ciudadDestino!
-            res.ciudadOrigen = self.ciudadOrigen!
-            res.horarioIda = self.horarioIda!
-            res.horarioVuelta = self.horarioVuelta
             
+            var precio = importFinal
+            reserveDetailsViewController.totalPrice = Double(precio)
+            if !self.esIda {
+                reserveDetailsViewController.horarioVuelta = self.horarioVuelta!
+                reserveDetailsViewController.butacasVuelta = self.asientosVuelta!
+            }
+            reserveDetailsViewController.ciudadOrigen = self.ciudadOrigen!
+            reserveDetailsViewController.ciudadDestino = self.ciudadDestino!
+        }
+    }
+    
+    func guardarAsientos(asientos: Set<Int>, esIda :Int){ //este metodo se llama desde La seleccion de asientos antes de retornar
+        if(esIda == 1){
+            asientosIda = asientos
+            if(!self.esIda){
+                seleccionarAsientosVuelta = true
+                self.performSegueWithIdentifier("Comprar", sender: self);
+            }
+            else{
+                self.performSegueWithIdentifier("DetallesCompra", sender: self);
+            }
+        }
+        else{
+            asientosVuelta = asientos
+            self.performSegueWithIdentifier("DetallesCompra", sender: self);
         }
     }
     

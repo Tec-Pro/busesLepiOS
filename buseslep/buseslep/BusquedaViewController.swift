@@ -63,6 +63,9 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     
     var dniLoggeado: Int?
     
+    var horarioListo: Bool = false
+    var precioListo: Bool = false
+    
     var db : Sqlite = Sqlite()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,7 +154,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                 chkIdaVuelta.setOn(true, animated: false)
                 println(chkIdaVuelta.on)
             }
-            obtenerPrecios(idCityOrigen!, ID_LocalidadDestino: idCityDestiny!)
+            obtenerPrecios(idCityOrigen!, ID_LocalidadDestino: idCityDestiny!, esVuelta: false)
             obtenerHorarios(idCityOrigen!, IdLocalidadDestino: idCityDestiny!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
            
             //btnBusqueda.sendActionsForControlEvents(UIControlEvents.TouchUpInside) //hace que el boton de busqueda se toque
@@ -214,11 +217,11 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
         }else{
             db.insert(ciudadesDestino![indexCiudadDestino!].desde!, city_destiny: ciudadesDestino![indexCiudadDestino!].hasta!, code_city_origin: ciudadesDestino![indexCiudadDestino!].id_localidad_origen!, code_city_destiny: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, date_go: convertirFechaSql(diaIda, month: mesIda, year: anioIda), date_return: convertirFechaSql(diaVuelta, month: mesVuelta, year: anioVuelta), number_tickets: self.cantidadPasajes, is_roundtrip: chkIdaVuelta.on)
             if(!self.fromUltimasBusquedas){
-                obtenerPrecios(ciudadesOrigen![indexCiudadOrigen!].id!, ID_LocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!)
+                obtenerPrecios(ciudadesOrigen![indexCiudadOrigen!].id!, ID_LocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, esVuelta: false)
                 obtenerHorarios(ciudadesOrigen![indexCiudadOrigen!].id!, IdLocalidadDestino: ciudadesDestino![indexCiudadDestino!].id_localidad_destino!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
             }
             else{
-                obtenerPrecios(idCityOrigen!, ID_LocalidadDestino: idCityDestiny!)
+                obtenerPrecios(idCityOrigen!, ID_LocalidadDestino: idCityDestiny!, esVuelta: false)
                 obtenerHorarios(idCityOrigen!, IdLocalidadDestino: idCityDestiny!, Fecha: convertirFecha(diaIda, month: mesIda, year: anioIda), esVuelta: false)
                 self.fromUltimasBusquedas = false
 
@@ -555,6 +558,7 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
     
     //obtengo los horarios, esVuelta dice si se esta eligiendo la vuelta para saber que segue largar
     func obtenerHorarios(IdLocalidadOrigen: Int, IdLocalidadDestino: Int, Fecha: String, esVuelta: Bool){
+        self.horarioListo = false
         self.loadImage.hidden = false
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
@@ -585,12 +589,17 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros , error: nil) as! NSDictionary //serializo como un diccionario (map en java)
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.loadImage.hidden = true
+                        self.horarioListo = true
                         if esVuelta {
                             self.horariosVuelta = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
-                            self.performSegueWithIdentifier("elegirHorarioVuelta", sender: self);
+                            if(self.precioListo){
+                                self.performSegueWithIdentifier("elegirHorarioVuelta", sender: self);
+                            }
                         }else{
                             self.horariosIda = Horario.fromDictionary(json) // parseo  y obtengo un arreglo de horarios
-                            self.performSegueWithIdentifier("elegirHorarioIda", sender: self);
+                            if(self.precioListo){
+                                self.performSegueWithIdentifier("elegirHorarioIda", sender: self);
+                            }
                         }
                     })
                 }
@@ -612,7 +621,8 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
 
     
     //calculo los precios y se guardan en las variables precioIda y precioIdaVuelta
-    func obtenerPrecios(ID_LocalidadOrigen: Int, ID_LocalidadDestino: Int){
+    func obtenerPrecios(ID_LocalidadOrigen: Int, ID_LocalidadDestino: Int, esVuelta: Bool){
+        precioListo = false
         self.loadImage.hidden = false
         var userWS: String = "UsuarioLep" //paramatros
         var passWS: String = "Lep1234"
@@ -649,6 +659,14 @@ class BusquedaViewController: UIViewController , NSURLConnectionDelegate, NSURLC
                     }
                 }
                 self.loadImage.hidden = true
+                self.precioListo =  true
+                if(self.horarioListo){
+                    if esVuelta {
+                        self.performSegueWithIdentifier("elegirHorarioVuelta", sender: self);
+                    }else{
+                        self.performSegueWithIdentifier("elegirHorarioIda", sender: self);
+                    }
+                }
             })
             if error != nil{
                 // Move to the UI thread

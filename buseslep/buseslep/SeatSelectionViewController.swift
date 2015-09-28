@@ -13,6 +13,9 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
     @IBOutlet weak var btnSiguiente: UIBarButtonItem!
     var resumenViewController : ResumenViewController?
     
+    var reservaViewController : ListarReservasViewController?
+
+    
     var cantPasajes: Int = 0;
     var cantSeatsSelected: Int = 0;
     var horario : Horario?
@@ -21,6 +24,8 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
     var esIda : Int = 0
     var idVenta : Int = 0
     var driverAdded : Bool = false
+    
+    var vieneDeReserva : Bool = false
     
     @IBOutlet weak var lblSeatsSelection: UILabel!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
@@ -96,7 +101,12 @@ class SeatSelectionViewController: UIViewController, UICollectionViewDelegate, U
         }
         else{
             navigationController?.popViewControllerAnimated(true)
-            resumenViewController?.guardarAsientos(self.seatsSelected, esIda: self.esIda)
+            if (!vieneDeReserva){
+                resumenViewController?.guardarAsientos(self.seatsSelected, esIda: self.esIda)
+            }
+            else{
+                reservaViewController?.guardarAsientos(self.seatsSelected, esIda: self.esIda)
+            }
         }
 
     }
