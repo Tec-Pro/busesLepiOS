@@ -169,7 +169,7 @@ class AdvancedVaultViewController : SimpleVaultViewController {
     override func submitForm() {
         
         let mercadoPago : MercadoPago = MercadoPago(publicKey: self.publicKey!)
-        
+        self.navigationItem.rightBarButtonItem?.enabled=false
         // Create token
         if selectedCard != nil {
             
